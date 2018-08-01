@@ -13,16 +13,17 @@
 	var TextControl 		= components.TextControl;
 	var ToggleControl		= components.ToggleControl;
 	var RangeControl		= components.RangeControl;
+	var SelectControl		= components.SelectControl;
 	var ColorPalette		= components.ColorPalette;
 	var PanelBody			= components.PanelBody;
 	var PanelColor			= components.PanelColor;
 	var Button				= components.Button;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/banner', {
+	registerBlockType( 'getbowtied/tr-banner', {
 		title: i18n.__( 'Banner' ),
 		icon: 'format-image',
-		category: 'shopkeeper',
+		category: 'theretailer',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
@@ -53,6 +54,22 @@
 	        blank: {
 	        	type: 'boolean',
 	        	default: true
+	        },
+	        titleSize: {
+				type: 'number',
+				default: '21'
+			},
+			subtitleSize: {
+				type: 'number',
+				default: '14'
+			},
+			titleFont: {
+	        	type: 'string',
+	        	default: 'main_font',
+	        },
+	        subtitleFont: {
+	        	type: 'string',
+	        	default: 'secondary_font',
 	        },
 			titleColor: {
 				type: 'string',
@@ -85,6 +102,10 @@
 			separatorColor: {
 				type: 'string',
 				default: '#fff'
+			},
+			separatorThickness: {
+				type: 'number',
+				default: '2'
 			},
 		},
 
@@ -155,6 +176,68 @@
 								label: i18n.__( 'Height' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { height: newNumber } );
+								},
+							}
+						),
+					),
+					el( 
+						PanelBody,
+						{ 
+							key: 'banner-fonts-panel',
+							title: 'Font Settings',
+							initialOpen: false
+						},
+						el(
+							SelectControl,
+							{
+								key: "banner-title-font",
+								options: [{value: 'main_font', label: 'Main Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
+								label: i18n.__( 'Title Font Family (preview in frontend)' ),
+								value: attributes.titleFont,
+								onChange: function( newSelection ) {
+									props.setAttributes( { titleFont: newSelection } );
+								},
+							}
+						),
+						el(
+							SelectControl,
+							{
+								key: "banner-subtitle-font",
+								options: [{value: 'main_font', label: 'Main Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
+								label: i18n.__( 'Subtitle Font Family (preview in frontend)' ),
+								value: attributes.subtitleFont,
+								onChange: function( newSelection ) {
+									props.setAttributes( { subtitleFont: newSelection } );
+								},
+							}
+						),
+						el(
+							RangeControl,
+							{
+								key: "banner-title-size",
+								value: attributes.titleSize,
+								allowReset: false,
+								initialPosition: 21,
+								min: 0,
+								max: 72,
+								label: i18n.__( 'Title Font Size' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { titleSize: newNumber } );
+								},
+							}
+						),
+						el(
+							RangeControl,
+							{
+								key: "banner-subtitle-size",
+								value: attributes.subtitleSize,
+								allowReset: false,
+								initialPosition: 14,
+								min: 0,
+								max: 72,
+								label: i18n.__( 'Subtitle Font Size' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { subtitleSize: newNumber } );
 								},
 							}
 						),
@@ -271,6 +354,21 @@
 							title: 'Separator',
 							initialOpen: false
 						},
+						el(
+							RangeControl,
+							{
+								key: "banner-separator-thickness",
+								value: attributes.separatorThickness,
+								initialPosition: '2',
+								allowReset: false,
+								min: 0,
+								max: 20,
+								label: i18n.__( 'Separator Thickness' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { separatorThickness: newNumber } );
+								},
+							}
+						),
 						el(
 							RangeControl,
 							{
@@ -410,7 +508,8 @@
 												key: 'banner-title',
 												style:
 												{ 
-													color: attributes.titleColor
+													color: attributes.titleColor,
+													fontSize: attributes.titleSize + 'px'
 												},
 												className: 'banner-title',
 												formattingControls: [],
@@ -432,7 +531,8 @@
 											style:
 											{
 												margin: attributes.separatorPadding + 'px auto',
-												backgroundColor: attributes.separatorColor
+												backgroundColor: attributes.separatorColor,
+												height: attributes.separatorThickness + 'px'
 											},
 										},
 									),
@@ -447,7 +547,8 @@
 												key: 'banner-subtitle',
 												style:
 												{
-													color: attributes.subtitleColor
+													color: attributes.subtitleColor,
+													fontSize: attributes.subtitleSize + 'px'
 												},
 												className: 'banner-subtitle',
 												tagName: 'h4',

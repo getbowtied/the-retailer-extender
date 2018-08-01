@@ -5,10 +5,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_banner_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_tr_banner_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_banner_editor_assets' ) ) {
-	function getbowtied_banner_editor_assets() {
+if ( ! function_exists( 'getbowtied_tr_banner_editor_assets' ) ) {
+	function getbowtied_tr_banner_editor_assets() {
 
 		wp_enqueue_script(
 			'getbowtied-banner',
@@ -24,10 +24,10 @@ if ( ! function_exists( 'getbowtied_banner_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_banner_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_tr_banner_assets' );
 
-if ( ! function_exists( 'getbowtied_banner_assets' ) ) {
-	function getbowtied_banner_assets() {
+if ( ! function_exists( 'getbowtied_tr_banner_assets' ) ) {
+	function getbowtied_tr_banner_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-banner-css',
@@ -37,7 +37,7 @@ if ( ! function_exists( 'getbowtied_banner_assets' ) ) {
 	}
 }
 
-register_block_type( 'getbowtied/banner', array(
+register_block_type( 'getbowtied/tr-banner', array(
 	'attributes'      	=> array(
 		'title'							=> array(
 			'type'						=> 'string',
@@ -67,6 +67,22 @@ register_block_type( 'getbowtied/banner', array(
 			'type'						=> 'string',
 			'default'					=> '#fff',
 		),
+		'titleSize'						=> array(
+			'type'						=> 'integer',
+			'default'					=> '21',
+		),
+		'subtitleSize'					=> array(
+			'type'						=> 'integer',
+			'default'					=> '14',
+		),
+		'titleFont'						=> array(
+			'type'						=> 'string',
+			'default'					=> 'main_font',
+		),
+		'subtitleFont'					=> array(
+			'type'						=> 'string',
+			'default'					=> 'secondary_font',
+		),
 		'innerStrokeThickness'			=> array(
 			'type'						=> 'integer',
 			'default'					=> '2',
@@ -91,16 +107,20 @@ register_block_type( 'getbowtied/banner', array(
 			'type'						=> 'string',
 			'default'					=> '#fff',
 		),
+		'separatorThickness'			=> array(
+			'type'						=> 'integer',
+			'default'					=> '2',
+		),
 		'align'							=> array(
 			'type'						=> 'string',
 			'default'					=> 'center',
 		),
 	),
 
-	'render_callback' => 'getbowtied_render_banner',
+	'render_callback' => 'getbowtied_tr_render_banner',
 ) );
 
-function getbowtied_render_banner( $attributes ) {
+function getbowtied_tr_render_banner( $attributes ) {
 
 	extract( shortcode_atts( array(
 		'title' 				=> 'Banner Title',
@@ -109,6 +129,10 @@ function getbowtied_render_banner( $attributes ) {
 		'blank' 				=> '',
 		'titleColor' 			=> '#fff',
 		'subtitleColor' 		=> '#fff',
+		'titleSize'				=> '21',
+		'titleFont'				=> 'main_font',
+		'subtitleFont'			=> 'secondary_font',
+		'subtitleSize'			=> '14',
 		'innerStrokeThickness' 	=> '2px',
 		'innerStrokeColor' 		=> '#fff',
 		'bgColor' 				=> '#f3f3f4',
@@ -116,6 +140,7 @@ function getbowtied_render_banner( $attributes ) {
 		'height' 				=> '300',
 		'separatorPadding' 		=> '5',
 		'separatorColor' 		=> '#fff',
+		'separatorThickness' 	=> '2',
 		'align'					=> 'center'
 	), $attributes));
 
@@ -142,9 +167,9 @@ function getbowtied_render_banner( $attributes ) {
 				
 					<div class="shortcode_banner_simple_height_inside" style="height:'.$height.'px; border: '.$innerStrokeThickness.'px solid '.$innerStrokeColor.'">
 						<div class="shortcode_banner_simple_height_content">
-							<div><h3 style="color:'.$titleColor.' !important">'. $title .'</h3></div>
-							<div class="shortcode_banner_simple_height_sep" style="margin:'.$separatorPadding.'px auto; background-color:'.$separatorColor.';"></div>
-							<div><h4 style="color:'.$subtitleColor.' !important">'. $subtitle .'</h4></div>
+							<div><h3 class="banner-title '.$titleFont.'" style="font-size:'.$titleSize.'px;color:'.$titleColor.' !important">'. $title .'</h3></div>
+							<div class="shortcode_banner_simple_height_sep" style="height:'.$separatorThickness.'px;margin:'.$separatorPadding.'px auto; background-color:'.$separatorColor.';"></div>
+							<div><h4 class="banner-subtitle '.$subtitleFont.'" style="font-size:'.$subtitleSize.'px;color:'.$subtitleColor.' !important">'. $subtitle .'</h4></div>
 						</div>
 					</div>
 				</div>
