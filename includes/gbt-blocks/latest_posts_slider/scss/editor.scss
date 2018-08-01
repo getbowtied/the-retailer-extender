@@ -1,0 +1,276 @@
+.editor-block-list__block[data-type="getbowtied/tr-latest-posts-slider"][data-align=full]>.editor-block-list__block-edit
+{
+	.wp-block-gbt-posts-slider
+	{
+		width: 95%;
+    	margin: auto;
+	}
+
+	@media all and (min-width: 1720px) {
+		.from_the_blog_noimg
+		{
+			width: 265px;
+			height: 265px;
+		}
+	}
+}
+
+.editor-block-list__block[data-type="getbowtied/tr-latest-posts-slider"][data-align='']>.editor-block-list__block-edit,
+.editor-block-list__block[data-type="getbowtied/tr-latest-posts-slider"][data-align=center]>.editor-block-list__block-edit
+{
+	.from_the_blog_date
+	{
+		right: 0;
+	}
+
+	li.from_the_blog_item
+	{	
+    	&:first-child
+	    {
+	    	padding-right: 12px !important;
+	    }
+
+	     &:nth-child(2)
+	    {
+	    	padding-left: 12px !important;
+	    }
+	}
+
+	.from_the_blog_img
+	{
+		width: 100%;
+	    margin-bottom: 20px;
+	}
+
+	.from_the_blog_noimg
+	{
+		width: 100%;
+		margin-right: 0;
+		padding-bottom: 100%;
+	}
+}
+
+.wp-block-gbt-posts-slider
+{
+	.gbtr_items_sliders_header
+	{
+		width: 100%;
+		border-top: 1px solid #ccc;
+		margin-bottom: 30px;
+	    height: 65px;
+	}
+
+	.gbtr_items_sliders_title
+	{
+		width: fit-content;
+		float: left;
+		color: inherit;
+	}
+
+	.gbtr_items_sliders_nav
+	{
+		width: fit-content;
+		float: right;
+	}
+
+	.gbtr_items_sliders_title:after {
+		content: "";
+		display: block;
+		background: none;
+		height: 0px;
+		border-bottom: 2px solid;
+		clear: both;
+		width: 60px;
+	}
+
+	.big_arrow_right,
+	.big_arrow_left
+	{
+		float: right;
+		margin: 20px 0 0 0;
+		position: relative;
+		width: 35px;
+		height: 35px;
+		border: 2px solid #c5c5c5;
+	    border-radius: 50%;
+	    transition: all 0.3s;
+	}
+
+	.big_arrow_left
+	{
+		margin-right: 5px;
+	}
+
+	.gbtr_featured_section_title {
+	    padding: 20px 0;
+	    font-size: 12px;
+	    text-transform: uppercase;
+	    font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
+	}
+
+	.big_arrow_left:before,
+	.big_arrow_right:before
+	{
+	    font-family: "dashicons";
+	    font-size: 20px;
+	    color: #c5c5c5;
+	    top: -2px;
+	    position: absolute;
+	    transition: all 0.3s;
+	}
+
+	.big_arrow_left:hover,
+	.big_arrow_right:hover
+	{
+		cursor: pointer;
+		border: 2px solid #000;
+		transition: all 0.3s;
+
+		&:before
+		{
+			color: #000;
+			transition: all 0.3s;
+		}
+	}
+
+	.big_arrow_left:before
+	{
+		content: "\f341";
+		left: 3px;
+	}
+
+	.big_arrow_right:before
+	{
+	  	content: "\f345";	
+	  	left: 6px;
+	}
+}
+
+.wp-block-gbt-posts-slider
+{
+	ul.from_the_blog_ul
+	{	
+    	width: 100%;
+    	overflow: hidden;
+	}
+
+	li.from_the_blog_item
+	{	
+		width: 50%;
+	    float: left;
+	    list-style: none !important;
+
+	    &:first-child
+	    {
+	    	padding-right: 25px !important;
+	    }
+
+	     &:nth-child(2)
+	    {
+	    	padding-left: 25px !important;
+	    }
+
+	    @media all and (max-width: 1440px) {
+	    	&:first-child
+		    {
+		    	padding-right: 12px !important;
+		    }
+
+		     &:nth-child(2)
+		    {
+		    	padding-left: 12px !important;
+		    }
+	    }
+	}
+
+	.from_the_blog_img
+	{
+		float: left;
+		margin-right: 10px;
+		position: relative;
+		color: #fff;
+		width: 45%;
+		
+		@media all and (max-width: 1440px) {
+			width: 100%;
+		    margin-bottom: 20px;
+		}
+	}
+
+	.from_the_blog_noimg
+	{
+		float: left;
+		width: 190px;
+		height: 190px;
+		background: #f9f9f9;
+		margin-right: 50px;
+		display: block;
+
+		@media all and (max-width: 1440px) {
+			width: 100%;
+			margin-right: 0;
+			padding-bottom: 100%;
+		}
+	}
+
+	.from_the_blog_date
+	{
+		position: absolute;
+		top: 0;
+		right: 40px;
+		background: #b39964;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		z-index: 9999;
+
+		@media all and (max-width: 1440px) {
+			right: 0;
+		}
+	}
+
+	.from_the_blog_date_day
+	{
+		display: block;
+		margin: 0;
+		padding: 4px 0 0 0;
+		line-height: 12px;
+		font-size: 14px;
+	}
+
+	.from_the_blog_date_month
+	{
+		display: block;
+		margin: 0;
+		padding: 0;
+		line-height: 12px;
+		font-size: 8px;
+		text-transform: uppercase;
+		z-index: 3;
+	}
+
+	.from_the_blog_title
+	{
+		color: #000;
+	}
+
+	.from_the_blog_title h3
+	{
+		font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
+		padding: 0;
+		margin: 0 0 15px 0;
+	}
+
+	.from_the_blog_title
+	{
+	    display: block;
+	    margin-bottom: 7px;
+	}
+
+	.from_the_blog_excerpt p
+	{
+		font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
+		font-size: 14px;
+		line-height: 1.5em;
+	}
+}
