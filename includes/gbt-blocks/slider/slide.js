@@ -23,11 +23,11 @@
 	var Tooltip				= wp.components.Tooltip;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/slide', {
+	registerBlockType( 'getbowtied/tr-slide', {
 		title: i18n.__( 'Slide' ),
 		icon: 'slides',
-		category: 'shopkeeper',
-		parent: [ 'getbowtied/slider' ],
+		category: 'theretailer',
+		parent: [ 'getbowtied/tr-slider' ],
 		attributes: {
 		    imgURL: {
 	            type: 'string',

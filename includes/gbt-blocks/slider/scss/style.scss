@@ -1,12 +1,19 @@
 .wp-block-gbt-slider
 {
 	margin-bottom: 2.5rem;
-	
-	.swiper-container
+
+	&.alignfull
 	{
-		@media all and (max-width: 639px) {
-			max-height: 600px;
-		}
+		width: 100vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&.alignwide
+	{
+		width: 75vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
 	}
 
 	.swiper-container.full_height
@@ -44,40 +51,9 @@
 
 	.shortcode_getbowtied_slider
 	{
-		.shortcode-slider-pagination
+		.swiper-slide
 		{
-			.swiper-pagination-bullet
-			{
-				font-size: 15px;
-			}
-
-			.swiper-pagination-bullet:after,
-			.swiper-pagination-bullet-active:after
-			{
-				display: none !important;
-				content: none;
-				width: 0;
-				height: 0;
-			}
-
-			.swiper-pagination-bullet:before
-			{
-				content: '●';
-			}
-		}
-
-		.swiper-slide .slide-button
-		{
-			padding: 1rem;
-		    text-transform: uppercase;
-    		font-weight: bold;
-    		font-size: 13px;
-		}
-
-		.swiper-slide.left-align .slide-button,
-		.swiper-slide.right-align .slide-button
-		{
-			margin: 0 10% 40px 15%;
+			background-size: cover !important;
 		}
 	}
 }

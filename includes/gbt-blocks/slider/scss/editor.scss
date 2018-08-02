@@ -1,4 +1,4 @@
-.editor-block-list__block[data-type="getbowtied/slider"][data-align="full"]
+.editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="full"]
 {
 	.editor-block-list__block
 	{
@@ -6,7 +6,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"][data-align="wide"]
+.editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="wide"]
 {
 	.editor-block-list__block
 	{
@@ -243,7 +243,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"]:not(.is-selected-parent):not(.is-typing)
+.editor-block-list__block[data-type="getbowtied/tr-slider"]:not(.is-selected-parent):not(.is-typing)
 {
 	.editor-inner-blocks .editor-block-list__layout .editor-block-list__block:first-child
 	{
@@ -269,7 +269,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"]
+.editor-block-list__block[data-type="getbowtied/tr-slider"]
 {
 	> .editor-block-list__block-edit
 	{
@@ -398,7 +398,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slide"]
+.editor-block-list__block[data-type="getbowtied/tr-slide"]
 {
 
 	>.editor-block-settings-menu

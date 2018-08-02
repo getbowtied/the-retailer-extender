@@ -9,6 +9,7 @@
 	var InnerBlock 			= wp.editor.InnerBlocks;
 
 	var SelectControl		= wp.components.SelectControl;
+	var TextControl 		= wp.components.TextControl;
 	var ToggleControl		= wp.components.ToggleControl;
 	var Button 				= wp.components.Button;
 	var RangeControl		= wp.components.RangeControl;
@@ -17,10 +18,10 @@
 	var ColorPalette		= wp.components.ColorPalette;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/slider', {
+	registerBlockType( 'getbowtied/tr-slider', {
 		title: i18n.__( 'Slider' ),
 		icon: 'slides',
-		category: 'shopkeeper',
+		category: 'theretailer',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
@@ -227,7 +228,7 @@
 					InnerBlock,
 					{
 						key: 'inner-block',
-						allowedBlocksNames: [ 'getbowtied/slide' ],
+						allowedBlocksNames: [ 'getbowtied/tr-slide' ],
 					},
 				),
 			];
@@ -269,13 +270,6 @@
 									color: attributes.nav_arrows_color
 								}
 							},
-							el(
-								'i',
-								{
-									key: 'spk-icon-left-arrow-thin-large',
-									className: 'spk-icon spk-icon-left-arrow-thin-large',
-								}
-							)
 						),
 						!! attributes.nav_arrows && el(
 							'div',
@@ -287,19 +281,12 @@
 									color: attributes.nav_arrows_color
 								}
 							},
-							el(
-								'i',
-								{
-									key: 'spk-icon-right-arrow-thin-large',
-									className: 'spk-icon spk-icon-right-arrow-thin-large',
-								}
-							)
 						),
 						!! attributes.slide_numbers && el(
 							'div',
 							{
 								key: 'shortcode-slider-pagination',
-								className: 'quickview-pagination shortcode-slider-pagination',
+								className: 'quickview-pagination',
 								style:
 								{
 									color: attributes.slide_numbers_color
