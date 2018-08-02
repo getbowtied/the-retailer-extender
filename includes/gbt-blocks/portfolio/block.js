@@ -19,7 +19,7 @@
 	function getCategories()
 	{
 		var data = {
-			action : 'getbowtied_render_portfolio_categories'
+			action : 'getbowtied_tr_render_portfolio_categories'
 		};
 
 		jQuery.post( 'admin-ajax.php', data, function(response) { 
@@ -31,17 +31,17 @@
 	getCategories();
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/portfolio', {
+	registerBlockType( 'getbowtied/tr-portfolio', {
 		title: i18n.__( 'Portfolio' ),
 		icon: 'format-gallery',
-		category: 'shopkeeper',
+		category: 'theretailer',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
 		attributes: {
 			itemsNumber: {
 				type: 'integer',
-				default: 6,
+				default: 12,
 			},
 			category: {
 				type: 'string',
@@ -49,7 +49,7 @@
 			},
 			showFilters: {
 				type: 'boolean',
-				default: false,
+				default: true,
 			},
 			orderBy: {
 				type: 'string',
@@ -57,11 +57,7 @@
 			},
 			order: {
 				type: 'string',
-				default: 'asc',
-			},
-			grid: {
-				type: 'string',
-				default: 'default',
+				default: 'ASC',
 			},
 			itemsPerRow: {
 				type: 'number',
@@ -89,7 +85,7 @@
 				grid = grid || attributes.grid;
 
 				var data = {
-					action 		: 'getbowtied_get_preview_grid',
+					action 		: 'getbowtied_tr_get_preview_grid',
 					attributes  : { 'grid' : grid }
 				};
 
@@ -98,14 +94,6 @@
 					props.setAttributes( { preview_grid: response } );
 				});	
 			}
-
-			var grid_layouts =
-			[
-				{ value: 'default', label: 'Default - Equal Boxes' },
-				{ value: 'grid1', 	label: 'Masonry Style - V1' },
-				{ value: 'grid2', 	label: 'Masonry Style - V2' },
-				{ value: 'grid3',	label: 'Masonry Style - V3' }
-			];
 
 			return [
 				el(
@@ -151,7 +139,7 @@
 						SelectControl,
 						{
 							key: 'portfolio-orderby',
-							options: [{ value: 'date', label: 'Date' }, { value: 'alphabetical', label: 'Alphabetical' }],
+							options: [{ value: 'date', label: 'Date' }, { value: 'title', label: 'Alphabetical' }, { value: 'rand', label: 'Random' }],
               				label: i18n.__( 'Order By' ),
               				value: attributes.orderBy,
               				onChange: function( newOrderBy ) {
@@ -159,11 +147,11 @@
 							},
 						}
 					),
-					el(
+					attributes.orderBy != 'rand' && el(
 						SelectControl,
 						{
 							key: 'portfolio-order',
-							options: [{ value: 'asc', label: 'Ascending' }, { value: 'desc', label: 'Descending' }],
+							options: [{ value: 'ASC', label: 'Ascending' }, { value: 'DESC', label: 'Descending' }],
               				label: i18n.__( 'Order' ),
               				value: attributes.order,
               				onChange: function( newOrder ) {
@@ -172,25 +160,12 @@
 						}
 					),
 					el(
-						SelectControl,
-						{
-							key: 'portfolio-grid',
-							options: grid_layouts,
-              				label: i18n.__( 'Grid Layout Styles' ),
-              				value: attributes.grid,
-              				onChange: function( newGrid ) {
-              					props.setAttributes( { grid: newGrid } );
-              					getPreviewGrid( newGrid );
-							},
-						}
-					),
-					attributes.grid == 'default' && el(
 						TextControl,
 						{
 							key: 'portfolio-items-per-row',
 							type: 'number',
 							min: 2,
-							max: 5,
+							max: 4,
 							label: i18n.__( 'Items per Row' ),
 							value: attributes.itemsPerRow,
 							onChange: function( newNumber ) {
@@ -209,10 +184,10 @@
 						'div',
 						{
 							key: 'portfolio-preview',
-							className: 'portfolio-preview ' + attributes.grid
+							className: 'portfolio-preview'
 						},
 						eval( attributes.preview_grid ),
-						attributes.preview_grid == '' && getPreviewGrid( 'default' )
+						attributes.preview_grid == '' && getPreviewGrid()
 					)
 				)
 			];

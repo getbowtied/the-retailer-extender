@@ -5,10 +5,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_portfolio_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_tr_portfolio_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_portfolio_editor_assets' ) ) {
-	function getbowtied_portfolio_editor_assets() {
+if ( ! function_exists( 'getbowtied_tr_portfolio_editor_assets' ) ) {
+	function getbowtied_tr_portfolio_editor_assets() {
 		
 		wp_enqueue_script(
 			'getbowtied-portfolio',
@@ -25,10 +25,10 @@ if ( ! function_exists( 'getbowtied_portfolio_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_portfolio_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_tr_portfolio_assets' );
 
-if ( ! function_exists( 'getbowtied_portfolio_assets' ) ) {
-	function getbowtied_portfolio_assets() {
+if ( ! function_exists( 'getbowtied_tr_portfolio_assets' ) ) {
+	function getbowtied_tr_portfolio_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-portfolio-css',
@@ -38,11 +38,11 @@ if ( ! function_exists( 'getbowtied_portfolio_assets' ) ) {
 	}
 }
 
-register_block_type( 'getbowtied/portfolio', array(
+register_block_type( 'getbowtied/tr-portfolio', array(
 	'attributes'      => array(
 		'itemsNumber'					=> array(
 			'type'						=> 'integer',
-			'default'					=> 6,
+			'default'					=> '12',
 		),
 		'category'						=> array(
 			'type'						=> 'string',
@@ -50,7 +50,7 @@ register_block_type( 'getbowtied/portfolio', array(
 		),
 		'showFilters'					=> array(
 			'type'						=> 'boolean',
-			'default'					=> false,
+			'default'					=> true,
 		),
 		'orderBy'						=> array(
 			'type'						=> 'string',
@@ -58,11 +58,7 @@ register_block_type( 'getbowtied/portfolio', array(
 		),
 		'order'							=> array(
 			'type'						=> 'string',
-			'default'					=> 'asc',
-		),
-		'grid'							=> array(
-			'type'						=> 'string',
-			'default'					=> 'default',
+			'default'					=> 'ASC',
 		),
 		'itemsPerRow'					=> array(
 			'type'						=> 'number',
@@ -74,252 +70,137 @@ register_block_type( 'getbowtied/portfolio', array(
 		),
 	),
 
-	'render_callback' => 'getbowtied_render_frontend_portfolio',
+	'render_callback' => 'getbowtied_tr_render_frontend_portfolio',
 ) );
 
-function getbowtied_render_frontend_portfolio( $attributes ) {
+function getbowtied_tr_render_frontend_portfolio( $attributes ) {
+
+	global $theretailer_theme_options;
 	
 	$sliderrandomid = rand();
+	$u = uniqid();
 	
 	extract(shortcode_atts(array(
-		"itemsNumber" 				=> '9999',
+		"itemsNumber"				=> '12',
 		"category" 					=> '',
-		"showFilters" 				=> false,
+		"showFilters" 				=> true,
 		"orderBy" 					=> 'date',
-		"order" 					=> 'desc',
-		"grid" 						=> 'default',
+		"order" 					=> 'ASC',
 		"itemsPerRow" 				=> '3',
 		"align"						=> 'center'
 	), $attributes));
 	ob_start();
 	?>
-    
-    <?php
-				
-	if ($orderBy == "alphabetical") $orderBy = 'title';
-	
-	$args = array(					
-		'post_status' 			=> 'publish',
-		'post_type' 			=> 'portfolio',
-		'posts_per_page' 		=> $itemsNumber,
-		'portfolio_categories' 	=> $category,
-		'orderby' 				=> $orderBy,
-		'order' 				=> $order,
-	);
-	
-	$portfolioItems = get_posts( $args );
 
-	if ( !empty($portfolioItems) ) :
-	
-		foreach($portfolioItems as $post) :
-			
-			$terms = get_the_terms( $post->ID, 'portfolio_categories' ); // get an array of all the terms as objects.
-			
-			if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
-				foreach($terms as $term) {
-					$portfolio_categories_queried[$term->slug] = $term->name;
-				}
-			}
-			
-		endforeach;
+	<div class="wp-block-gbt-portfolio <?php echo $align; ?>">
 
-	endif;
-
-	if ( count($portfolio_categories_queried) > 0 ) :
-	
-		$portfolio_categories_queried = array_unique($portfolio_categories_queried);
-		
-		if ($grid == "default") {
-			$items_per_row_class = ' default_grid items_per_row_'.$itemsPerRow;
-		} else {
-			$items_per_row_class = '';
-		}
-		
-		?>
+	    <?php if( $category == '' && $showFilters ) :
+		    $terms = get_terms("portfolio_filter");
+		    if ( !empty( $terms ) && !is_wp_error( $terms ) ){
+		        echo '<ul class="portfolio_categories">';
+		            echo '<li class="filter controls-'.$u.'" data-filter="all">' . __("All", "theretailer") . '</li>';
+		        foreach ( $terms as $term ) {
+		            echo '<li class="filter controls-'.$u.'" data-filter=".' . strtolower($term->slug) . '">' . $term->name . '</li>';
+		        }
+		        echo '</ul>';
+		    }
+		endif;
 	    
-	    <div class="wp-block-gbt-portfolio <?php echo $align; ?>">
-			<div class="portfolio-isotope-container<?php echo $items_per_row_class ;?>">
-		                
-		        <?php if ($category == "") : ?>
-		        <?php if ($showFilters) : ?>
-		        <div class="portfolio-filters">            
-		            <?php
-					
-					if ( !empty( $portfolio_categories_queried ) && !is_wp_error( $portfolio_categories_queried ) ){
-		                echo '<ul class="filters-group list-centered">';
-		                    echo '<li class="filter-item is-checked" data-filter="*">' . __("Show all", "shopkeeper") . '</li>';
-		                foreach ( $portfolio_categories_queried as $key => $value ) {
-		                    echo '<li class="filter-item" data-filter=".' . $key . '">' . $value . '</li>';
-		                }
-		                echo '</ul>';
-		            }
-					           
-		            ?>            
-		        </div>
-		        <?php endif; ?>
-		        <?php endif; ?>
-		        
-		        <div class="portfolio-isotope">
-		            
-		            <div class="portfolio-grid-sizer"></div>
-		                
-		                <?php
-						
-		                $post_counter = 0;
-		                                
-			                if ( !empty($portfolioItems) ) :
-			
-								foreach($portfolioItems as $post) :
-			                    
-									$post_counter++;
-				                    
-				                    if ( has_post_thumbnail($post->ID))
-				                    {
-										$related_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
-									}
+	    ?>
 
-				                   $terms_slug = get_the_terms( $post->ID, 'portfolio_categories' ); // get an array of all the terms as objects.
+	    <div class="portfolio_section shortcode_portfolio mixitup-<?php echo $u;?>">		
+	            
+	        <div class="items_wrapper">
+	        
+	        <?php
+	        $number_of_portfolio_items = new WP_Query(array(
+	        	'post_status' 			=> 'publish',
+	            'post_type' 			=> 'portfolio',
+	            'posts_per_page'		=> $itemsNumber,
+	            'portfolio_filter' 		=> $category,
+	            'orderby' 				=> $orderBy,
+	            'order' 				=> $order
+	        ));
+	        
+	        $portfolio_items = $number_of_portfolio_items->post_count;
 
-				                    $term_slug_class = "";
-				                    
-				                    if ( !empty( $terms_slug ) && !is_wp_error( $terms_slug ) ){
-				                        foreach ( $terms_slug as $term_slug ) {
-				                            $term_slug_class .=  $term_slug->slug . " ";
-				                        }
-				                    }
-				                    
-				                    if (get_post_meta( $post->ID, 'portfolio_color_meta_box', true )) {
-				                        $portfolio_color_option = get_post_meta( $post->ID, 'portfolio_color_meta_box', true );
-				                    } else {
-				                        $portfolio_color_option = "none";
-				                    }
-									
-									$portfolio_item_width = "";
-									$portfolio_item_height = "";
-									
-									switch ($grid) {
-										
-										case "grid1":							
-											
-											switch ($post_counter) {
-												case (($post_counter == 1)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "height2";
-													break;
-												case (($post_counter == 2)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 7)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 8)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "height2";
-													break;
-												default :
-													$portfolio_item_width = "";
-													$portfolio_item_height = "";
-											}							
-											break;
-											
-										case "grid2":
-											
-											switch ($post_counter) {
-												case (($post_counter == 3)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "height2";
-													break;
-												case (($post_counter == 8)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 13)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												default :
-													$portfolio_item_width = "";
-													$portfolio_item_height = "";
-											}							
-											break;
-											
-										case "grid3":
-										
-											switch ($post_counter) {
-												case (($post_counter == 3)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 8)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 11)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												case (($post_counter == 14)) :
-													$portfolio_item_width = "width2";
-													$portfolio_item_height = "";
-													break;
-												default :
-													$portfolio_item_width = "";
-													$portfolio_item_height = "";
-											}							
-											break;
-											
-										default:
-											
-											$portfolio_item_width = "";
-											$portfolio_item_height = "";
-											
-									}
-				                    
-				                ?>
+	        $post_counter = 0;
+	        
+	        $wp_query_portfolio_shortcode = new WP_Query(array(
+	            'post_type' => 'portfolio',
+	            'posts_per_page' => $itemsNumber,
+	            'portfolio_filter' => $category,
+	            'orderby' => $orderBy,
+	            'order' => $order
+	        ));
+	                        
+	        while ($wp_query_portfolio_shortcode->have_posts()) : $wp_query_portfolio_shortcode->the_post();
+	            $post_counter++;
+	            $related_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full' );
+	            
+	            $terms_slug = get_the_terms( get_the_ID(), 'portfolio_filter' ); // get an array of all the terms as objects.
 
-				                    <div class="portfolio-box hidden <?php echo esc_html($portfolio_item_width); ?> <?php echo esc_html($portfolio_item_height); ?> <?php echo esc_html($term_slug_class); ?>">
-				                        
-				                        <a href="<?php echo get_permalink($post->ID); ?>" class="portfolio-box-inner hover-effect-link" style="background-color:<?php echo esc_html($portfolio_color_option); ?>">
-				                            
-				                            <div class="portfolio-content-wrapper hover-effect-content">
-				                                
-				                                <?php if ($related_thumb[0] != "") : ?>
-				                                    <span class="portfolio-thumb hover-effect-thumb" style="background-image: url(<?php echo esc_url($related_thumb[0]); ?>)"></span>
-				                                <?php endif; ?>
-				                                
-				                                <h2 class="portfolio-title hover-effect-title"><?php echo $post->post_title; ?></h2>
-				                                
-				                                <p class="portfolio-categories hover-effect-text"><?php echo strip_tags (get_the_term_list($post->ID, 'portfolio_categories', "", ", "));?></p>
-				                                 
-				                            </div>
-				                            
-				                        </a>
-				                        
-				                    </div>
-			                
-			                <?php endforeach; // end of the loop. ?>
+	            $term_slug_class = "";
+	            
+	            if ( !empty( $terms_slug ) && !is_wp_error( $terms_slug ) ){
+	                foreach ( $terms_slug as $term_slug ) {
+	                    $term_slug_class .=  $term_slug->slug . " ";
+	                }
+	            }
+	            
+	        ?>
 
-			            <?php endif; ?>
+	            <div class="portfolio_<?php echo $itemsPerRow; ?>_col_item_wrapper mix <?php echo $term_slug_class; ?>">
+	                <div class="portfolio_item">
+	                    <div class="portfolio_item_img_container">
+	                        <a class="img_zoom_in" href="<?php echo get_permalink(get_the_ID()); ?>">
+	                            <img src="<?php echo $related_thumb[0]; ?>" alt="" />
+	                        </a>
+	                    </div>
+	                    <a  class="portfolio-title" href="<?php echo get_permalink(get_the_ID()); ?>"><h3><?php the_title(); ?></h3></a>
+	                    <div class="portfolio_sep"></div>
+	                    <div class="portfolio_item_cat">
 
-		        </div><!--portfolio-isotope-->
-		    
-		    </div><!--portfolio-isotope-container-->
-		</div> <!--wp-block-gbt-portfolio-->
-	
+	                    <?php 
+	                    echo strip_tags (
+	                        get_the_term_list( get_the_ID(), 'portfolio_filter', "",", " )
+	                    );
+	                    ?>
+	                    
+	                    </div>
+	                </div>
+	            </div>
+	        
+	        <?php endwhile; // end of the loop. ?>
+	        
+	        </div>
+	        
+	        <div class="clr"></div>
+	        
+	    </div><!-- #primary .content-area -->
+
+	</div> <!-- .wp-block-gbt-portfolio -->
+
+    <script type="text/javascript">
+    	jQuery(document).ready(function($) {
+        	jQuery('.mixitup-<?php echo $u; ?>').mixItUp({
+		     	selectors: {
+		       		filter: '.controls-<?php echo $u; ?>'
+		     	}
+	    	});
+		});
+
+    </script>
+    
 	<?php
-
-	endif;
-
-	wp_reset_query();
+	wp_reset_postdata();
 	$content = ob_get_contents();
 	ob_end_clean();
 	return $content;
 }
 
-add_action('wp_ajax_getbowtied_render_portfolio_categories', 'getbowtied_render_portfolio_categories');
-function getbowtied_render_portfolio_categories() {
+add_action('wp_ajax_getbowtied_tr_render_portfolio_categories', 'getbowtied_tr_render_portfolio_categories');
+function getbowtied_tr_render_portfolio_categories() {
 
 	$args = array(
 		'type'                     => 'post',
@@ -332,11 +213,11 @@ function getbowtied_render_portfolio_categories() {
 		'exclude'                  => '',
 		'include'                  => '',
 		'number'                   => '',
-		'taxonomy'                 => 'portfolio_categories',
+		'taxonomy'                 => 'portfolio_filter',
 		'pad_counts'               => false
 	);
 
-	$categories = get_categories($args);
+	$categories = get_terms($args);
 
 	$output_categories = array();
 
@@ -352,36 +233,12 @@ function getbowtied_render_portfolio_categories() {
 	exit;
 }
 
-add_action('wp_ajax_getbowtied_get_preview_grid', 'getbowtied_get_preview_grid');
-function getbowtied_get_preview_grid() {
+add_action('wp_ajax_getbowtied_tr_get_preview_grid', 'getbowtied_tr_get_preview_grid');
+function getbowtied_tr_get_preview_grid() {
 
-	$attributes = $_POST['attributes'];
 	$output = '';
 
-	extract( shortcode_atts( array(
-		'grid' => 'default',
-	), $attributes ) );
-
-	$image_src = '';
-
-	switch( $grid )
-	{
-		case 'default':
-			$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_equal_boxes.png';
-			break;
-		case 'grid1':
-			$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_masonry_1.png';
-			break;
-		case 'grid2':
-			$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_masonry_2.png';
-			break;
-		case 'grid3':
-			$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_masonry_3.png';
-			break;
-		default:
-			$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_equal_boxes.png';
-			break;
-	}
+	$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_equal_boxes.png';
 
 	$output = 'el("img",{key:"portfolio-preview-image",className:"portfolio-preview-image",src:"'.$image_src.'"})';
 

@@ -19,6 +19,6 @@ add_filter( 'block_categories', function( $categories, $post ) {
 
 require_once 'latest_posts_slider/index.php';
 require_once 'banner/index.php';
-// require_once 'portfolio/index.php';
+require_once 'portfolio/index.php';
 // require_once 'social-media-profiles/index.php';
 // require_once 'slider/index.php';
