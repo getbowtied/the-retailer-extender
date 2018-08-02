@@ -1,4 +1,31 @@
 .wp-block-gbt-social-media
 {
 	margin-bottom: 2.5rem;
+
+	ul
+	{
+		padding-left: 0 !important;
+
+		&.center
+		{
+			text-align: center;
+		}
+
+		&.right
+		{
+			text-align: right;
+		}
+
+		li
+		{
+			list-style: none !important;
+			display: inline;
+    		margin-right: 15px;
+
+    		&:last-child
+    		{
+    			margin-right: 0;
+    		}
+		}
+	}
 }
