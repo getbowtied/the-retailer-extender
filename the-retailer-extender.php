@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://github.com/getbowtied/the-retailer-extender
  * Description:       		Extends the functionality of The Retailer with Gutenberg elements.
- * Version:           		1.0
+ * Version:           		1.1
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		4.9
