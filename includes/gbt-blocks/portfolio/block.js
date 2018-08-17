@@ -136,7 +136,7 @@
 							},
 						}
 					),
-					attributes.category == '' && el(
+					attributes.category == 'All' && el(
 						ToggleControl,
 						{
 							key: "portfolio-filters-toggle",
