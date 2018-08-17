@@ -89,7 +89,7 @@
 			},
 			bgColor: {
 				type: 'string',
-				default: '#f3f3f4'
+				default: '#000'
 			},
 			height: {
 				type: 'number',
