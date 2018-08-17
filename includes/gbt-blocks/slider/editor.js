@@ -4,7 +4,8 @@
 
     $( document ).ready( function( $ ) {
 
-        $(document).on('click', '.editor-block-list__block[data-type="getbowtied/tr-slider"] .editor-inner-blocks .editor-block-list__block .wp-block-slide-title-wrapper', function(e){
+        $(document).on('click', '.editor-block-list__block[data-type="getbowtied/tr-slider"] .wp-block-slide-title-wrapper', function(e){
+
 			var block = $(this).closest('.editor-block-list__block');
 
 			if( block.hasClass('clicked') )

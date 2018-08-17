@@ -38,17 +38,9 @@
 				type: 'boolean',
 				default: true
 			},
-			slide_numbers_color: {
-				type: 'string',
-				default: '#fff'
-			},
 			nav_arrows: {
 				type: 'boolean',
 				default: true
-			},
-			nav_arrows_color: {
-				type: 'string',
-				default: '#fff'
 			},
 		},
 
@@ -62,7 +54,7 @@
 				{ name: 'yellow', 			color: '#fbba00' },
 				{ name: 'green', 			color: '#43d182' },
 				{ name: 'blue', 			color: '#2594e3' },
-				{ name: 'light-gray', 		color: '#eeeeee' },
+				{ name: 'white', 			color: '#ffffff' },
 				{ name: 'dark-gray', 		color: '#abb7c3' },
 				{ name: 'black', 			color: '#000' 	 },
 			];
@@ -137,26 +129,6 @@
 								},
 							}
 						),
-						attributes.slide_numbers == true &&
-						el(
-							PanelColor,
-							{
-								key: 'slider-numbers-color-panel',
-								title: i18n.__( 'Pagination Bullets Color' ),
-								colorValue: attributes.slide_numbers_color,
-							},
-							el(
-								ColorPalette, 
-								{
-									key: 'slider-numbers-color-pallete',
-									colors: colors,
-									value: attributes.slide_numbers_color,
-									onChange: function( newColor) {
-										props.setAttributes( { slide_numbers_color: newColor } );
-									},
-								} 
-							),
-						),
 					),
 					el( 
 						PanelBody, 
@@ -179,26 +151,6 @@
 									props.setAttributes( { nav_arrows: ! attributes.nav_arrows } );
 								},
 							}
-						),
-						attributes.nav_arrows == true &&
-						el(
-							PanelColor,
-							{
-								key: 'slider-nav-arrows-color-panel',
-								title: i18n.__( 'Navigation Arrows Color' ),
-								colorValue: attributes.nav_arrows_color,
-							},
-							el(
-								ColorPalette, 
-								{
-									key: 'slider-nav-arrows-color-pallete',
-									colors: colors,
-									value: attributes.nav_arrows_color,
-									onChange: function( newColor) {
-										props.setAttributes( { nav_arrows_color: newColor } );
-									},
-								} 
-							),
 						),
 					),
 				),
@@ -265,32 +217,20 @@
 							{
 								key: 'swiper-button-prev',
 								className: 'swiper-button-prev',
-								style:
-								{
-									color: attributes.nav_arrows_color
-								}
 							},
 						),
 						!! attributes.nav_arrows && el(
 							'div',
 							{
 								key: 'swiper-button-next',
-								className: 'swiper-button-next',
-								style:
-								{
-									color: attributes.nav_arrows_color
-								}
+								className: 'swiper-button-next'
 							},
 						),
 						!! attributes.slide_numbers && el(
 							'div',
 							{
 								key: 'shortcode-slider-pagination',
-								className: 'quickview-pagination',
-								style:
-								{
-									color: attributes.slide_numbers_color
-								}
+								className: 'quickview-pagination shortcode-slider-pagination'
 							}
 						)
 					)
