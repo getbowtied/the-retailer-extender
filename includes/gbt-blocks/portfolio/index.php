@@ -46,7 +46,7 @@ register_block_type( 'getbowtied/tr-portfolio', array(
 		),
 		'category'						=> array(
 			'type'						=> 'string',
-			'default'					=> '',
+			'default'					=> 'All',
 		),
 		'showFilters'					=> array(
 			'type'						=> 'boolean',
@@ -82,7 +82,7 @@ function getbowtied_tr_render_frontend_portfolio( $attributes ) {
 	
 	extract(shortcode_atts(array(
 		"itemsNumber"				=> '12',
-		"category" 					=> '',
+		"category" 					=> 'All',
 		"showFilters" 				=> true,
 		"orderBy" 					=> 'date',
 		"order" 					=> 'ASC',
@@ -90,6 +90,8 @@ function getbowtied_tr_render_frontend_portfolio( $attributes ) {
 		"align"						=> 'center'
 	), $attributes));
 	ob_start();
+
+	if($category == 'All') $category = '';
 	?>
 
 	<div class="wp-block-gbt-portfolio <?php echo $align; ?>">
@@ -222,7 +224,7 @@ function getbowtied_tr_render_portfolio_categories() {
 	$output_categories = array();
 
 	$i = 0;
-	$output_categories[$i] = array( 'value' => '', 'label' => 'All Categories');
+	$output_categories[$i] = array( 'value' => 'All', 'label' => 'All Categories');
 
 	foreach($categories as $category) { 
 		$i++;
@@ -236,11 +238,79 @@ function getbowtied_tr_render_portfolio_categories() {
 add_action('wp_ajax_getbowtied_tr_get_preview_grid', 'getbowtied_tr_get_preview_grid');
 function getbowtied_tr_get_preview_grid() {
 
+	$attributes = $_POST['attributes'];
 	$output = '';
+	$counter = 0;
 
-	$image_src = plugin_dir_url( __FILE__ ) . 'assets/portfolio_equal_boxes.png';
+	extract( shortcode_atts( array(
+		"itemsNumber"				=> '12',
+		"category" 					=> 'All',
+		"orderBy" 					=> 'date',
+		"order" 					=> 'ASC',
+		"itemsPerRow" 				=> '3',
+		"align"						=> 'center'
+	), $attributes ) );
 
-	$output = 'el("img",{key:"portfolio-preview-image",className:"portfolio-preview-image",src:"'.$image_src.'"})';
+	if($category == 'All') $category = '';
+
+	$output = 'el( "div", { key: "wp-block-gbt-portfolio", className: "wp-block-gbt-portfolio"},';
+
+		$output .= 'el( "div", { key: "latest_portfolio_wrapper", className: "latest_portfolio_wrapper '.$align.' columns-' . $itemsPerRow . '"},';
+
+			$args = array(
+	            'post_status' 		=> 'publish',
+	            'post_type' 		=> 'portfolio',
+	            'posts_per_page' 	=> $itemsNumber,
+	            'portfolio_filter' 	=> $category,
+	            'orderby' 			=> $orderBy,
+	            'order' 			=> $order,
+	        );
+	        
+	        $recentPosts = get_posts( $args );
+
+	        if ( !empty($recentPosts) ) :
+	                    
+	            foreach($recentPosts as $post) :
+	        
+	                $output .= 'el( "div", { key: "latest_portfolio_item_' . $counter . '", className: "latest_portfolio_item" },';
+
+	                	$output .= 'el( "a", { key: "latest_portfolio_link_' . $counter . '", className: "latest_portfolio_link" },';
+
+	                		$output .= 'el( "span", { key: "latest_portfolio_img_container_' . $counter . '", className: "latest_portfolio_img_container"},';
+	                		
+	                			$output .= 'el( "span", { key: "latest_portfolio_overlay_' . $counter . '", className: "latest_portfolio_overlay" }, ),';
+
+	                			if ( has_post_thumbnail($post->ID)) :
+	                				$image_id = get_post_thumbnail_id($post->ID);
+									$image_url = wp_get_attachment_image_src($image_id,'large', true);
+
+									$output .= 'el( "span", { key: "latest_portfolio_img_' . $counter . '", className: "latest_portfolio_img", style: { backgroundImage: "url(' . esc_url($image_url[0]) . ')" } } )';
+
+								else :
+
+									$output .= 'el( "span", { key: "latest_portfolio_noimg_' . $counter . '", className: "latest_portfolio_noimg"} )';
+
+								endif;
+
+	                		$output .= '),';
+
+							$output .= 'el( "span", { key: "latest_portfolio_title_' . $counter . '", className: "latest_portfolio_title"}, "' . $post->post_title . '" ),';
+							$output .= 'el( "div", { key: "portfolio_sep_' . $counter . '", className: "portfolio_sep" } ),';
+							$output .= 'el( "div", { key: "portfolio_item_cat_' . $counter . '", className: "portfolio_item_cat" }, "'.strip_tags(get_the_term_list( $post->ID, 'portfolio_filter', "",", " )).'" ),';
+
+	                	$output .= '),';
+
+	            	$output .= '),';
+
+					$counter++;
+
+				endforeach; 
+
+	        endif;
+
+		$output .= ')';
+
+	$output .= ')';
 
 	echo json_encode($output);
 	exit;

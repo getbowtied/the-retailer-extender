@@ -45,7 +45,7 @@
 			},
 			category: {
 				type: 'string',
-				default: '',
+				default: 'All',
 			},
 			showFilters: {
 				type: 'boolean',
@@ -80,13 +80,23 @@
 				props.setAttributes( { categories: categories_list } );
 			}, 1000 );
 
-			function getPreviewGrid( grid ) {
+			function getPreviewGrid( itemsNumber, category, orderBy, order, itemsPerRow ) {
 
-				grid = grid || attributes.grid;
+				itemsNumber		= itemsNumber || attributes.itemsNumber;
+				category 		= category || attributes.category;
+				orderBy 		= orderBy || attributes.orderBy;
+				order 			= order || attributes.order;
+				itemsPerRow 	= itemsPerRow || attributes.itemsPerRow;
 
 				var data = {
 					action 		: 'getbowtied_tr_get_preview_grid',
-					attributes  : { 'grid' : grid }
+					attributes  : { 
+						'itemsNumber' 	: itemsNumber,
+						'category' 		: category,
+						'orderBy' 		: orderBy,
+						'order' 		: order,
+						'itemsPerRow' 	: itemsPerRow,
+					}
 				};
 
 				jQuery.post( 'admin-ajax.php', data, function(response) { 
@@ -109,6 +119,7 @@
 							value: attributes.itemsNumber,
 							onChange: function( newNumber ) {
 								props.setAttributes( { itemsNumber: newNumber } );
+								getPreviewGrid( newNumber, null, null, null, null );
 							},
 						}
 					),
@@ -121,6 +132,7 @@
               				value: attributes.category,
               				onChange: function( newCategory ) {
               					props.setAttributes( { category: newCategory } );
+              					getPreviewGrid( null, newCategory, null, null, null );
 							},
 						}
 					),
@@ -144,6 +156,7 @@
               				value: attributes.orderBy,
               				onChange: function( newOrderBy ) {
               					props.setAttributes( { orderBy: newOrderBy } );
+              					getPreviewGrid( null, null, newOrderBy, null, null );
 							},
 						}
 					),
@@ -156,6 +169,7 @@
               				value: attributes.order,
               				onChange: function( newOrder ) {
               					props.setAttributes( { order: newOrder } );
+              					getPreviewGrid( null, null, null, newOrder, null );
 							},
 						}
 					),
@@ -170,6 +184,7 @@
 							value: attributes.itemsPerRow,
 							onChange: function( newNumber ) {
 								props.setAttributes( { itemsPerRow: newNumber } );
+								getPreviewGrid( null, null, null, null, newNumber );
 							},
 						}
 					),
@@ -187,7 +202,7 @@
 							className: 'portfolio-preview'
 						},
 						eval( attributes.preview_grid ),
-						attributes.preview_grid == '' && getPreviewGrid()
+						attributes.preview_grid == '' && getPreviewGrid( null, null, null, null, null )
 					)
 				)
 			];
