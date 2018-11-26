@@ -1,45 +1,49 @@
 <?php
 
-// Social Media Profiles
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-
-add_action( 'enqueue_block_editor_assets', 'getbowtied_tr_socials_editor_assets' );
-
-if ( ! function_exists( 'getbowtied_tr_socials_editor_assets' ) ) {
-    function getbowtied_tr_socials_editor_assets() {
-    	
+//==============================================================================
+//  Enqueue Editor Assets
+//==============================================================================
+add_action( 'enqueue_block_editor_assets', 'gbt_18_tr_social_media_editor_assets' );
+if ( ! function_exists( 'gbt_18_tr_social_media_editor_assets' ) ) {
+    function gbt_18_tr_social_media_editor_assets() {
+        
         wp_enqueue_script(
-            'getbowtied-socials',
+            'gbt_18_tr_social_media_script',
             plugins_url( 'block.js', __FILE__ ),
-            array( 'wp-blocks', 'wp-components', 'wp-editor', 'wp-i18n', 'wp-element', 'jquery' )
+            array( 'wp-blocks', 'wp-components', 'wp-editor', 'wp-i18n', 'wp-element' )
         );
 
         wp_enqueue_style(
-            'getbowtied-socials-styles',
-            plugins_url( 'css/editor.css', __FILE__ ),
+            'gbt_18_tr_social_media_editor_styles',
+            plugins_url( 'assets/css/editor.css', __FILE__ ),
             array( 'wp-edit-blocks' )
         );
     }
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_tr_socials_assets' );
-
-if ( ! function_exists( 'getbowtied_tr_socials_assets' ) ) {
-    function getbowtied_tr_socials_assets() {
+//==============================================================================
+//  Enqueue Frontend Assets
+//==============================================================================
+add_action( 'enqueue_block_assets', 'gbt_18_tr_social_media_assets' );
+if ( ! function_exists( 'gbt_18_tr_social_media_assets' ) ) {
+    function gbt_18_tr_social_media_assets() {
         
         wp_enqueue_style(
-            'getbowtied-socials-css',
-            plugins_url( 'css/style.css', __FILE__ ),
+            'gbt_18_tr_social_media_styles',
+            plugins_url( 'assets/css/style.css', __FILE__ ),
             array()
         );
     }
 }
 
-register_block_type( 'getbowtied/tr-socials', array(
+//==============================================================================
+//  Register Block Type
+//==============================================================================
+register_block_type( 'getbowtied/tr-social-media-profiles', array(
 	'attributes'     			=> array(
-		'items_align'			=> array(
+		'align'			        => array(
 			'type'				=> 'string',
 			'default'			=> 'left',
 		),
@@ -53,9 +57,12 @@ register_block_type( 'getbowtied/tr-socials', array(
         ),
 	),
 
-	'render_callback' => 'getbowtied_tr_render_frontend_socials',
+	'render_callback' => 'gbt_18_tr_social_media_frontend_output',
 ) );
 
+//==============================================================================
+//  Frontend Output
+//==============================================================================
 function get_tr_social_media_icons() {
     $socials = array(
         array( 
@@ -163,13 +170,13 @@ function get_tr_social_media_icons() {
     return $socials;
 }
 
-function getbowtied_tr_render_frontend_socials($attributes) {
+function gbt_18_tr_social_media_frontend_output($attributes) {
 
 	global $theretailer_theme_options;
 
 	extract(shortcode_atts(
 		array(
-			'items_align' => 'left',
+			'align' => 'left',
             'fontSize'    => '24',
             'fontColor'   => '#000',
 		), $attributes));
@@ -177,27 +184,29 @@ function getbowtied_tr_render_frontend_socials($attributes) {
 
     $socials = get_tr_social_media_icons();
 
-    $output = '<div class="wp-block-gbt-social-media">';
+?>
 
-        $output .= '<div class="site-social-icons-shortcode">';
-        $output .= '<ul class="' . esc_html($items_align) . '">';
+    <div class="gbt_18_tr_social_media_profiles">
+        <div class="gbt_18_tr_social_media_icons site-social-icons-shortcode">
+            <ul class="gbt_18_tr_profiles <?php echo esc_html($align); ?>">
 
-        foreach($socials as $social) {
+                <?php foreach($socials as $social) : ?>
+                	<?php if ( (isset($theretailer_theme_options[$social['link']])) && (trim($theretailer_theme_options[$social['link']]) != "" ) ) : ?>
+                		<li>
+                            <a style="color:<?php echo $fontColor; ?>;font-size:<?php echo $fontSize; ?>px;" 
+                                class="social_media <?php echo $social['link']; ?>" 
+                                target="_blank" 
+                                href="<?php echo esc_url($theretailer_theme_options[$social['link']]); ?>" >
+                                <i class="<?php echo $social['icon']; ?>"></i>
+                            </a>
+                        </li>
+                	<?php endif; ?>
+                <?php endforeach; ?>
 
-        	if ( (isset($theretailer_theme_options[$social['link']])) && (trim($theretailer_theme_options[$social['link']]) != "" ) ) {
-        		$output .= '<li>';
-        		$output .= '<a style="color:'.$fontColor.';font-size:'.$fontSize.'px;" class="social_media '.$social['link'].'" target="_blank" href="' . esc_url($theretailer_theme_options[$social['link']]) . '">';
-                $output .= '<i class="' . $social['icon'] . '"></i>';
-        		$output .= '</a></li>';
-        	}
-        }
+            </ul>
+        </div>
+    </div>
 
-        $output .= '</ul>';
-        $output .= '</div>';
-
-    $output .= '</div>';
-
-	ob_end_clean();
-
-	return $output;
+    <?php 
+	return ob_get_clean();
 }
