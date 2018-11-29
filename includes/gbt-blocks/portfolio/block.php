@@ -115,7 +115,7 @@ function gbt_18_tr_render_frontend_portfolio( $attributes ) {
 	        foreach($portfolioItems as $post) :
 	            $related_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
 	            
-	            $terms_slug = get_the_terms( $post->ID, 'portfolio_filter' ); // get an array of all the terms as objects.
+	            $terms_slug = get_the_terms( $post->ID, 'portfolio_filter' );
 
 	            $term_slug_class = "";
 	            
@@ -148,7 +148,7 @@ function gbt_18_tr_render_frontend_portfolio( $attributes ) {
 	                </div>
 	            </div>
 	        
-	        <?php endforeach; // end of the loop. ?>
+	        <?php endforeach; ?>
 	        
 	        </div>
 	        

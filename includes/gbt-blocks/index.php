@@ -29,4 +29,4 @@ if ( ! function_exists( 'getbowtied_product_blocks_scripts' ) ) {
 // require_once 'banner/index.php';
 require_once 'portfolio/block.php';
 require_once 'social_media_profiles/block.php';
-// require_once 'slider/index.php';
+require_once 'slider/block.php';
