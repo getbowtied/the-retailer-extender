@@ -120,7 +120,7 @@
 							key: 		'gbt_18_tr_social_media_description',
 							className: 	'gbt_18_tr_social_media_description',
 						},
-						i18n.__( 'Setup profile links under Appearance > Customize > Social Media' )
+						i18n.__( 'Setup profile links under Appearance > Theme Options > Social Media' )
 					),
 				),
 			];
