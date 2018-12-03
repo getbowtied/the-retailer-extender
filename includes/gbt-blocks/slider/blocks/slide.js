@@ -56,7 +56,7 @@
 	        },
 	        titleSize: {
 	        	type: 'number',
-	        	default: 64,
+	        	default: 36,
 	        },
 	        description: {
 	        	type: 'string',
@@ -64,7 +64,7 @@
 	        },
 	        descriptionSize: {
 	        	type: 'number',
-	        	default: 16,
+	        	default: 13,
 	        },
 	        textColor: {
 	        	type: 'string',
@@ -196,7 +196,7 @@
 									key: "gbt_18_tr_editor_slide_title_size",
 									value: attributes.titleSize,
 									allowReset: false,
-									initialPosition: 48,
+									initialPosition: 36,
 									min: 10,
 									max: 72,
 									label: i18n.__( 'Title Font Size' ),
@@ -211,7 +211,7 @@
 									key: "gbt_18_tr_editor_slide_description_size",
 									value: attributes.descriptionSize,
 									allowReset: false,
-									initialPosition: 16,
+									initialPosition: 13,
 									min: 10,
 									max: 72,
 									label: i18n.__( 'Description Font Size' ),
