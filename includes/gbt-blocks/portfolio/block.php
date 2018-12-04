@@ -71,27 +71,42 @@ function gbt_18_tr_render_frontend_portfolio( $attributes ) {
 
     $portfolioItems = get_posts( $args );
 
-    if ( !empty($portfolioItems) ) :
+    if ( !empty($portfolioItems) && $showFilters ) :
 
-        $portfolio_categories_queried = [];
+    	$portfolio_categories_queried = [];
+
+    	if( $categoriesSavedIDs != '' ) :
+
+	    	$categories = explode(",",$categoriesSavedIDs);
+	    
+	        foreach($categories as $catID) :
+	            
+	            $category = get_term( $catID, 'portfolio_filter' );
+	            
+	            if ( !empty( $category ) && !is_wp_error( $category ) ) {
+	                $portfolio_categories_queried[$category->slug] = $category->name;
+	            }
+	            
+	        endforeach;
+
+	    else :
     
-        foreach($portfolioItems as $post) :
-            
-            $terms = get_the_terms( $post->ID, 'portfolio_filter' );
-            
-            if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
-                foreach($terms as $term) {
-                    $portfolio_categories_queried[$term->slug] = $term->name;
-                }
-            }
-            
-        endforeach;
+	        foreach($portfolioItems as $post) :
+	            
+	            $terms = get_the_terms( $post->ID, 'portfolio_filter' );
+	            
+	            if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
+	                foreach($terms as $term) {
+	                    $portfolio_categories_queried[$term->slug] = $term->name;
+	                }
+	            }
+	            
+	        endforeach;
+
+	    endif;
 
         $portfolio_categories_queried = array_unique($portfolio_categories_queried);
 
-    endif;
-
-    if( $showFilters ) :
 	    if ( !empty( $portfolio_categories_queried ) && !is_wp_error( $portfolio_categories_queried ) ){
 	        echo '<ul class="portfolio_categories">';
 	            echo '<li class="filter controls-'.$u.'" data-filter="all">' . __("All", "theretailer") . '</li>';
@@ -129,12 +144,14 @@ function gbt_18_tr_render_frontend_portfolio( $attributes ) {
 
 	            <div class="portfolio_<?php echo $columns; ?>_col_item_wrapper mix <?php echo $term_slug_class; ?>">
 	                <div class="portfolio_item">
+	                	<?php if($related_thumb[0]) : ?>
 	                    <div class="portfolio_item_img_container">
 	                        <a class="img_zoom_in" href="<?php echo get_permalink($post->ID); ?>">
 	                            <img src="<?php echo $related_thumb[0]; ?>" alt="" />
 	                        </a>
 	                    </div>
-	                    <a  class="portfolio-title" href="<?php echo get_permalink($post->ID); ?>"><h3><?php echo $post->post_title; ?></h3></a>
+	                    <?php endif; ?>
+	                    <a class="portfolio-title" href="<?php echo get_permalink($post->ID); ?>"><h3><?php echo $post->post_title; ?></h3></a>
 	                    <div class="portfolio_sep"></div>
 	                    <div class="portfolio_item_cat">
 
