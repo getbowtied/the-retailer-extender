@@ -69,24 +69,12 @@
 
 		.gbt_18_tr_editor_posts_grid_title {
 			display: block;
-			font-weight: 900;
 			text-align: left;
 			font-size: 18px;
-			line-height: 1.1333em;
+			line-height: 1.45em;
 			color: #000;
 			margin: 0 0 15px;
-		    transition: all .5s;
-
-			&:hover
-			{
-			    opacity: .4;
-		        transition: all .5s;
-		        cursor: pointer;
-			}
-		}
-
-		.gbt_18_tr_editor_posts_grid_item.gallery {
-			margin: 0 !important;
+			cursor: pointer;
 		}
 
 		.gbt_18_tr_editor_posts_grid_img_overlay
@@ -114,7 +102,7 @@
 			position: relative;
 			height: 100%;
 			width: 100%;
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 			
 			-webkit-matr-image: -webkit-radial-gradient(white, black);
 		}	

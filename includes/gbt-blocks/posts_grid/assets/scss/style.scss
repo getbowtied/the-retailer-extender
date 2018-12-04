@@ -9,58 +9,7 @@
 			margin-left: calc( -100vw / 2 + 100% / 2 );
 		    margin-right: calc( -100vw / 2 + 100% / 2 );
 		    max-width: 100vw;
-
-		    &.columns-1 {
-		    	.gbt_18_tr_posts_grid_item {
-		    		padding: 0 30px;
-		    	}
-		    }
-
-		    &.columns-2 {
-		    	@media all and (min-width: 640px) {
-			    	.gbt_18_tr_posts_grid_item {
-			    		&:nth-child(odd) {
-			    			padding-left: 30px;
-			    		}
-			    	}
-
-			    	.gbt_18_tr_posts_grid_item {
-			    		&:nth-child(even) {
-			    			padding-right: 30px;
-			    		}
-			    	}
-			    }
-
-			    @media all and (max-width: 639px) {
-					.gbt_18_tr_posts_grid_item {
-						padding: 0 30px;
-					}
-				}
-		    }
-
-		    &.columns-3 {
-		    	@media all and (min-width: 640px) {
-			    	padding: 0 20px;		
-			    }
-
-			    @media all and (max-width: 639px) {
-					.gbt_18_tr_posts_grid_item {
-						padding: 0 30px;
-					}
-				}
-		    }
-
-		    &.columns-4 {
-		    	@media all and (min-width: 640px) {
-			    	padding: 0 20px;		
-			    }
-
-			    @media all and (max-width: 639px) {
-					.gbt_18_tr_posts_grid_item {
-						padding: 0 30px;
-					}
-				}
-		    }
+	        padding: 0 35px;
 		}
 
 		&.wide {
@@ -71,45 +20,11 @@
 			}
 		}
 
-		&:not(.full) {
-			&.columns-2 {
-				.gbt_18_tr_posts_grid_item {
-
-					@media all and (max-width: 639px) {
-						padding: 0 0;
-					}
-				}
-			}
-
-			&.columns-3 {
-
-				.gbt_18_tr_posts_grid_item {
-
-					@media all and (max-width: 639px) {
-						padding: 0 0;
-					}
-				}
-			}
-
-			&.columns-4 
-			{
-				.gbt_18_tr_posts_grid_item
-				{
-					@media all and (max-width: 639px) {
-						padding: 0 0;
-					}
-				}
-			}
-		}
-
 		&.columns-1 
 		{
 			.gbt_18_tr_posts_grid_item {
 				width: 100%;
-
-				@media all and (max-width: 639px) {
-					padding: 0 0;
-				}
+				padding: 0;
 			}
 		}
 
@@ -117,8 +32,16 @@
 
 			.gbt_18_tr_posts_grid_item {
 
+				&:nth-child(even) {
+					padding-right: 0;
+				}
+
+				&:nth-child(odd) {
+					padding-left: 0;
+				}
+
 				@media all and (min-width: 640px) {
-					width: 50%;
+					width: calc(50% - 30px);
 					float: left;
 
 					&:nth-child(2n+1) {
@@ -138,20 +61,30 @@
 			.gbt_18_tr_posts_grid_item {
 
 				@media all and (min-width: 1024px) {
-					width: 33.333333%;
+					width: calc(33.333333% - 20px);
 					float: left;
 
 					&:nth-child(3n+1) {
 						clear: both;
+						padding-left: 0;
+					}
+
+					&:nth-child(3n) {
+						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 640px) and (max-width: 1023px) {
-					width: 50%;
+					width: calc(50% - 15px);
 					float: left;
 
 					&:nth-child(2n+1) {
 						clear: both;
+						padding-left: 0;
+					}
+
+					&:nth-child(2n) {
+						padding-right: 0;
 					}
 				}
 
@@ -167,29 +100,44 @@
 			.gbt_18_tr_posts_grid_item {
 
 				@media all and (min-width: 1240px) {
-					width: 25%;
+					width: calc(25% - 23px);
 					float: left;
 
 					&:nth-child(4n+1) {
 						clear: both;
+						padding-left: 0;
+					}
+
+					&:nth-child(4n) {
+						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 1024px) and (max-width: 1239px) {
-					width: 33.333333%;
+					width: calc(33.333333% - 20px);
 					float: left;
 
 					&:nth-child(3n+1) {
 						clear: both;
+						padding-left: 0;
+					}
+
+					&:nth-child(3n) {
+						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 640px) and (max-width: 1023px) {
-					width: 50%;
+					width: calc(50% - 15px);
 					float: left;
 
 					&:nth-child(2n+1) {
 						clear: both;
+						padding-left: 0;
+					}
+
+					&:nth-child(2n) {
+						padding-right: 0;
 					}
 				}
 
@@ -203,33 +151,21 @@
 		.gbt_18_tr_posts_grid_item {
 			padding: 0 15px;	
 		    margin-bottom: 2rem;
+
+		    @media all and (max-width: 639px) {
+				padding: 0 0;
+			}
 		}
 
 		.gbt_18_tr_posts_grid_title {
 			display: block;
-			font-weight: 900;
 			text-align: left;
-			font-size: 24px;
 			line-height: 1.4em;
+			color: #000;
 			margin: 0 0 15px;
-		    transition: all .5s;
-
-		    @media all and (min-width: 640px) and (max-width: 1023px) {
-		    	font-size: 22px;
-		    }
-
-		    @media all and (max-width: 639px) {
-		    	font-size: 20px;
-		    }
-
-			&:hover {
-			    opacity: 1;
-		        transition: all .5s;
-			}
-		}
-
-		.gbt_18_tr_posts_grid_item.gallery {
-			margin: 0 !important;
+		    font-size: 18px;
+			font-style: normal;
+			transition: all .3s;
 		}
 
 		.gbt_18_tr_posts_grid_img_overlay {
@@ -253,7 +189,7 @@
 			position: relative;
 			width: 100%;
 			padding-bottom: 100%;
-			margin-bottom: 35px;
+			margin-bottom: 25px;
 			
 			-webkit-matr-image: -webkit-radial-gradient(white, black);
 
