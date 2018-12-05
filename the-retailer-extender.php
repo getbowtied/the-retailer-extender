@@ -22,31 +22,33 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
-add_action( 'init', 'github_mt_plugin_updater' );
-function github_mt_plugin_updater() {
+add_action( 'init', 'github_tr_plugin_updater' );
+if(!function_exists('github_tr_plugin_updater')) {
+	function github_tr_plugin_updater() {
 
-	include_once 'updater.php';
+		include_once 'updater.php';
 
-	define( 'WP_GITHUB_FORCE_UPDATE', true );
+		define( 'WP_GITHUB_FORCE_UPDATE', true );
 
-	if ( is_admin() ) {
+		if ( is_admin() ) {
 
-		$config = array(
-			'slug' 				 => plugin_basename(__FILE__),
-			'proper_folder_name' => 'the-retailer-extender',
-			'api_url' 			 => 'https://api.github.com/repos/getbowtied/the-retailer-extender',
-			'raw_url' 			 => 'https://raw.github.com/getbowtied/the-retailer-extender/master',
-			'github_url' 		 => 'https://github.com/getbowtied/the-retailer-extender',
-			'zip_url' 			 => 'https://github.com/getbowtied/the-retailer-extender/zipball/master',
-			'sslverify'			 => true,
-			'requires'			 => '4.9',
-			'tested'			 => '4.9.8',
-			'readme'			 => 'README.txt',
-			'access_token'		 => '',
-		);
+			$config = array(
+				'slug' 				 => plugin_basename(__FILE__),
+				'proper_folder_name' => 'the-retailer-extender',
+				'api_url' 			 => 'https://api.github.com/repos/getbowtied/the-retailer-extender',
+				'raw_url' 			 => 'https://raw.github.com/getbowtied/the-retailer-extender/master',
+				'github_url' 		 => 'https://github.com/getbowtied/the-retailer-extender',
+				'zip_url' 			 => 'https://github.com/getbowtied/the-retailer-extender/zipball/master',
+				'sslverify'			 => true,
+				'requires'			 => '4.9',
+				'tested'			 => '4.9.8',
+				'readme'			 => 'README.txt',
+				'access_token'		 => '',
+			);
 
-		//new WP_GitHub_Updater( $config );
+			//new WP_GitHub_Updater( $config );
 
+		}
 	}
 }
 
