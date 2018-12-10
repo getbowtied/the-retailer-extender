@@ -1,4 +1,4 @@
-( function( wp, blocks, i18n, element ) {
+( function( blocks, components, editor, i18n, element ) {
 
 	const el = element.createElement;
 
@@ -488,8 +488,9 @@
 	} );
 
 } )(
-	window.wp,
 	window.wp.blocks,
+	window.wp.components,
+	window.wp.editor,
 	window.wp.i18n,
 	window.wp.element
 );

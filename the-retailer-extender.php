@@ -46,37 +46,46 @@ if(!function_exists('github_tr_plugin_updater')) {
 				'access_token'		 => '',
 			);
 
-			//new WP_GitHub_Updater( $config );
-
+			new WP_GitHub_Updater( $config );
 		}
 	}
 }
 
-function gbt_tr_gutenberg_blocks() {
-
-	$theme = wp_get_theme();
-	if ( $theme->template != 'theretailer') {
-		return;
-	}
-
-	if( is_plugin_active( 'gutenberg/gutenberg.php' ) || tr_is_wp_version('>=', '5.0-beta') ) {
-		include_once 'includes/gbt-blocks/index.php';
-	} else {
-		add_action( 'admin_notices', 'tr_theme_warning' );
-	}
-}
 add_action( 'init', 'gbt_tr_gutenberg_blocks' );
+if(!function_exists('gbt_tr_gutenberg_blocks')) {
+	function gbt_tr_gutenberg_blocks() {
 
-function tr_theme_warning() {
+		$theme = wp_get_theme();
+		if ( $theme->template != 'theretailer') {
+			return;
+		}
 
-	echo '<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">';
-	echo '<p>The Retailer Extender is enabled but not effective. Please activate Gutenberg plugin in order to work.</p>';
-	echo '</div>';
+		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || tr_is_wp_version('>=', '5.0') ) {
+			include_once 'includes/gbt-blocks/index.php';
+		} else {
+			add_action( 'admin_notices', 'tr_theme_warning' );
+		}
+	}
 }
 
-function tr_is_wp_version( $operator = '>', $version = '4.0' ) {
+if( !function_exists('tr_theme_warning') ) {
+	function tr_theme_warning() {
 
-	global $wp_version;
+		?>
 
-	return version_compare( $wp_version, $version, $operator );
+		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
+		</div>
+
+		<?php
+	}
+}
+
+if( !function_exists('tr_is_wp_version') ) {
+	function tr_is_wp_version( $operator = '>', $version = '4.0' ) {
+
+		global $wp_version;
+
+		return version_compare( $wp_version, $version, $operator );
+	}
 }
