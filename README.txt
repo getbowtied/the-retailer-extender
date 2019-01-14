@@ -9,7 +9,18 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ~Current Version:1.1~
 
-Extends the functionality of The Retailer with Gutenberg elements.
+Extends the functionality of the The Retailer theme by adding theme specific features.
+
+== Description ==
+
+Companion plugin for the **The Retailer** theme. Extends the functionality by adding theme specific features.
+
+**Gutenberg Blocks:**
+- Image Slider
+- Banner
+- Posts Grid
+- Social Media Profiles
+- Portfolio
 
 == Changelog ==
 
