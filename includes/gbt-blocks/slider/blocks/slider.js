@@ -239,7 +239,7 @@
 				'div',
 				{
 					key: 'gbt_18_tr_slider_wrapper',
-					className: 'wp-block-gbt-slider'
+					className: 'gbt_18_tr_slider wp-block-gbt-slider'
 				},
 				el( 
 					'div',

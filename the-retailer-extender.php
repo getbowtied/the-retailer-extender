@@ -22,6 +22,9 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
+global $theme;
+$theme = wp_get_theme();
+
 add_action( 'init', 'github_tr_plugin_updater' );
 if(!function_exists('github_tr_plugin_updater')) {
 	function github_tr_plugin_updater() {
@@ -54,11 +57,6 @@ if(!function_exists('github_tr_plugin_updater')) {
 add_action( 'init', 'gbt_tr_gutenberg_blocks' );
 if(!function_exists('gbt_tr_gutenberg_blocks')) {
 	function gbt_tr_gutenberg_blocks() {
-
-		$theme = wp_get_theme();
-		if ( $theme->template != 'theretailer') {
-			return;
-		}
 
 		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || tr_is_wp_version('>=', '5.0') ) {
 			include_once 'includes/gbt-blocks/index.php';
