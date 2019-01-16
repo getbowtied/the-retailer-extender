@@ -245,7 +245,7 @@
 					'div',
 					{
 						key: 'gbt_18_tr_slider_container',
-						className: attributes.fullHeight ? 'gbt_18_tr_slider_container shortcode_getbowtied_slider swiper-container full_height' : 'gbt_18_tr_slider_container shortcode_getbowtied_slider swiper-container',
+						className: attributes.fullHeight ? 'gbt_18_tr_slider_container swiper-container full_height' : 'gbt_18_tr_slider_container swiper-container',
 						style:
 						{
 							height: attributes.customHeight + 'px'
@@ -265,6 +265,18 @@
 							key: 'swiper-button-prev',
 							className: 'swiper-button-prev'
 						},
+						el( SVG, 
+							{
+								className: 'left-arrow-svg',
+								xmlns:'http://www.w3.org/2000/svg',
+								viewBox:'0 0 24 24',
+								style:
+								{
+									fill: attributes.arrowsColor
+								}
+							},
+							el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } ) 
+						),
 					),
 					!! attributes.arrows && el(
 						'div',
@@ -272,6 +284,18 @@
 							key: 'swiper-button-next',
 							className: 'swiper-button-next'
 						},
+						el( SVG, 
+							{
+								className: 'right-arrow-svg',
+								xmlns:'http://www.w3.org/2000/svg',
+								viewBox:'0 0 24 24',
+								style:
+								{
+									fill: attributes.arrowsColor
+								}
+							},
+							el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } ) 
+						),
 					),
 					!! attributes.pagination && el(
 						'div',
