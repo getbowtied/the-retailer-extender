@@ -245,7 +245,7 @@
 					'div',
 					{
 						key: 'gbt_18_tr_slider_container',
-						className: attributes.fullHeight ? 'shortcode_getbowtied_slider swiper-container full_height' : 'shortcode_getbowtied_slider swiper-container',
+						className: attributes.fullHeight ? 'gbt_18_tr_slider_container shortcode_getbowtied_slider swiper-container full_height' : 'gbt_18_tr_slider_container shortcode_getbowtied_slider swiper-container',
 						style:
 						{
 							height: attributes.customHeight + 'px'
@@ -277,7 +277,7 @@
 						'div',
 						{
 							key: 'shortcode-slider-pagination',
-							className: 'quickview-pagination shortcode-slider-pagination'
+							className: 'quickview-pagination shortcode-slider-pagination gbt_18_tr_slider_pagination'
 						}
 					)
 				)
