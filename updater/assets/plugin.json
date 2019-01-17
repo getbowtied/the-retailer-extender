@@ -3,18 +3,16 @@
 	"version": "1.2",
 	"download_url": "https://github.com/getbowtied/the-retailer-extender/zipball/master",
 
-	"homepage": "http://example.com/",
+	"homepage": "https://themeforest.net/item/the-retailer-responsive-wordpress-theme/4287447",
 	"requires": "5.0",
 	"tested": "5.0.3",
-	"last_updated": "2017-01-01 16:17:00",
-	"upgrade_notice": "Here's why you should upgrade...",
+	"last_updated": "2017-01-17",
 
-	"author": "Janis Elsts",
-	"author_homepage": "http://example.com/",
+	"author": "GetBowtied",
+	"author_homepage": "https://getbowtied.com/",
 
 	"sections": {
 		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
-		"installation": "(Recommended) Installation instructions.",
 		"changelog": "(Recommended) Changelog. <p>This section will be displayed by default when the user clicks 'View version x.y.z details'.</p>",
 	},
 	
