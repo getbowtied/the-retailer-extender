@@ -27,7 +27,7 @@ $theme = wp_get_theme();
 
 require 'updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/plugin.json',
+	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/updater/assets/plugin.json',
 	__FILE__,
 	'the-retailer-extender'
 );
