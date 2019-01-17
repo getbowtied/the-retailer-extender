@@ -4,11 +4,11 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://github.com/getbowtied/the-retailer-extender
  * Description:       		Extends the functionality of The Retailer with Gutenberg elements.
- * Version:           		1.1
+ * Version:           		1.2
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.0
+ * Tested up to: 			5.0.3
  *
  * @package  The Retailer Extender
  * @author   GetBowtied
@@ -25,34 +25,12 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 global $theme;
 $theme = wp_get_theme();
 
-add_action( 'init', 'github_tr_plugin_updater' );
-if(!function_exists('github_tr_plugin_updater')) {
-	function github_tr_plugin_updater() {
-
-		include_once 'updater.php';
-
-		define( 'WP_GITHUB_FORCE_UPDATE', true );
-
-		if ( is_admin() ) {
-
-			$config = array(
-				'slug' 				 => plugin_basename(__FILE__),
-				'proper_folder_name' => 'the-retailer-extender',
-				'api_url' 			 => 'https://api.github.com/repos/getbowtied/the-retailer-extender',
-				'raw_url' 			 => 'https://raw.github.com/getbowtied/the-retailer-extender/master',
-				'github_url' 		 => 'https://github.com/getbowtied/the-retailer-extender',
-				'zip_url' 			 => 'https://github.com/getbowtied/the-retailer-extender/zipball/master',
-				'sslverify'			 => true,
-				'requires'			 => '5.0',
-				'tested'			 => '5.0',
-				'readme'			 => 'README.txt',
-				'access_token'		 => '',
-			);
-
-			new WP_GitHub_Updater( $config );
-		}
-	}
-}
+require 'updater/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/plugin.json',
+	__FILE__,
+	'the-retailer-extender'
+);
 
 add_action( 'init', 'gbt_tr_gutenberg_blocks' );
 if(!function_exists('gbt_tr_gutenberg_blocks')) {
