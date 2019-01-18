@@ -1,5 +1,7 @@
 <?php
 
+global $theme;
+
 //==============================================================================
 //	Main Editor Styles
 //==============================================================================
@@ -25,8 +27,12 @@ if ( ! function_exists( 'getbowtied_tr_product_blocks_scripts' ) ) {
 	}
 }
 
-require_once 'posts_grid/block.php';
-require_once 'banner/block.php';
-require_once 'portfolio/block.php';
-require_once 'social_media_profiles/block.php';
-require_once 'slider/block.php';
+// The Retailer Dependent Blocks
+if ( $theme->template == 'theretailer') {
+	include_once 'portfolio/block.php';
+	include_once 'social_media_profiles/block.php';
+}
+
+include_once 'posts_grid/block.php';
+include_once 'banner/block.php';
+include_once 'slider/block.php';

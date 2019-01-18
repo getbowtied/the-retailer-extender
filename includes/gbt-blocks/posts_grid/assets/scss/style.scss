@@ -1,24 +1,17 @@
 .gbt_18_tr_posts_grid {
-	margin-bottom: 0.5rem;
+
+	&.alignfull {
+		.gbt_18_tr_posts_grid_wrapper {
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+	}
 
 	.gbt_18_tr_posts_grid_wrapper {
 		position: relative;
 	  	overflow: hidden;
-
-		&.full {
-			margin-left: calc( -100vw / 2 + 100% / 2 );
-		    margin-right: calc( -100vw / 2 + 100% / 2 );
-		    max-width: 100vw;
-	        padding: 0 35px;
-		}
-
-		&.wide {
-			@media all and (min-width: 1024px) {
-				margin-left: calc( -75vw / 2 + 100% / 2 );
-			    margin-right: calc( -75vw / 2 + 100% / 2 );
-			    max-width: 75vw;
-			}
-		}
+	  	margin-left: -15px;
+		margin-right: -15px;
 
 		&.columns-1 
 		{
@@ -32,16 +25,8 @@
 
 			.gbt_18_tr_posts_grid_item {
 
-				&:nth-child(even) {
-					padding-right: 0;
-				}
-
-				&:nth-child(odd) {
-					padding-left: 0;
-				}
-
 				@media all and (min-width: 640px) {
-					width: calc(50% - 30px);
+					width: 50%;
 					float: left;
 
 					&:nth-child(2n+1) {
@@ -61,30 +46,20 @@
 			.gbt_18_tr_posts_grid_item {
 
 				@media all and (min-width: 1024px) {
-					width: calc(33.333333% - 20px);
+					width: 33.333333%;
 					float: left;
 
 					&:nth-child(3n+1) {
 						clear: both;
-						padding-left: 0;
-					}
-
-					&:nth-child(3n) {
-						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 640px) and (max-width: 1023px) {
-					width: calc(50% - 15px);
+					width: 50%;
 					float: left;
 
 					&:nth-child(2n+1) {
 						clear: both;
-						padding-left: 0;
-					}
-
-					&:nth-child(2n) {
-						padding-right: 0;
 					}
 				}
 
@@ -100,44 +75,29 @@
 			.gbt_18_tr_posts_grid_item {
 
 				@media all and (min-width: 1240px) {
-					width: calc(25% - 23px);
+					width: 25%;
 					float: left;
 
 					&:nth-child(4n+1) {
 						clear: both;
-						padding-left: 0;
-					}
-
-					&:nth-child(4n) {
-						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 1024px) and (max-width: 1239px) {
-					width: calc(33.333333% - 20px);
+					width: 33.333333%;
 					float: left;
 
 					&:nth-child(3n+1) {
 						clear: both;
-						padding-left: 0;
-					}
-
-					&:nth-child(3n) {
-						padding-right: 0;
 					}
 				}
 
 				@media all and (min-width: 640px) and (max-width: 1023px) {
-					width: calc(50% - 15px);
+					width: 50%;
 					float: left;
 
 					&:nth-child(2n+1) {
 						clear: both;
-						padding-left: 0;
-					}
-
-					&:nth-child(2n) {
-						padding-right: 0;
 					}
 				}
 
@@ -157,14 +117,14 @@
 			}
 		}
 
+		.gbt_18_tr_posts_grid_item_link {
+			text-decoration: none;
+		}
+
 		.gbt_18_tr_posts_grid_title {
 			display: block;
 			text-align: left;
-			line-height: 1.4em;
-			color: #000;
-			margin: 0 0 15px;
-		    font-size: 18px;
-			font-style: normal;
+			padding-top: 0;
 			transition: all .3s;
 		}
 

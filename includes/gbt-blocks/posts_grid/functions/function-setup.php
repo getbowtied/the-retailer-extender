@@ -8,13 +8,19 @@ add_action( 'enqueue_block_editor_assets', 'gbt_18_tr_posts_grid_editor_assets' 
 if ( ! function_exists( 'gbt_18_tr_posts_grid_editor_assets' ) ) {
 	function gbt_18_tr_posts_grid_editor_assets() {
 		
-		wp_enqueue_script(
+		wp_register_script(
 			'gbt_18_tr_posts_grid_script',
 			plugins_url( 'block.js', dirname(__FILE__) ),
 			array( 'wp-api-request', 'wp-blocks', 'wp-components', 'wp-editor', 'wp-i18n', 'wp-element' )
 		);
 
-		wp_enqueue_style(
+		$language = isset($_GET['lang']) ? $_GET['lang'] : get_locale();
+
+		wp_localize_script( 'gbt_18_tr_posts_grid_script', 'posts_grid_vars', array(
+			'language' => $language
+		) );
+
+		wp_register_style(
 			'gbt_18_tr_posts_grid_editor_styles',
 			plugins_url( 'assets/css/editor.css', dirname(__FILE__) ),
 			array( 'wp-edit-blocks' )
@@ -42,6 +48,8 @@ if ( ! function_exists( 'gbt_18_tr_posts_grid_assets' ) ) {
 //==============================================================================
 if ( function_exists( 'register_block_type' ) ) {
 	register_block_type( 'getbowtied/tr-posts-grid', array(
+		'editor_style'      => 'gbt_18_tr_posts_grid_editor_styles',
+        'editor_script'     => 'gbt_18_tr_posts_grid_script',
 		'attributes'      					=> array(
 			'number'						=> array(
 				'type'						=> 'number',

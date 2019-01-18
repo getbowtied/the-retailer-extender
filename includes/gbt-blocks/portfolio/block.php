@@ -110,7 +110,7 @@ if( !function_exists('gbt_18_tr_render_frontend_portfolio') ) {
 
 		    if ( !empty( $portfolio_categories_queried ) && !is_wp_error( $portfolio_categories_queried ) ){
 		        echo '<ul class="portfolio_categories">';
-		            echo '<li class="filter controls-'.$u.'" data-filter="all">' . __("All", "theretailer") . '</li>';
+		            echo '<li class="filter controls-'.$u.'" data-filter="all">' . __("All", "theretailer-extender") . '</li>';
 		        foreach ( $portfolio_categories_queried as $key => $value ) {
 		            echo '<li class="filter controls-'.$u.'" data-filter=".'.$key.'">' . $value . '</li>';
 		        }
