@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://github.com/getbowtied/the-retailer-extender
  * Description:       		Extends the functionality of The Retailer with Gutenberg elements.
- * Version:           		1.2
+ * Version:           		1.2.1
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
@@ -25,9 +25,9 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 global $theme;
 $theme = wp_get_theme();
 
-require 'updater/plugin-update-checker.php';
+require 'core/updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/updater/assets/plugin.json',
+	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/core/updater/assets/plugin.json',
 	__FILE__,
 	'the-retailer-extender'
 );
@@ -49,7 +49,7 @@ if( !function_exists('tr_theme_warning') ) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+		<div class="error">
 			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
