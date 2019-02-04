@@ -5,11 +5,13 @@ global $theme;
 //==============================================================================
 //	Main Editor Styles
 //==============================================================================
-wp_enqueue_style(
-	'getbowtied-tr-product-blocks-editor-styles',
-	plugins_url( 'assets/css/editor.css', __FILE__ ),
-	array( 'wp-edit-blocks' )
-);
+add_action( 'enqueue_block_editor_assets', function() {
+	wp_enqueue_style(
+		'getbowtied-tr-blocks-editor-styles',
+		plugins_url( 'assets/css/editor.css', __FILE__ ),
+		array( 'wp-edit-blocks' )
+	);
+});
 
 //==============================================================================
 //	Main JS
@@ -19,7 +21,7 @@ if ( ! function_exists( 'getbowtied_tr_product_blocks_scripts' ) ) {
 	function getbowtied_tr_product_blocks_scripts() {
 
 		wp_enqueue_script(
-			'getbowtied-tr-product-blocks-editor-scripts',
+			'getbowtied-tr-blocks-editor-scripts',
 			plugins_url( 'assets/js/main.js', __FILE__ ),
 			array( 'wp-blocks', 'jquery' )
 		);

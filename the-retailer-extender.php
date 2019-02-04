@@ -49,7 +49,7 @@ if( !function_exists('tr_theme_warning') ) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+		<div class="error">
 			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
