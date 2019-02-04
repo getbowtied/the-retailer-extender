@@ -25,7 +25,7 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 global $theme;
 $theme = wp_get_theme();
 
-require 'core/updater/plugin-update-checker.php';
+require 'updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/core/updater/assets/plugin.json',
 	__FILE__,
