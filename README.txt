@@ -2,12 +2,12 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.0.3
-Stable tag: 1.2.1
+Tested up to: 5.1
+Stable tag: 1.2.2
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.2.1~
+~Current Version:1.2.2~
 
 Extends the functionality of the The Retailer theme by adding theme specific features.
 
@@ -23,6 +23,9 @@ Companion plugin for the **The Retailer** theme. Extends the functionality by ad
 - Portfolio
 
 == Changelog ==
+
+= 1.2.2 =
+- WordPress 5.1 compatibility improvements
 
 = 1.2.1 =
 - Fixed: Columns Block displaying issue
