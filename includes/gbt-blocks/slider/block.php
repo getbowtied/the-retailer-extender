@@ -35,7 +35,6 @@ if ( ! function_exists( 'gbt_18_tr_slider_editor_assets' ) ) {
 add_action( 'enqueue_block_assets', 'gbt_18_tr_slider_assets' );
 if ( ! function_exists( 'gbt_18_tr_slider_assets' ) ) {
 	function gbt_18_tr_slider_assets() {
-		global $theme;
 		
 		wp_enqueue_style(
 			'gbt_18_tr_slider_styles',
@@ -43,6 +42,7 @@ if ( ! function_exists( 'gbt_18_tr_slider_assets' ) ) {
 			array()
 		);
 
+		$theme = wp_get_theme();
 		if ( $theme->template != 'theretailer') {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_style(
