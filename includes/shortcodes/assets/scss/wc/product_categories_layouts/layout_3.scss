@@ -1,0 +1,157 @@
+.categories_layout_3
+{
+	.woocommerce
+	{
+		.shortcode_products
+		{
+			&:after
+			{
+				content: "";
+				display: block;
+				clear: both;	
+			}
+
+			.category_item
+			{
+				width: 100%; 
+				display: inline-block;   
+				margin-bottom: 1.11111rem;
+				
+				@media only screen and (min-width: 64em)
+				{
+					width: calc(37.5% - 94px);
+					margin: 0 2.61111rem 9.44444rem; 					 
+				}
+
+				.category_thumbnail_wrapper
+				{
+					position: relative; 
+					overflow: hidden;
+					height: 300px; 
+					
+					@media only screen and (min-width: 64em)
+					{
+						height: 22rem;
+					}
+					
+					.category_thumbnail
+					{
+					    height: 100%;
+	    				background-position: center center !important;
+	    				background-repeat: no-repeat !important;
+	    				background-size: cover !important;
+	    				transition: all 0.5s;
+	    				position: relative;	
+					}
+				}
+
+				
+				&:nth-child(8n+5),
+				&:nth-child(8n+2)
+				{
+					width: 100%; 
+					float: left;
+					
+					@media only screen and (min-width: 64em)
+					{
+						width: calc(62.5% - 94px);
+					}
+					
+					.category_thumbnail_wrapper
+					{
+						@media only screen and (min-width: 64em)
+						{
+							height: 35.55556rem; 
+						}
+					}			
+							
+				}
+
+				&:nth-child(4n+4),
+				&:nth-child(4n+3)
+				{
+					width: 100%; 
+					float: left;
+					
+					
+					@media only screen and (min-width: 64em)
+					{
+						width: calc(50% - 94px);
+						
+					}
+
+					&:nth-child(even)
+					{
+						@media only screen and (min-width: 64em)
+						{
+							position: relative;
+							top: -185px; 
+						}
+					}
+					
+					
+					.category_thumbnail_wrapper
+					{
+						@media only screen and (min-width: 64em)
+						{
+							height: 28.33333rem;
+						}
+					}	
+					
+				}
+
+				&:hover
+				{
+					.category_thumbnail
+					{
+						filter: saturate(2);						
+					}		
+				}
+			}
+
+			.category_name 
+			{
+				font-size: 1.16667rem;
+				font-weight: bold;
+				padding: 0;
+				text-align: left;
+				max-width: 100%;
+				z-index: 5;
+				transition:  all .3s ease-in-out;
+				margin-top: 1.66667rem; 
+				margin-bottom: 1.11111rem; 
+				padding: 0 1.66667rem ; 
+				
+				@media only screen and (min-width: 64em)
+				{
+					max-width: 21.66667rem;
+					padding: inherit;
+				}
+
+				a 
+				{
+					text-align: center;
+					display: inline-block;
+					font-size: 1rem;
+					line-height: 1.2;
+					margin-bottom: 1.11111rem;
+
+					@media only screen and (min-width: 64em)
+					{
+						font-size: 1.16667rem;
+						min-width: auto;
+					}
+				}
+
+				span.count 
+				{
+					float: right;
+					font-size: 0.66667rem;
+					margin-left: 0.27778rem;
+					font-weight: normal;
+				}
+			} 	
+		}
+		
+	}
+}

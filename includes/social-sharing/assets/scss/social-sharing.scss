@@ -1,0 +1,156 @@
+.woocommerce {
+
+	.product_infos {
+
+		.after_single_product_summary
+		{
+			.single_product_share_wrapper
+            {
+                padding-top: 20px; 
+                text-align: right;
+                
+                &:after
+                {
+                    content: "";
+                    display: block;
+                    clear: both; 
+                }
+                
+                @media only screen and (min-width: 64em) {
+                    display: table-cell;
+                    padding-top: 0; 
+                    vertical-align: top;
+                    line-height: 0; 
+                }
+
+				@media only screen and (min-width: 80em) {
+                    min-width: 210px;
+                }
+            }
+		}
+    
+        .single_product_share
+        { 
+            display: table;
+            width: 100%; 
+            vertical-align: top;
+            text-align: left;
+
+
+            @media only screen and (min-width: 64em) {
+
+                float: right;
+                display: inline-block; 
+                text-align: inherit; 
+            }
+            
+            &:after
+            {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            
+
+    		.share-product-text {
+                display: table-cell;
+                vertical-align: middle;
+    			text-transform: uppercase;
+	    		font-size: 0.55556rem;
+	    		font-weight: bold;
+               
+                @media (min-width: 1023px) {
+                    display: none;
+                }
+
+                @media only screen and (min-width: 80em) {
+                    text-align: right;
+                    display: inline-block;
+                    padding-right: 0.55556rem; 
+                }
+    		}
+
+    		.social_links
+            {
+                display: table-cell;
+                text-align: right;
+                margin-top: -7px;
+                
+                @media only screen and (min-width: 64em) {
+                    display: inline-block;
+                }
+                
+                a
+                {
+                    padding: 0 12px;
+                    
+                    &:last-child
+                    {
+                        padding-right: 0;
+                    }
+
+                    svg
+                    {
+                        position: relative;
+                        transition: all .2s ease;
+
+                        @media only screen and (min-width: 64em) {
+                            top: 3px;
+                        }
+                    }
+
+                    @media only screen and (min-width: 64em) {
+                        padding: 0 5px;
+
+                        &:last-child { padding-right: 0; }
+
+                        &.social_media_facebook:hover
+                        {
+                            svg
+                            {
+                                fill: #3b5998;
+                            }
+                        }
+
+                        &.social_media_twitter:hover
+                        {
+                            svg
+                            {
+                                fill: #4099FF;
+                            }
+                        }
+
+                        &.social_media_pinterest:hover
+                        {
+                            svg
+                            {
+                                fill: #C92228;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+    	}
+    
+    }
+}
+
+// RTL
+.rtl
+{
+	.woocommerce .product_infos .single_product_share
+	{
+	    text-align: left;
+	}
+}
+
+// Quickview
+.offcanvas_quickview
+{
+	.single_product_share
+	{
+		display: none;
+	}
+}

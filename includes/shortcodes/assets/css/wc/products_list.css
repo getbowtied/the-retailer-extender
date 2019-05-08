@@ -1,0 +1,138 @@
+h3.shortcode_title {
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: rem-calc(40); }
+
+.shortcode_products {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear; }
+  .shortcode_products.visible {
+    visibility: visible;
+    opacity: 1; }
+  .shortcode_products .s_column {
+    float: left; }
+  .shortcode_products .size-1of1 {
+    width: 100%; }
+  .shortcode_products .size-1of2 {
+    width: 50%; }
+    @media only screen and (max-width: 39.9375em) {
+      .shortcode_products .size-1of2 {
+        width: 100%; } }
+  .shortcode_products .size-1of3 {
+    width: 33.333%; }
+    @media only screen and (max-width: 39.9375em) {
+      .shortcode_products .size-1of3 {
+        width: 100%; } }
+  .shortcode_products .size-1of4 {
+    width: 25%; }
+    @media only screen and (max-width: 39.9375em) {
+      .shortcode_products .size-1of4 {
+        width: 100%; } }
+  .shortcode_products .size-1of5 {
+    width: 20%; }
+    @media only screen and (max-width: 39.9375em) {
+      .shortcode_products .size-1of5 {
+        width: 100%; } }
+  .shortcode_products .size-1of6 {
+    width: 16.666%; }
+    @media only screen and (max-width: 39.9375em) {
+      .shortcode_products .size-1of6 {
+        width: 100%; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_6[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_6[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_6[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_6[data-columns]::before {
+      content: '5 .s_column.size-1of5'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_6[data-columns]::before {
+      content: '6 .s_column.size-1of6'; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_5[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_5[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_5[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_5[data-columns]::before {
+      content: '4 .s_column.size-1of4'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_5[data-columns]::before {
+      content: '5 .s_column.size-1of5'; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_4[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_4[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_4[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_4[data-columns]::before {
+      content: '4 .s_column.size-1of4'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_4[data-columns]::before {
+      content: '4 .s_column.size-1of4'; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_3[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_3[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_3[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_3[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_3[data-columns]::before {
+      content: '3 .s_column.size-1of3'; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_2[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_2[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_2[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_2[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_2[data-columns]::before {
+      content: '2 .s_column.size-1of2'; } }
+  @media only screen and (max-width: 39.9375em) {
+    .shortcode_products.masonry_columns_1[data-columns]::before {
+      content: '1 .s_column.size-1of1'; } }
+  @media only screen and (max-width: 63.9375em) and (min-width: 40em) {
+    .shortcode_products.masonry_columns_1[data-columns]::before {
+      content: '1 .s_column.size-1of1'; } }
+  @media only screen and (max-width: 79.9375em) and (min-width: 64em) {
+    .shortcode_products.masonry_columns_1[data-columns]::before {
+      content: '1 .s_column.size-1of1'; } }
+  @media only screen and (min-width: 80em) and (max-width: 99.9375em) {
+    .shortcode_products.masonry_columns_1[data-columns]::before {
+      content: '1 .s_column.size-1of1'; } }
+  @media only screen and (min-width: 100em) {
+    .shortcode_products.masonry_columns_1[data-columns]::before {
+      content: '1 .s_column.size-1of1'; } }

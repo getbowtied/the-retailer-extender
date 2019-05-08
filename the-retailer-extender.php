@@ -29,36 +29,93 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'the-retailer-extender'
 );
 
-add_action( 'init', 'gbt_tr_gutenberg_blocks' );
-if(!function_exists('gbt_tr_gutenberg_blocks')) {
-	function gbt_tr_gutenberg_blocks() {
+if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
-		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || tr_is_wp_version('>=', '5.0') ) {
-			include_once 'includes/gbt-blocks/index.php';
-		} else {
-			add_action( 'admin_notices', 'tr_theme_warning' );
+	/**
+	 * TheRetailerExtender class.
+	*/
+	class TheRetailerExtender {
+
+		/**
+		 * The single instance of the class.
+		 *
+		 * @var TheRetailerExtender
+		*/
+		protected static $_instance = null;
+
+		/**
+		 * TheRetailerExtender constructor.
+		 *
+		*/
+		public function __construct() {
+
+			$theme = wp_get_theme();
+			$parent_theme = $theme->parent();
+
+			// Helpers
+			include_once( 'includes/helpers/helpers.php' );
+
+			// Customizer
+			include_once( 'includes/customizer/class/class-control-toggle.php' );
+
+			// Vendor
+			//include_once( 'includes/vendor/enqueue.php' );
+
+			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.11.1' || ( !empty($parent_theme) && $parent_theme->version >= '2.11.1' ) ) ) || $theme->template != 'theretailer' ) {
+
+			// 	// Shortcodes
+			// 	include_once( 'includes/shortcodes/index.php' );
+
+				// Social Media
+				include_once( 'includes/social-media/class-social-media.php' );
+
+			// 	// Addons
+			// 	if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+			// 		include_once( 'includes/addons/class-wc-category-header-image.php' );
+			// 	}
+			}
+
+			// Gutenberg Blocks
+			add_action( 'init', array( $this, 'gbt_tr_gutenberg_blocks' ) );
+
+			// if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
+
+			// 	// Custom Code Section
+			// 	include_once( 'includes/custom-code/class-custom-code.php' );
+
+			// 	// Social Sharing Buttons
+			// 	if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+			// 		include_once( 'includes/social-sharing/class-social-sharing.php' );
+			// 	}
+			// }
+		}
+
+		/**
+		 * Loads Gutenberg blocks
+		 *
+		 * @return void
+		*/
+		public function gbt_tr_gutenberg_blocks() {
+
+			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || tr_is_wp_version('>=', '5.0') ) {
+				include_once 'includes/gbt-blocks/index.php';
+			} else {
+				add_action( 'admin_notices', 'tr_theme_warning' );
+			}
+		}
+
+		/**
+		 * Ensures only one instance of TheRetailerExtender is loaded or can be loaded.
+		 *
+		 * @return TheRetailerExtender
+		*/
+		public static function instance() {
+			if ( is_null( self::$_instance ) ) {
+				self::$_instance = new self();
+			}
+			return self::$_instance;
 		}
 	}
-}
+endif;
 
-if( !function_exists('tr_theme_warning') ) {
-	function tr_theme_warning() {
-
-		?>
-
-		<div class="error">
-			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
-		</div>
-
-		<?php
-	}
-}
-
-if( !function_exists('tr_is_wp_version') ) {
-	function tr_is_wp_version( $operator = '>', $version = '4.0' ) {
-
-		global $wp_version;
-
-		return version_compare( $wp_version, $version, $operator );
-	}
-}
+$theretailer_extender = new TheRetailerExtender;
