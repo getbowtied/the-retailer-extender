@@ -70,7 +70,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 		*/
 		protected function enqueue_styles() {
 			add_action( 'wp_enqueue_scripts', function() {
-				wp_enqueue_style('merchandiser-social-media-styles', plugins_url( 'assets/css/social-media.css', __FILE__ ), NULL );
+				wp_enqueue_style('theretailer-social-media-styles', plugins_url( 'assets/css/social-media.css', __FILE__ ), NULL );
 			});
 		}
 
@@ -339,7 +339,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 		 * @return void
 		 */
 		protected function create_shortcode() {
-			add_shortcode( 'theretailer_socials', array( $this, 'tr_social_media_shortcode' ) );
+			add_shortcode( 'social-media', array( $this, 'tr_social_media_shortcode' ) );
 		}
 
 		/**
@@ -409,10 +409,10 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 
 			vc_map(
 				array(
-				   "name"						=> "Social Media",
+				   "name"						=> "Social Media Profiles",
 				   "category"					=> 'Social',
 				   "description"				=> "Links to your social media profiles",
-				   "base"						=> "socials",
+				   "base"						=> "social-media",
 				   "class"						=> "",
 				   "params" 	=> array(
 						array(
