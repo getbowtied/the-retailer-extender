@@ -1,24 +1,24 @@
 <?php
 
-if ( ! class_exists( 'MCCustomCode' ) ) :
+if ( ! class_exists( 'TR_Custom_Code' ) ) :
 
 	/**
-	 * MCCustomCode class.
+	 * TR_Custom_Code class.
 	 *
 	 * @since 1.3
 	*/
-	class MCCustomCode {
+	class TR_Custom_Code {
 
 		/**
 		 * The single instance of the class.
 		 *
 		 * @since 1.3
-		 * @var MCCustomCode
+		 * @var TR_Custom_Code
 		*/
 		protected static $_instance = null;
 
 		/**
-		 * MCCustomCode constructor.
+		 * TR_Custom_Code constructor.
 		 *
 		 * @since 1.3
 		*/
@@ -30,11 +30,11 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 		}
 
 		/**
-		 * Ensures only one instance of MCCustomCode is loaded or can be loaded.
+		 * Ensures only one instance of TR_Custom_Code is loaded or can be loaded.
 		 *
 		 * @since 1.3
 		 *
-		 * @return MCCustomCode
+		 * @return TR_Custom_Code
 		*/
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
@@ -51,17 +51,17 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 		 */
 		public function import_options() {
 
-			if( !get_option( 'mc_custom_code_options_import', false ) ) {
+			if( !get_option( 'tr_custom_code_options_import', false ) ) {
 
 				wp_update_custom_css_post( wp_get_custom_css() . ' ' . get_theme_mod( 'custom_css', '' ) );
 
-				$custom_header_js_option = get_theme_mod( 'header_js', '' );
-				update_option( 'mc_custom_code_header_js', $custom_header_js_option );
+				$custom_header_js_option = get_theme_mod( 'custom_js_header', '' );
+				update_option( 'tr_custom_code_header_js', $custom_header_js_option );
 
-				$custom_footer_js_option = get_theme_mod( 'footer_js', '' );
-				update_option( 'mc_custom_code_footer_js', $custom_footer_js_option );
+				$custom_footer_js_option = get_theme_mod( 'custom_js_footer', '' );
+				update_option( 'tr_custom_code_footer_js', $custom_footer_js_option );
 
-				update_option( 'mc_custom_code_options_import', true );	
+				update_option( 'tr_custom_code_options_import', true );	
 			}
 		}
 
@@ -72,7 +72,7 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 		 * @return void
 		 */
 		protected function customizer_options() {
-			add_action( 'customize_register', array( $this, 'mc_custom_code_customizer' ) );
+			add_action( 'customize_register', array( $this, 'tr_custom_code_customizer' ) );
 		}
 
 		/**
@@ -81,15 +81,15 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 		 * @since 1.3
 		 * @return void
 		 */
-		public function mc_custom_code_customizer( $wp_customize ) {
+		public function tr_custom_code_customizer( $wp_customize ) {
 
 			// Section
-			$wp_customize->add_section( 'mc_custom_code', array(
-		 		'title'       => esc_attr__( 'Additional JS', 'shopkeeper-extender' ),
+			$wp_customize->add_section( 'tr_custom_code', array(
+		 		'title'       => esc_attr__( 'Additional JS', 'theretailer-extender' ),
 		 		'priority'    => 201,
 		 	) );
 
-		 	$wp_customize->add_setting( 'mc_custom_code_header_js', array(
+		 	$wp_customize->add_setting( 'tr_custom_code_header_js', array(
 				'type'		 => 'option',
 				'capability' => 'manage_options',
 				'transport'  => 'refresh',
@@ -99,17 +99,17 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 			$wp_customize->add_control( 
 				new WP_Customize_Code_Editor_Control(
 					$wp_customize,
-					'mc_custom_code_header_js',
+					'tr_custom_code_header_js',
 					array( 
 						'code_type' 	=> 'javascript',
-						'label'       	=> esc_attr__( 'Header JavaScript Code', 'shopkeeper-extender' ),
-						'section'     	=> 'mc_custom_code',
+						'label'       	=> esc_attr__( 'Header JavaScript Code', 'theretailer-extender' ),
+						'section'     	=> 'tr_custom_code',
 						'priority'    	=> 10,
 					)
 				)
 			);
 
-			$wp_customize->add_setting( 'mc_custom_code_footer_js', array(
+			$wp_customize->add_setting( 'tr_custom_code_footer_js', array(
 				'type'		 => 'option',
 				'capability' => 'manage_options',
 				'transport'  => 'refresh',
@@ -119,11 +119,11 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 			$wp_customize->add_control( 
 				new WP_Customize_Code_Editor_Control(
 					$wp_customize,
-					'mc_custom_code_footer_js',
+					'tr_custom_code_footer_js',
 					array( 
 						'code_type' 	=> 'javascript',
-						'label'       	=> esc_attr__( 'Footer JavaScript Code', 'shopkeeper-extender' ),
-						'section'     	=> 'mc_custom_code',
+						'label'       	=> esc_attr__( 'Footer JavaScript Code', 'theretailer-extender' ),
+						'section'     	=> 'tr_custom_code',
 						'priority'    	=> 10,
 					)
 				)
@@ -133,4 +133,4 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 
 endif;
 
-$mc_custom_code = new MCCustomCode;
+$tr_custom_code = new TR_Custom_Code;

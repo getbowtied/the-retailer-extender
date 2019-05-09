@@ -82,16 +82,16 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			// Gutenberg Blocks
 			add_action( 'init', array( $this, 'gbt_tr_gutenberg_blocks' ) );
 
-			// if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
+			if( $theme->template == 'theretailer' && ( $theme->version >= '2.11.1' || ( !empty($parent_theme) && $parent_theme->version >= '2.11.1' ) ) ) {
 
-			// 	// Custom Code Section
-			// 	include_once( 'includes/custom-code/class-custom-code.php' );
+				// Custom Code Section
+				include_once( 'includes/custom-code/class-custom-code.php' );
 
 			// 	// Social Sharing Buttons
 			// 	if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
 			// 		include_once( 'includes/social-sharing/class-social-sharing.php' );
 			// 	}
-			// }
+			}
 		}
 
 		/**
