@@ -24,6 +24,8 @@
       border: none !important; }
       .shortcode_socials ul.tr_social_icons_list li.tr_social_icon:first-child {
         padding-left: 0; }
+      .shortcode_socials ul.tr_social_icons_list li.tr_social_icon:last-child {
+        padding-right: 0; }
       .shortcode_socials ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link {
         -webkit-transition: opacity .2s;
         -o-transition: opacity .2s;

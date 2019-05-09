@@ -45,6 +45,11 @@
 				padding-left: 0;
 			}
 
+			&:last-child
+			{
+				padding-right: 0;
+			}
+
 			a.tr_social_icon_link
 			{
 				transition: opacity .2s;

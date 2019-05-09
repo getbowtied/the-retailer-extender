@@ -435,7 +435,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 							"admin_label" 	=> true,
 							"heading"		=> "Font Size (px, em)",
 							"param_name"	=> "font_size",
-							"value"			=> "",
+							"value"			=> "16",
 						),
 						array(
 							"type"			=> "colorpicker",
@@ -444,7 +444,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 							"admin_label" 	=> true,
 							"heading"		=> "Color",
 							"param_name"	=> "color",
-							"value"			=> "",
+							"value"			=> "#000",
 						),
 				   	)
 			    )
