@@ -2,7 +2,6 @@
 {
 	vertical-align: middle;
 	clear: both;
-	margin: 0 -15px 1rem -15px;
 	display: block;
 
 	ul.tr_social_icons_list
@@ -37,8 +36,14 @@
 
 		li.tr_social_icon
 		{
-			padding: 5px 15px;
+			padding: 5px 8px;
 			display: inline-block;
+			border: none !important;
+
+			&:first-child
+			{
+				padding-left: 0;
+			}
 
 			a.tr_social_icon_link
 			{

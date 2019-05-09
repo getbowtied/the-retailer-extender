@@ -63,6 +63,10 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.11.1' || ( !empty($parent_theme) && $parent_theme->version >= '2.11.1' ) ) ) || $theme->template != 'theretailer' ) {
 
+				//Widgets
+				include_once( 'includes/widgets/social-media.php' );
+				include_once( 'includes/widgets/recent-posts.php' );
+
 			// 	// Shortcodes
 			// 	include_once( 'includes/shortcodes/index.php' );
 
