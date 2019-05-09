@@ -29,7 +29,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 				update_option( 'tr_social_sharing_options_import', true );
 			}
 
-			$this->enqueue_styles();
+			$this->enqueue_scripts();
 			$this->customizer_options();
 
 			add_action( 'wp_head', function() {
@@ -75,8 +75,9 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 		 * @since 1.3
 		 * @return void
 		*/
-		protected function enqueue_styles() {
+		protected function enqueue_scripts() {
 			add_action( 'wp_enqueue_scripts', function() {
+				wp_enqueue_script('tr-social-sharing-scripts', plugins_url( 'assets/js/social-sharing.js', __FILE__ ), array( 'jquery' ) );
 				wp_enqueue_style('tr-social-sharing-styles', plugins_url( 'assets/css/social-sharing.css', __FILE__ ), NULL );
 			});
 		}
