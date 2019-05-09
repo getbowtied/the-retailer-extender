@@ -1,26 +1,26 @@
 <?php
 
-if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
+if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 
 	/**
-	 * MCCategoryHeaderImage class.
+	 * TRCategoryHeaderImage class.
 	 *
 	 * Adds a Header Image to WooCommerce Product Category.
 	 *
 	 * @since 1.3
 	*/
-	class MCCategoryHeaderImage {
+	class TRCategoryHeaderImage {
 
 		/**
 		 * The single instance of the class.
 		 *
 		 * @since 1.3
-		 * @var MCCategoryHeaderImage
+		 * @var TRCategoryHeaderImage
 		*/
 		protected static $_instance = null;
 
 		/**
-		 * MCCategoryHeaderImage constructor.
+		 * TRCategoryHeaderImage constructor.
 		 *
 		 * @since 1.3
 		*/
@@ -36,11 +36,11 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 		}
 
 		/**
-		 * Ensures only one instance of MCCategoryHeaderImage is loaded or can be loaded.
+		 * Ensures only one instance of TRCategoryHeaderImage is loaded or can be loaded.
 		 *
 		 * @since 1.3
 		 *
-		 * @return MCCategoryHeaderImage
+		 * @return TRCategoryHeaderImage
 		*/
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
@@ -61,12 +61,12 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 			?>
 
 			<div class="form-field">
-				<label><?php esc_html_e( 'Header', 'getbowtied' ); ?></label>
+				<label><?php _e( 'Header', 'getbowtied' ); ?></label>
 				<div id="product_cat_header" style="float:left;margin-right:10px;"><img src="<?php echo wc_placeholder_img_src(); ?>" width="60px" height="60px" /></div>
 				<div style="line-height:60px;">
 					<input type="hidden" id="product_cat_header_id" name="product_cat_header_id" />
-					<button type="submit" class="upload_header_button button"><?php esc_html_e( 'Upload/Add image', 'getbowtied' ); ?></button>
-					<button type="submit" class="remove_header_image_button button"><?php esc_html_e( 'Remove image', 'getbowtied' ); ?></button>
+					<button type="submit" class="upload_header_button button"><?php _e( 'Upload/Add image', 'getbowtied' ); ?></button>
+					<button type="submit" class="remove_header_image_button button"><?php _e( 'Remove image', 'getbowtied' ); ?></button>
 				</div>
 
 				<script type="text/javascript">
@@ -90,9 +90,9 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 
 						// Create the media frame.
 						header_file_frame = wp.media.frames.downloadable_file = wp.media({
-							title: '<?php esc_html_e( 'Choose an image', 'getbowtied' ); ?>',
+							title: '<?php _e( 'Choose an image', 'getbowtied' ); ?>',
 							button: {
-								text: '<?php esc_html_e( 'Use image', 'getbowtied' ); ?>',
+								text: '<?php _e( 'Use image', 'getbowtied' ); ?>',
 							},
 							multiple: false
 						});
@@ -151,13 +151,13 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 			?>
 
 			<tr class="form-field">
-				<th scope="row" valign="top"><label><?php esc_html_e( 'Header', 'getbowtied' ); ?></label></th>
+				<th scope="row" valign="top"><label><?php _e( 'Header', 'getbowtied' ); ?></label></th>
 				<td>
-					<div id="product_cat_header" style="float:left;margin-right:10px;"><img src="<?php echo ent2ncr($image); ?>" width="60px" height="60px" /></div>
+					<div id="product_cat_header" style="float:left;margin-right:10px;"><img src="<?php echo $image; ?>" width="60px" height="60px" /></div>
 					<div style="line-height:60px;">
-						<input type="hidden" id="product_cat_header_id" name="product_cat_header_id" value="<?php echo ent2ncr($header_id); ?>" />
-						<button type="submit" class="upload_header_button button"><?php esc_html_e( 'Upload/Add image', 'getbowtied' ); ?></button>
-						<button type="submit" class="remove_header_image_button button"><?php esc_html_e( 'Remove image', 'getbowtied' ); ?></button>
+						<input type="hidden" id="product_cat_header_id" name="product_cat_header_id" value="<?php echo $header_id; ?>" />
+						<button type="submit" class="upload_header_button button"><?php _e( 'Upload/Add image', 'getbowtied' ); ?></button>
+						<button type="submit" class="remove_header_image_button button"><?php _e( 'Remove image', 'getbowtied' ); ?></button>
 					</div>
 
 					<script type="text/javascript">			 
@@ -183,9 +183,9 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 
 							// Create the media frame.
 							header_file_frame = wp.media.frames.downloadable_file = wp.media({
-								title: '<?php esc_html_e( 'Choose an image', 'getbowtied' ); ?>',
+								title: '<?php _e( 'Choose an image', 'getbowtied' ); ?>',
 								button: {
-									text: '<?php esc_html_e( 'Use image', 'getbowtied' ); ?>',
+									text: '<?php _e( 'Use image', 'getbowtied' ); ?>',
 								},
 								multiple: false
 							});
@@ -232,8 +232,9 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 		 * @return void
 		 */
 		public function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {	
-			if ( isset( $_POST['product_cat_header_id'] ) )
-				update_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
+			if ( isset( $_POST['product_cat_header_id'] ) ) {
+				update_woocommerce_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
+			}
 
 			delete_transient( 'wc_term_counts' );
 		}
@@ -249,13 +250,9 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 		 */
 		public function woocommerce_product_cat_header_columns( $columns ) {
 			$new_columns = array();
-
-			if( isset($columns['cb']) ) {
-				$new_columns['cb'] = $columns['cb'];
-			}
-			
-			$new_columns['thumb'] = esc_html__( 'Image', 'getbowtied' );
-			$new_columns['header'] = esc_html__( 'Header', 'getbowtied' );
+			$new_columns['cb'] = $columns['cb'];
+			$new_columns['thumb'] = __( 'Image', 'getbowtied' );
+			$new_columns['header'] = __( 'Header', 'getbowtied' );
 			unset( $columns['cb'] );
 			unset( $columns['thumb'] );
 
@@ -304,7 +301,6 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 		public function getbowtied_show_category_header() {
 			$category_header_src = $this->woocommerce_get_header_image_url();	
 			echo ($category_header_src!="") ? '<div class="woocommerce_category_header_image"><img src="'.$category_header_src.'" style="width:100%; height:auto; margin:0 0 20px 0" /></div>' : "";
-
 		}
 
 		/**
@@ -331,7 +327,6 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 
 		    // get the image URL
 		   return wp_get_attachment_url( $thumbnail_id ); 
-
 		}
 
 		/**
@@ -348,10 +343,10 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 					text-align: center;
 					white-space: nowrap;
 				}
-        	</style>';
+	         </style>';
 		}
 	}
 
 endif;
 
-$mc_wc_cat_header = new MCCategoryHeaderImage;
+$tr_wc_cat_header = new TRCategoryHeaderImage;
