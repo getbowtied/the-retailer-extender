@@ -2,7 +2,7 @@ jQuery(function($) {
 	
 	"use strict";
 
-	$('.featured-products-wrapper.swiper-container').each(function() {
+	$('.wc-products-list.swiper-container').each(function() {
 
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: 4,

@@ -8,11 +8,19 @@ include_once( 'wp/recent-work-filtered.php' );
 include_once( 'wp/slider.php' );
 include_once( 'wp/team-members.php' );
 include_once( 'wp/title-subtitle.php' );
+include_once( 'wp/shortcodes.php' );
 
 // WC
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	include_once( 'wc/featured-products-slider.php' );
 	include_once( 'wc/wc-featured-products.php' );
+	include_once( 'wc/wc-best-selling-products.php' );
+	include_once( 'wc/wc-products-by-attribute.php' );
+	include_once( 'wc/wc-products-by-category.php' );
+	include_once( 'wc/wc-products-by-ids-skus.php' );
+	include_once( 'wc/wc-recent-products.php' );
+	include_once( 'wc/wc-sale-products.php' );
+	include_once( 'wc/wc-top-rated-products.php' );
 }
 
 // Mixed
@@ -48,9 +56,6 @@ if ( defined( 'WPB_VC_VERSION' ) ) {
 			include_once( 'wb/wc/featured-products-slider.php' );
 			include_once( 'wb/wc/wc-best-selling-products.php' );
 			include_once( 'wb/wc/wc-featured-products.php' );
-			include_once( 'wb/wc/wc-product-by-id-sku.php' );
-			include_once( 'wb/wc/wc-product-categories.php' );
-			include_once( 'wb/wc/wc-product-categories-grid.php' );
 			include_once( 'wb/wc/wc-products-by-attribute.php' );
 			include_once( 'wb/wc/wc-products-by-category.php' );
 			include_once( 'wb/wc/wc-products-by-ids-skus.php' );
@@ -78,6 +83,12 @@ function getbowtied_tr_shortcodes_admin_styles() {
 
 add_action( 'wp_enqueue_scripts', 'getbowtied_tr_shortcodes_styles', 99 );
 function getbowtied_tr_shortcodes_styles() {
+
+	wp_enqueue_style('theretailer-slider-elements-styles',
+		plugins_url( 'assets/css/slider-elements.css', __FILE__ ),
+		NULL
+	);
+
 	wp_register_style('theretailer-banner-shortcode-styles',
 		plugins_url( 'assets/css/wp/banner.css', __FILE__ ),
 		NULL
@@ -151,8 +162,8 @@ function getbowtied_mc_shortcodes_scripts() {
 			array('jquery')
 		);
 
-		wp_register_script('theretailer-wc-featured-products-script', 
-			plugins_url( 'assets/js/wc-featured-products.js', __FILE__ ),
+		wp_register_script('theretailer-wc-products-slider-script', 
+			plugins_url( 'assets/js/wc-products-slider.js', __FILE__ ),
 			array('jquery')
 		);
 	}

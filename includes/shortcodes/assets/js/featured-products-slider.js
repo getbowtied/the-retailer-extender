@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: 4,
-			loop: true,
+			loop: false,
 			navigation: {
 			    nextEl: '.products_slider_next',
 			    prevEl: '.products_slider_previous',

@@ -4,7 +4,7 @@
 function shortcode_custom_featured_products($atts, $content = null) {
 
 	wp_enqueue_style('theretailer-wc-featured-products-shortcode-styles');
-	wp_enqueue_script('theretailer-wc-featured-products-script');
+	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(
@@ -23,7 +23,7 @@ function shortcode_custom_featured_products($atts, $content = null) {
 	if (class_exists('WooCommerce')) {
 	?>  
 	
-    <div class="slider-master-wrapper featured-products-wrapper swiper-container <?php if ( $title=='' ) echo 'slider-without-title'?>">
+    <div class="slider-master-wrapper featured-products-wrapper wc-products-list swiper-container <?php if ( $title=='' ) echo 'slider-without-title'?>">
     
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">
@@ -35,6 +35,8 @@ function shortcode_custom_featured_products($atts, $content = null) {
                 <div class='clr'></div>
             </div>
         </div>
+
+        <div class="gbtr_bold_sep"></div>
        
         <div class="slider-wrapper swiper-wrapper">
 			

@@ -2,32 +2,6 @@
 
 // [products]
 
-/* All products dropdown */
-function products_settings_field($settings, $value) {   
-    $attr = array("post_type"=>"product", "orderby"=>"name", "order"=>"asc", 'posts_per_page'   => -1);
-    $categories = get_posts($attr); 
-    $data = '<input type="text" value="'.$value.'" name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select vc_custom_select_custom_val '.$settings['param_name'].' '.$settings['type'].'" id="vc_custom_select_custom_prod">';
-    $data .= '<div class="vc_custom_select_custom_wrapper"><ul class="vc_custom_select_custom_vals">';
-    $insterted_vals = explode(',', $value);
-    foreach($categories as $val) {
-        if( in_array($val->ID, $insterted_vals) ) {
-          $data .= '<li data-val="'.$val->ID.'">'.$val->post_title.'<button>&#215;</button></li>';
-        }
-    }
-    $data .= '</ul>'; 
-    $data .= '<ul class="vc_custom_select_custom">';
-    foreach($categories as $val) {
-        $selected = '';
-        if( in_array($val->ID, $insterted_vals) ) {
-          $selected = ' class="selected"';
-        }
-        $data .= '<li' . $selected . ' data-val="'.$val->ID.'">'.$val->post_title.'</li>';
-    }
-    $data .= '</ul></div>';
-    return $data;
-}
-vc_add_shortcode_param('products' , 'products_settings_field', get_template_directory_uri() . '/js/wp-admin-visual-composer.js');
-
 vc_map(array(
    "name" 			=> "Products",
    "category" 		=> "The Retailer",
@@ -48,13 +22,23 @@ vc_map(array(
 		),
 		
 		array(
-			"type" => "products",
+			"type" => "autocomplete",
 			"holder" => "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
+			'settings' 		=> array(
+				'multiple' 		=> true,
+				'unique_values' => true,
+			),
+			'description' => __( 'Input product ID or product SKU or product title to see suggestions', 'js_composer' ),
 			"heading" => "Products",
 			"param_name" => "ids"
 		),
+		array(
+        'type' => 'hidden',
+        // This will not show on render, but will be used when defining value for autocomplete
+        'param_name' => 'sku',
+      ),
 		
 		array(
 			"type"			=> "dropdown",
@@ -103,3 +87,19 @@ vc_map(array(
    )
    
 ));
+
+//Filters For autocomplete param:
+  //For suggestion: vc_autocomplete_[shortcode_name]_[param_name]_callback
+  add_filter( 'vc_autocomplete_products_mixed_ids_callback', array(
+    'Vc_Vendor_Woocommerce',
+    'productIdAutocompleteSuggester',
+  ), 10, 1 ); // Get suggestion(find). Must return an array
+  add_filter( 'vc_autocomplete_products_mixed_ids_render', array(
+    'Vc_Vendor_Woocommerce',
+    'productIdAutocompleteRender',
+  ), 10, 1 ); // Render exact product. Must return an array (label,value)
+  //For param: ID default value filter
+  add_filter( 'vc_form_fields_render_field_products_mixed_ids_param_value', array(
+    'Vc_Vendor_Woocommerce',
+    'productIdDefaultValue',
+  ), 10, 4 ); // Defines default value for param if not provided. Takes from other param value.
