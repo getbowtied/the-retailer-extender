@@ -2,22 +2,17 @@
 
 // WP
 include_once( 'wp/banner.php' );
+include_once( 'wp/from-the-blog.php' );
+include_once( 'wp/icon-box.php' );
+include_once( 'wp/recent-work-filtered.php' );
 include_once( 'wp/slider.php' );
-include_once( 'wp/title.php' );
-include_once( 'wp/blog-posts.php' );
+include_once( 'wp/team-members.php' );
+include_once( 'wp/title-subtitle.php' );
 
 // WC
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	include_once( 'wc/recent-products-list.php' );
-	include_once( 'wc/featured-products-list.php' );
-	include_once( 'wc/sale-products-list.php' );
-	include_once( 'wc/best-selling-products-list.php' );
-	include_once( 'wc/top-rated-products-list.php' );
-	include_once( 'wc/product-category-list.php' );
-	include_once( 'wc/products-list.php' );
-	include_once( 'wc/products-by-attribute-list.php' );
-	include_once( 'wc/single-product.php' );
-	include_once( 'wc/product-categories.php' );
+	include_once( 'wc/featured-products-slider.php' );
+	include_once( 'wc/wc-featured-products.php' );
 }
 
 // Mixed
@@ -27,100 +22,137 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	include_once( 'mixed/sale-products-mixed.php' );
 	include_once( 'mixed/best-selling-products-mixed.php' );
 	include_once( 'mixed/top-rated-products-mixed.php' );
-	include_once( 'mixed/product-category-mixed.php' );
+	include_once( 'mixed/products-by-category-mixed.php' );
 	include_once( 'mixed/products-mixed.php' );
 	include_once( 'mixed/products-by-attribute-mixed.php' );
 }
-include_once( 'mixed/blog-posts-mixed.php' );
 
 // Add Shortcodes to WP Bakery
 if ( defined( 'WPB_VC_VERSION' ) ) {
 	
-	add_action( 'init', 'getbowtied_mc_visual_composer_shortcodes', 99 );
-	function getbowtied_mc_visual_composer_shortcodes() {
+	add_action( 'init', 'getbowtied_tr_visual_composer_shortcodes', 99 );
+	function getbowtied_tr_visual_composer_shortcodes() {
 		
 		// Add new WP shortcodes to VC
 		include_once( 'wb/wp/banner.php' );
-		include_once( 'wb/wp/blog-posts.php' );
+		include_once( 'wb/wp/from-the-blog.php' );
+		include_once( 'wb/wp/icon-box.php' );
+		include_once( 'wb/wp/recent-work-filtered.php' );
 		include_once( 'wb/wp/slider.php' );
-		include_once( 'wb/wp/title.php' );
+		include_once( 'wb/wp/team-members.php' );
+		include_once( 'wb/wp/title-subtitle.php' );
 		
 		// Add new WC shortcodes to VC
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			
-			include_once( 'wb/wc/best-selling-products.php' );
-			include_once( 'wb/wc/featured-products.php' );
-			include_once( 'wb/wc/product-by-id-sku.php' );
-			include_once( 'wb/wc/product-categories.php' );
-			include_once( 'wb/wc/product-categories-grid.php' );
-			include_once( 'wb/wc/products-by-attribute.php' );
-			include_once( 'wb/wc/products-by-category.php' );
-			include_once( 'wb/wc/products-by-ids-skus.php' );
-			include_once( 'wb/wc/recent-products.php' );
-			include_once( 'wb/wc/sale-products.php' );
-			include_once( 'wb/wc/top-rated-products.php' );
+
+			include_once( 'wb/wc/featured-products-slider.php' );
+			include_once( 'wb/wc/wc-best-selling-products.php' );
+			include_once( 'wb/wc/wc-featured-products.php' );
+			include_once( 'wb/wc/wc-product-by-id-sku.php' );
+			include_once( 'wb/wc/wc-product-categories.php' );
+			include_once( 'wb/wc/wc-product-categories-grid.php' );
+			include_once( 'wb/wc/wc-products-by-attribute.php' );
+			include_once( 'wb/wc/wc-products-by-category.php' );
+			include_once( 'wb/wc/wc-products-by-ids-skus.php' );
+			include_once( 'wb/wc/wc-recent-products.php' );
+			include_once( 'wb/wc/wc-sale-products.php' );
+			include_once( 'wb/wc/wc-top-rated-products.php' );
 
 		}
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_styles', 99 );
-function getbowtied_mc_shortcodes_styles() {
-	wp_register_style('merchandiser-banner-shortcode-styles',
+add_action( 'admin_enqueue_scripts', 'getbowtied_tr_shortcodes_admin_styles', 99 );
+function getbowtied_tr_shortcodes_admin_styles() {
+	if ( defined( 'WPB_VC_VERSION' ) ) {
+		wp_enqueue_style('theretailer-icon-box-admin-shortcode-styles',
+			plugins_url( 'assets/css/wp/icon-box-admin.css', __FILE__ ),
+			NULL
+		);
+		wp_enqueue_style('theretailer-linea-fonts-styles',
+			plugins_url( 'fonts/linea-fonts/styles.css', dirname(__FILE__) ),
+			NULL
+		);
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'getbowtied_tr_shortcodes_styles', 99 );
+function getbowtied_tr_shortcodes_styles() {
+	wp_register_style('theretailer-banner-shortcode-styles',
 		plugins_url( 'assets/css/wp/banner.css', __FILE__ ),
 		NULL
 	);
 
-	wp_register_style('merchandiser-blog-posts-shortcode-styles',
-		plugins_url( 'assets/css/wp/blog-posts.css', __FILE__ ),
+	wp_register_style('theretailer-from-the-blog-shortcode-styles',
+		plugins_url( 'assets/css/wp/from-the-blog.css', __FILE__ ),
 		NULL
 	);
 
-	wp_register_style('merchandiser-slider-shortcode-styles',
+	wp_register_style('theretailer-icon-box-shortcode-styles',
+		plugins_url( 'assets/css/wp/icon-box.css', __FILE__ ),
+		NULL
+	);
+
+	wp_register_style('theretailer-linea-fonts-styles',
+		plugins_url( 'fonts/linea-fonts/styles.css', dirname(__FILE__) ),
+		NULL
+	);
+
+	wp_register_style('theretailer-slider-shortcode-styles',
 		plugins_url( 'assets/css/wp/slider.css', __FILE__ ),
 		NULL
 	);
 
-	wp_register_style('merchandiser-title-shortcode-styles',
-		plugins_url( 'assets/css/wp/title.css', __FILE__ ),
+	wp_register_style('theretailer-team-members-shortcode-styles',
+		plugins_url( 'assets/css/wp/team-members.css', __FILE__ ),
+		NULL
+	);
+
+	wp_register_style('theretailer-title-subtitle-shortcode-styles',
+		plugins_url( 'assets/css/wp/title-subtitle.css', __FILE__ ),
 		NULL
 	);
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
-		wp_register_style('merchandiser-product-categories-shortcode-styles',
-			plugins_url( 'assets/css/wc/product_categories.css', __FILE__ ),
+		wp_register_style('theretailer-featured-products-slider-shortcode-styles',
+			plugins_url( 'assets/css/wc/featured-products-slider.css', __FILE__ ),
 			NULL
 		);
 
-		wp_register_style('merchandiser-products-list-shortcode-styles',
-			plugins_url( 'assets/css/wc/products_list.css', __FILE__ ),
+		wp_register_style('theretailer-wc-featured-products-shortcode-styles',
+			plugins_url( 'assets/css/wc/wc-featured-products.css', __FILE__ ),
 			NULL
 		);
 
-		wp_register_style('merchandiser-single-product-shortcode-styles',
-			plugins_url( 'assets/css/wc/single_product.css', __FILE__ ),
-			NULL
-		);
+	// 	wp_register_style('merchandiser-single-product-shortcode-styles',
+	// 		plugins_url( 'assets/css/wc/single_product.css', __FILE__ ),
+	// 		NULL
+	// 	);
 	}
 }
 
 add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_scripts', 99 );
 function getbowtied_mc_shortcodes_scripts() {
 
-	wp_register_script('merchandiser-blog-posts-shortcode-script', 
-		plugins_url( 'assets/js/blog-posts.js', __FILE__ ),
+	wp_register_script('theretailer-from-the-blog-shortcode-scripts', 
+		plugins_url( 'assets/js/from-the-blog.js', __FILE__ ),
 		array('jquery')
 	);
 
-	wp_register_script('merchandiser-slider-shortcode-script', 
+	wp_register_script('theretailer-slider-shortcode-script', 
 		plugins_url( 'assets/js/slider.js', __FILE__ ),
 		array('jquery')
 	);
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-		wp_enqueue_script('merchandiser-product-gutter-script', 
-			plugins_url( 'assets/js/product-list-gutter.js', __FILE__ ),
+		wp_register_script('theretailer-featured-products-slider-script', 
+			plugins_url( 'assets/js/featured-products-slider.js', __FILE__ ),
+			array('jquery')
+		);
+
+		wp_register_script('theretailer-wc-featured-products-script', 
+			plugins_url( 'assets/js/wc-featured-products.js', __FILE__ ),
 			array('jquery')
 		);
 	}

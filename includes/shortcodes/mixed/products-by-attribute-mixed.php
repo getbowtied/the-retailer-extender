@@ -1,47 +1,25 @@
 <?php
 
-// [product_attribute_mixed]
-function getbowtied_mc_shortcode_product_attribute_mixed($atts, $content = null) {
+// [products_by_attribute_mixed]
+function shortcode_products_by_attribute_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
-		'widget_title' => '',
+		'title' => '',
 		'attribute' => '',
 		'filter' => '',
-		'per_page'  => '4',
-		'columns'  => '4',
+		'per_page'  => '12',
         'orderby' => 'date',
         'order' => 'desc',
-		'layout'  => 'listing',
-		'show_product_details' => 'false',
-		'gutter' => '0'
+		'layout'  => 'slider',
 	), $atts));
 	ob_start();
 
-	if ($widget_title != '') {
-		echo '<h3 class="shortcode_title">' . $widget_title . '</h3>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '<div class="hide_product_details">';
-	}
-
-    if ($layout == "masonry") {
-		echo do_shortcode('[product_attribute_list gutter="'.$gutter.'" attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
+    if ($layout == "listing") {
+		if ($title != '') {
+			echo '<h3 class="shortcode_title">' . $title . '</h3>';
+		}
+		echo do_shortcode('[product_attribute attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" orderby="'.$orderby.'" order="'.$order.'"]');
 	} else {
-		echo '<div class="shortcode_gutter" data-gutter="'.$gutter.'">';
-		echo do_shortcode('[product_attribute attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-		echo '</div>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '</div>';
+		echo do_shortcode('[custom_product_attribute title="'.$title.'" attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" orderby="'.$orderby.'" order="'.$order.'"]');
 	}
 
 	$content = ob_get_contents();
@@ -49,4 +27,4 @@ function getbowtied_mc_shortcode_product_attribute_mixed($atts, $content = null)
 	return $content;
 }
 
-add_shortcode("product_attribute_mixed", "getbowtied_mc_shortcode_product_attribute_mixed");
+add_shortcode("products_by_attribute_mixed", "shortcode_products_by_attribute_mixed");

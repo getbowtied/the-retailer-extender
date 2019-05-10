@@ -1,10 +1,7 @@
 <?php 
 
-/*
-**	SLIDER
-*/
+// slider
 
-//Register "container" content element. It will hold all your inner (child) content elements
 vc_map( array(
 	"name"			=> "Slider",
 	"description"	=> "Slider",
@@ -12,9 +9,7 @@ vc_map( array(
 	"class"			=> "",
 	"as_parent" => array('only' => 'image_slide'),
 	"content_element" => true,
-	"params" => array(
-        // add params same as with any other content element
-	
+	"params" => array(	
  		array(
 			"type"			=> "dropdown",
  			"holder"		=> "div",
@@ -51,6 +46,16 @@ vc_map( array(
 			'heading' => 'Hide Navigation Bullets',
 		),
 
+ 		array(
+ 			"type"			=> "textfield",
+ 			"holder"		=> "div",
+ 			"class" 		=> "hide_in_vc_editor",
+ 			"admin_label" 	=> false,
+			"heading"		=> "Autoplay Speed (In Seconds)",
+			"param_name"	=> "custom_autoplay_speed",
+ 			"value"			=> "10",
+ 		),
+
     ),
     "js_view" => 'VcColumnView'
 ));
@@ -58,10 +63,9 @@ vc_map( array(
 vc_map( array(
     "name" => 'Image Slide',
     "base" => "image_slide",
-    "as_child" => array('only' => 'slider'), // Use only|except attributes to limit parent (separate multiple values with comma)
+    "as_child" => array('only' => 'slider'),
+    "icon"	=> get_template_directory_uri() . "/images/visual_composer/slider.png",
     "params" => array(
-        // add params same as with any other content element
-
 		array(
 			'type' => 'checkbox',
 			'param_name' => 'advanced_options',
@@ -72,7 +76,7 @@ vc_map( array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
+			"admin_label" 	=> false,
 			"heading"		=> "Title",
 			"param_name"	=> "title",
 			"value"			=> "",

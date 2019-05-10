@@ -67,8 +67,8 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				include_once( 'includes/widgets/social-media.php' );
 				include_once( 'includes/widgets/recent-posts.php' );
 
-			// 	// Shortcodes
-			// 	include_once( 'includes/shortcodes/index.php' );
+				// Shortcodes
+				include_once( 'includes/shortcodes/index.php' );
 
 				// Social Media
 				include_once( 'includes/social-media/class-social-media.php' );

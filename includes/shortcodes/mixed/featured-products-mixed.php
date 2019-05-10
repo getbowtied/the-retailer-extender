@@ -1,45 +1,23 @@
 <?php
 
 // [featured_products_mixed]
-function getbowtied_mc_shortcode_featured_products_mixed($atts, $content = null) {
+function shortcode_featured_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
-		'widget_title' => '',
-		'per_page'  => '4',
-		'columns'  => '4',
-		'layout'  => 'listing',
+		"title" => 'Featured Products',
+		'per_page'  => '12',
+		'layout'  => 'slider',
         'orderby' => 'date',
-        'order' => 'desc',
-		'show_product_details' => 'false',
-		'gutter' => '0'
+        'order' => 'desc'
 	), $atts));
 	ob_start();
 
-	if ($widget_title != '') {
-		echo '<h3 class="shortcode_title">' . $widget_title . '</h3>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '<div class="hide_product_details">';
-	}
-
-    if ($layout == "masonry") {
-		echo do_shortcode('[featured_products_list gutter="'.$gutter.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
+    if ($layout == "listing") {
+		if ($title != '') {
+			echo '<h3 class="shortcode_title">' . $title . '</h3>';
+		}
+		echo do_shortcode('[featured_products per_page="'.$per_page.'" orderby="'.$orderby.'" order="'.$order.'"]');
 	} else {
-		echo '<div class="shortcode_gutter" data-gutter="'.$gutter.'">';
-		echo do_shortcode('[featured_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-		echo '</div>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '</div>';
+		echo do_shortcode('[custom_featured_products title="'.$title.'" per_page="'.$per_page.'" orderby="'.$orderby.'" order="'.$order.'"]');
 	}
 
 	$content = ob_get_contents();
@@ -47,4 +25,4 @@ function getbowtied_mc_shortcode_featured_products_mixed($atts, $content = null)
 	return $content;
 }
 
-add_shortcode("featured_products_mixed", "getbowtied_mc_shortcode_featured_products_mixed");
+add_shortcode("featured_products_mixed", "shortcode_featured_products_mixed");

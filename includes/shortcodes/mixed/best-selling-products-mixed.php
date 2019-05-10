@@ -1,44 +1,21 @@
 <?php
 
 // [best_selling_products_mixed]
-function getbowtied_mc_shortcode_best_selling_products_mixed($atts, $content = null) {
+function shortcode_best_selling_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
-		'widget_title' => '',
-		'per_page'  => '4',
-		'columns'  => '4',
-		'layout'  => 'listing',
-		'show_product_details' => 'false',
-		'gutter' => '0'
+		"title" => 'Best Selling Products',
+		'per_page'  => '12',
+		'layout'  => 'slider'
 	), $atts));
 	ob_start();
 
-
-	if ($widget_title != '') {
-		echo '<h3 class="shortcode_title">' . $widget_title . '</h3>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '<div class="hide_product_details">';
-	}
-
-    if ($layout == "masonry") {
-		echo do_shortcode('[best_selling_products_list gutter="'.$gutter.'" per_page="'.$per_page.'" columns="'.$columns.'"]');
+    if ($layout == "listing") {
+		if ($title != '') {
+			echo '<h3 class="shortcode_title">' . $title . '</h3>';
+		}
+		echo do_shortcode('[best_selling_products per_page="'.$per_page.'"]');
 	} else {
-		echo '<div class="shortcode_gutter" data-gutter="'.$gutter.'">';
-		echo do_shortcode('[best_selling_products per_page="'.$per_page.'" columns="'.$columns.'"]');
-		echo '</div>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '</div>';
+		echo do_shortcode('[custom_best_sellers title="'.$title.'" per_page="'.$per_page.'"]');
 	}
 
 	$content = ob_get_contents();
@@ -46,4 +23,4 @@ function getbowtied_mc_shortcode_best_selling_products_mixed($atts, $content = n
 	return $content;
 }
 
-add_shortcode("best_selling_products_mixed", "getbowtied_mc_shortcode_best_selling_products_mixed");
+add_shortcode("best_selling_products_mixed", "shortcode_best_selling_products_mixed");

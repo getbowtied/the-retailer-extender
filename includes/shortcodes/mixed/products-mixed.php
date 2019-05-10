@@ -1,45 +1,23 @@
 <?php
 
 // [products_mixed]
-function getbowtied_mc_shortcode_products_mixed($atts, $content = null) {
+function shortcode_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
-		"widget_title" => '',
-		'columns'  => '4',
-		'layout'  => 'listing',
+		"title" => 'Products',
+		'layout'  => 'slider',
         'orderby' => 'date',
         'order' => 'desc',
-		'ids' => '',
-		'show_product_details' => 'false',
-		'gutter' => '0'
+		'ids' => ''
 	), $atts));
 	ob_start();
 
-	if ($widget_title != '') {
-		echo '<h3 class="shortcode_title">' . $widget_title . '</h3>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '<div class="hide_product_details">';
-	}
-
-    if ($layout == "masonry") {
-		echo do_shortcode('[products_list gutter="'.$gutter.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
+    if ($layout == "listing") {
+		if ($title != '') {
+			echo '<h3 class="shortcode_title">' . $title . '</h3>';
+		}
+		echo do_shortcode('[products orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
 	} else {
-		echo '<div class="shortcode_gutter" data-gutter="'.$gutter.'">';
-		echo do_shortcode('[products columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
-		echo '</div>';
-	}
-
-	if ($show_product_details == 'true')
-	{
-		// 
-	} elseif ($show_product_details == 'false')
-	{
-		echo '</div>';
+		echo do_shortcode('[custom_products title="'.$title.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
 	}
 
 	$content = ob_get_contents();
@@ -47,4 +25,4 @@ function getbowtied_mc_shortcode_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("products_mixed", "getbowtied_mc_shortcode_products_mixed");
+add_shortcode("products_mixed", "shortcode_products_mixed");

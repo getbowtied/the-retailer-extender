@@ -1,26 +1,17 @@
 <?php
 
-/*
-**	BANNER 
-*/
+// [banner_simple_height]
 
 vc_map(array(
-   
    "name"			=> "Banner",
-   "base"			=> "banner",
+   "category" 		=> "The Retailer",
+   "description"	=> "Place Banner",
+   "base"			=> "banner_simple_height",
    "class"			=> "",
-   "category"		=> 'Content',
-   "description"	=> "Place Banner", 
    
    "params" 	=> array(
-
-		array(
-			'type' => 'checkbox',
-			'param_name' => 'advanced_options',
-			'heading' => 'Advanced Options',
-		),
       
- 		array(
+		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
@@ -29,63 +20,7 @@ vc_map(array(
 			"param_name"	=> "title",
 			"value"			=> "",
 		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "half_width hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Title Font Size",
-			"param_name"	=> "title_font_size",
-			"value"			=> "64px",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "half_width hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Title Line Height",
-			"param_name"	=> "title_line_height",
-			"value"			=> "",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Title Font Family",
-			"param_name"	=> "title_font_family",
-			"value"			=> array(
-				"Primary Font"		=> "primary_font",
-				"Secondary Font"	=> "secondary_font",
-			),
-			"std"			=> "",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "colorpicker",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Title Color",
-			"param_name"	=> "title_color",
-			"value"			=> "#000000",
-		),
-
+		
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
@@ -93,109 +28,8 @@ vc_map(array(
 			"admin_label" 	=> true,
 			"heading"		=> "Subtitle",
 			"param_name"	=> "subtitle",
+			"admin_label"	=> FALSE,
 			"value"			=> "",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "half_width hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Subtitle Font Size",
-			"param_name"	=> "subtitle_font_size",
-			"value"			=> "21px",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "half_width hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Subtitle Line Height",
-			"param_name"	=> "subtitle_line_height",
-			"value"			=> "",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Subtitle Font Family",
-			"param_name"	=> "subtitle_font_family",
-			"value"			=> array(
-				"Primary Font"		=> "primary_font",
-				"Secondary Font"	=> "secondary_font",
-			),
-			"std"			=> "",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "colorpicker",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Subtitle Color",
-			"param_name"	=> "subtitle_color",
-			"value"			=> "#000000",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Button Text",
-			"param_name"	=> "button_text",
-			"value"			=> "",
-		),
-
-		array(
-			"type"			=> "colorpicker",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Button Color",
-			"param_name"	=> "button_color",
-			"value"			=> "#000000",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
-		),
-
-		array(
-			"type"			=> "colorpicker",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Button Text Color",
-			"param_name"	=> "button_text_color",
-			"value"			=> "#FFF",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
 		),
 		
 		array(
@@ -203,44 +37,68 @@ vc_map(array(
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
-			"heading"		=> "Banner / Button URL",
-			"param_name"	=> "button_url",
+			"heading"		=> "URL",
+			"param_name"	=> "link_url",
 			"value"			=> "",
 		),
 
 		array(
-			"type"			=> "textfield",
+			"type"			=> "checkbox",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Inner Stroke Thickness",
-			"param_name"	=> "inner_stroke",
-			"value"			=> "2px",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
+			"admin_label" 	=> true,
+			"heading"		=> "Open link in new tab?",
+			"param_name"	=> "new_tab",
+			"value"			=> array(
+				"Yes"			=> "true",
+			),
 		),
 		
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
-			"heading"		=> "Inner Stroke Color",
-			"param_name"	=> "inner_stroke_color",
+			"admin_label" 	=> true,
+			"heading"		=> "Title Color",
+			"param_name"	=> "title_color",
 			"value"			=> "#ffffff",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
 		),
-
+		
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
+			"admin_label" 	=> true,
+			"heading"		=> "Subtitle Color",
+			"param_name"	=> "subtitle_color",
+			"value"			=> "#ffffff",
+		),
+		
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Inner Stroke Thickness",
+			"param_name"	=> "inner_stroke",
+			"value"			=> "2px",
+		),
+		
+		array(
+			"type"			=> "colorpicker",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Inner Stroke Color",
+			"param_name"	=> "inner_stroke_color",
+			"value"			=> "#ffffff",
+		),
+		
+		array(
+			"type"			=> "colorpicker",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
 			"heading"		=> "Background Color",
 			"param_name"	=> "bg_color",
 			"value"			=> "#000000",
@@ -250,54 +108,88 @@ vc_map(array(
 			"type"			=> "attach_image",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
+			"admin_label" 	=> true,
 			"heading"		=> "Background Image",
 			"param_name"	=> "bg_image",
 			"value"			=> "",
 		),
-
+		
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
+			"admin_label" 	=> true,
 			"heading"		=> "Height",
 			"param_name"	=> "height",
 			"value"			=> "300px",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
 		),
-
+		
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
+			"admin_label" 	=> true,
 			"heading"		=> "Separator Padding",
 			"param_name"	=> "sep_padding",
 			"value"			=> "5px",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
 		),
 		
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> false,
+			"admin_label" 	=> true,
 			"heading"		=> "Separator Color",
 			"param_name"	=> "sep_color",
 			"value"			=> "#ffffff",
-			'dependency' => array(
-				'element' => 'advanced_options',
-  				'not_empty' => true,
-  			),
 		),
 		
+		array(
+			"type"			=> "dropdown",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "With Bullet",
+			"param_name"	=> "with_bullet",
+			"value"			=> array(
+				"Yes"			=> "yes",
+				"No"			=> "no"
+			),
+			"std"			=> "no",
+		),
+		
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Bullet Text",
+			"param_name"	=> "bullet_text",
+			"value"			=> "",
+			"dependency" 	=> Array('element' => "with_bullet", 'value' => array('yes'))
+		),
+		
+		array(
+			"type"			=> "colorpicker",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Bullet Background Color",
+			"param_name"	=> "bullet_bg_color",
+			"value"			=> "#000000",
+			"dependency" 	=> Array('element' => "with_bullet", 'value' => array('yes'))
+		),
+		
+		array(
+			"type"			=> "colorpicker",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Bullet Text Color",
+			"param_name"	=> "bullet_text_color",
+			"value"			=> "#ffffff",
+			"dependency" 	=> Array('element' => "with_bullet", 'value' => array('yes'))
+		),
    )
    
 ));
