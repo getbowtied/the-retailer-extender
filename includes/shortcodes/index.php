@@ -134,11 +134,6 @@ function getbowtied_tr_shortcodes_styles() {
 			NULL
 		);
 
-		wp_register_style('theretailer-wc-featured-products-shortcode-styles',
-			plugins_url( 'assets/css/wc/wc-featured-products.css', __FILE__ ),
-			NULL
-		);
-
 	// 	wp_register_style('merchandiser-single-product-shortcode-styles',
 	// 		plugins_url( 'assets/css/wc/single_product.css', __FILE__ ),
 	// 		NULL

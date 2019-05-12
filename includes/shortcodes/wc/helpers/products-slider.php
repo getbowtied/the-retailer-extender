@@ -3,7 +3,7 @@
 function tr_products_slider( $type = '', $products = null, $title = '' ) {
 ?>
 	
-	<div class="<?php echo $type; ?>-wrapper wc-products-list swiper-container">
+	<div class="<?php echo $type; ?>-wrapper wc-products-slider swiper-container">
     
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">

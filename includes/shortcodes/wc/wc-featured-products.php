@@ -3,7 +3,6 @@
 // [custom_featured_products]
 function tr_ext_shortcode_custom_featured_products($atts, $content = null) {
 
-	wp_enqueue_style('theretailer-wc-featured-products-shortcode-styles');
 	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
