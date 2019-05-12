@@ -21,7 +21,7 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
 
         <div class="gbtr_bold_sep"></div>
         
-       <div class="swiper-wrapper">
+        <div class="swiper-wrapper">
 	
             <?php if ( $products->have_posts() ) : ?>
                         
