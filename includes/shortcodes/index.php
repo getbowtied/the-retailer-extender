@@ -1,5 +1,8 @@
 <?php
 
+// Helpers
+include_once( 'wc/helpers/products-slider.php' );
+
 // WP
 include_once( 'wp/banner.php' );
 include_once( 'wp/from-the-blog.php' );

@@ -1,7 +1,7 @@
 <?php
 
 // [best_selling_products_mixed]
-function shortcode_best_selling_products_mixed($atts, $content = null) {
+function tr_ext_shortcode_best_selling_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"title" => 'Best Selling Products',
 		'per_page'  => '12',
@@ -23,4 +23,4 @@ function shortcode_best_selling_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("best_selling_products_mixed", "shortcode_best_selling_products_mixed");
+add_shortcode("best_selling_products_mixed", "tr_ext_shortcode_best_selling_products_mixed");

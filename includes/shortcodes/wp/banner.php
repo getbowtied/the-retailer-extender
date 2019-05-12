@@ -1,7 +1,7 @@
 <?php
 
 // [banner_simple_height]
-function banner_simple_height($params = array(), $content = null) {
+function tr_ext_banner_simple_height($params = array(), $content = null) {
 
 	wp_enqueue_style('theretailer-banner-shortcode-styles');
 
@@ -62,4 +62,4 @@ function banner_simple_height($params = array(), $content = null) {
 	return $banner_simple_height;
 }
 
-add_shortcode('banner_simple_height', 'banner_simple_height');
+add_shortcode('banner_simple_height', 'tr_ext_banner_simple_height');

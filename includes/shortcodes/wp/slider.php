@@ -2,7 +2,7 @@
 
 // [slider]
 
-function getbowtied_slider($params = array(), $content = null) {
+function tr_ext_getbowtied_slider($params = array(), $content = null) {
 
 	wp_enqueue_style('theretailer-slider-shortcode-styles');
 	wp_enqueue_script('theretailer-slider-shortcode-script');
@@ -49,9 +49,9 @@ function getbowtied_slider($params = array(), $content = null) {
 	return $getbowtied_slider;
 }
 
-add_shortcode('slider', 'getbowtied_slider');
+add_shortcode('slider', 'tr_ext_getbowtied_slider');
 
-function getbowtied_image_slide($params = array(), $content = null) {
+function tr_ext_getbowtied_image_slide($params = array(), $content = null) {
 	extract(shortcode_atts(array(
 		'title' 					=> '',
 		'title_font_size'			=> '60px',
@@ -136,4 +136,4 @@ function getbowtied_image_slide($params = array(), $content = null) {
 	return $getbowtied_image_slide;
 }
 
-add_shortcode('image_slide', 'getbowtied_image_slide');
+add_shortcode('image_slide', 'tr_ext_getbowtied_image_slide');

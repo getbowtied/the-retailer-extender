@@ -1,7 +1,7 @@
 <?php
 
 // [products_mixed]
-function shortcode_products_mixed($atts, $content = null) {
+function tr_ext_shortcode_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"title" => 'Products',
 		'layout'  => 'slider',
@@ -25,4 +25,4 @@ function shortcode_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("products_mixed", "shortcode_products_mixed");
+add_shortcode("products_mixed", "tr_ext_shortcode_products_mixed");

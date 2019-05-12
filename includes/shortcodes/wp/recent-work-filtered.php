@@ -1,7 +1,7 @@
 <?php
 
 // [recent_work_filtered]
-function shortcode_recent_work_filtered($atts, $content = null) {
+function tr_ext_shortcode_recent_work_filtered($atts, $content = null) {
 	global $theretailer_theme_options;
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(
@@ -128,4 +128,4 @@ function shortcode_recent_work_filtered($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("recent_work_filtered", "shortcode_recent_work_filtered");
+add_shortcode("recent_work_filtered", "tr_ext_shortcode_recent_work_filtered");

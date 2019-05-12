@@ -1,7 +1,7 @@
 <?php
 
 // [products_slider]
-function shortcode_products_slider($atts, $content=null, $code) {
+function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 
 	wp_enqueue_style('theretailer-featured-products-slider-shortcode-styles');
 	wp_enqueue_script('theretailer-wc-products-list-script'); 
@@ -82,4 +82,4 @@ function shortcode_products_slider($atts, $content=null, $code) {
 	return $content;
 }
 
-add_shortcode("products_slider", "shortcode_products_slider");
+add_shortcode("products_slider", "tr_ext_shortcode_products_slider");

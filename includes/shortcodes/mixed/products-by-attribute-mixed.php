@@ -1,7 +1,7 @@
 <?php
 
 // [products_by_attribute_mixed]
-function shortcode_products_by_attribute_mixed($atts, $content = null) {
+function tr_ext_shortcode_products_by_attribute_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'title' => '',
 		'attribute' => '',
@@ -27,4 +27,4 @@ function shortcode_products_by_attribute_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("products_by_attribute_mixed", "shortcode_products_by_attribute_mixed");
+add_shortcode("products_by_attribute_mixed", "tr_ext_shortcode_products_by_attribute_mixed");

@@ -1,7 +1,7 @@
 <?php
 
 // [icon_box]
-function icon_box_shortcode($params = array(), $content = null) {
+function tr_ext_icon_box_shortcode($params = array(), $content = null) {
 
 	wp_enqueue_style('theretailer-linea-fonts-styles');
 	wp_enqueue_style('theretailer-icon-box-shortcode-styles');
@@ -42,4 +42,4 @@ function icon_box_shortcode($params = array(), $content = null) {
 	return $icon_box_markup;
 }
 
-add_shortcode('icon_box', 'icon_box_shortcode');
+add_shortcode('icon_box', 'tr_ext_icon_box_shortcode');

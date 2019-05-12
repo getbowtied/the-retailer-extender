@@ -1,7 +1,7 @@
 <?php
 
 // [top_rated_products_mixed]
-function shortcode_top_rated_products_mixed($atts, $content = null) {
+function tr_ext_shortcode_top_rated_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'title' => '',
 		'per_page'  => '12',
@@ -25,4 +25,4 @@ function shortcode_top_rated_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("top_rated_products_mixed", "shortcode_top_rated_products_mixed");
+add_shortcode("top_rated_products_mixed", "tr_ext_shortcode_top_rated_products_mixed");

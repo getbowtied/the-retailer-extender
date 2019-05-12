@@ -1,7 +1,7 @@
 <?php
 
 // [featured_products_mixed]
-function shortcode_featured_products_mixed($atts, $content = null) {
+function tr_ext_shortcode_featured_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"title" => 'Featured Products',
 		'per_page'  => '12',
@@ -25,4 +25,4 @@ function shortcode_featured_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("featured_products_mixed", "shortcode_featured_products_mixed");
+add_shortcode("featured_products_mixed", "tr_ext_shortcode_featured_products_mixed");

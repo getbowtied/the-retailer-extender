@@ -1,7 +1,7 @@
 <?php
 
 // [from_the_blog]
-function shortcode_from_the_blog($atts, $content = null) {
+function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 
     wp_enqueue_style('theretailer-from-the-blog-shortcode-styles');
     wp_enqueue_script('theretailer-from-the-blog-shortcode-scripts');
@@ -112,4 +112,4 @@ function shortcode_from_the_blog($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("from_the_blog", "shortcode_from_the_blog");
+add_shortcode("from_the_blog", "tr_ext_shortcode_from_the_blog");

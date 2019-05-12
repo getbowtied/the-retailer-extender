@@ -1,7 +1,7 @@
 <?php
 
 // [team_member]
-function team_member($params = array(), $content = null) {
+function tr_ext_team_member($params = array(), $content = null) {
 
 	wp_enqueue_style('theretailer-team-members-shortcode-styles');
 
@@ -28,4 +28,4 @@ function team_member($params = array(), $content = null) {
 	return $team_member;
 }
 
-add_shortcode('team_member', 'team_member');
+add_shortcode('team_member', 'tr_ext_team_member');

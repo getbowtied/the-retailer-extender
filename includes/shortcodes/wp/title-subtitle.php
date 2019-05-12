@@ -1,7 +1,7 @@
 <?php
 
 // [title_subtitle]
-function shortcode_title_subtitle($atts, $content=null) {
+function tr_ext_shortcode_title_subtitle($atts, $content=null) {
 
 	wp_enqueue_style('theretailer-title-subtitle-shortcode-styles');
 
@@ -31,4 +31,4 @@ function shortcode_title_subtitle($atts, $content=null) {
 	return $content;
 }
 
-add_shortcode("title_subtitle", "shortcode_title_subtitle");
+add_shortcode("title_subtitle", "tr_ext_shortcode_title_subtitle");
