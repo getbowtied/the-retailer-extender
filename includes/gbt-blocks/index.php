@@ -30,7 +30,6 @@ if ( ! function_exists( 'getbowtied_tr_product_blocks_scripts' ) ) {
 // The Retailer Dependent Blocks
 $theme = wp_get_theme();
 if ( $theme->template == 'theretailer') {
-	include_once 'portfolio/block.php';
 	include_once 'social_media_profiles/block.php';
 }
 
