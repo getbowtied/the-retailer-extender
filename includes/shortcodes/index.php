@@ -87,11 +87,6 @@ function getbowtied_tr_shortcodes_admin_styles() {
 add_action( 'wp_enqueue_scripts', 'getbowtied_tr_shortcodes_styles', 99 );
 function getbowtied_tr_shortcodes_styles() {
 
-	wp_enqueue_style('theretailer-slider-elements-styles',
-		plugins_url( 'assets/css/slider-elements.css', __FILE__ ),
-		NULL
-	);
-
 	wp_register_style('theretailer-banner-shortcode-styles',
 		plugins_url( 'assets/css/wp/banner.css', __FILE__ ),
 		NULL
@@ -129,6 +124,11 @@ function getbowtied_tr_shortcodes_styles() {
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
+		wp_enqueue_style('theretailer-slider-elements-styles',
+			plugins_url( 'assets/css/products-slider.css', __FILE__ ),
+			NULL
+		);
+		
 		wp_register_style('theretailer-featured-products-slider-shortcode-styles',
 			plugins_url( 'assets/css/wc/featured-products-slider.css', __FILE__ ),
 			NULL
