@@ -3,12 +3,12 @@
 /**
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer.wp-theme.design/
- * Description:       		Extends the functionality of The Retailer with Gutenberg elements.
+ * Description:       		Extends the functionality of The Retailer with theme specific features.
  * Version:           		1.2.2
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.1
+ * Tested up to: 		5.1
  *
  * @package  The Retailer Extender
  * @author   GetBowtied
