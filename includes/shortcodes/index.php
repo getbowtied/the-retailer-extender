@@ -11,7 +11,6 @@ include_once( 'wp/recent-work-filtered.php' );
 include_once( 'wp/slider.php' );
 include_once( 'wp/team-members.php' );
 include_once( 'wp/title-subtitle.php' );
-include_once( 'wp/shortcodes.php' );
 
 // WC
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {

@@ -32,3 +32,13 @@ function tr_bool_to_string( $bool ) {
 function tr_string_to_bool( $string ) {
 	return is_bool( $string ) ? $string : ( 'yes' === $string || 1 === $string || 'true' === $string || '1' === $string );
 }
+
+function string_limit_words($string, $word_limit) {
+	$words = explode(' ', $string, ($word_limit + 1));
+	if(count($words) > $word_limit) {
+		array_pop($words);
+		return implode(' ', $words) . '...';
+	} else {
+		return $string;
+	}
+}
