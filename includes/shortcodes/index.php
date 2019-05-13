@@ -7,7 +7,6 @@ include_once( 'wc/helpers/products-slider.php' );
 include_once( 'wp/banner.php' );
 include_once( 'wp/from-the-blog.php' );
 include_once( 'wp/icon-box.php' );
-include_once( 'wp/recent-work-filtered.php' );
 include_once( 'wp/slider.php' );
 include_once( 'wp/team-members.php' );
 include_once( 'wp/title-subtitle.php' );
@@ -47,7 +46,6 @@ if ( defined( 'WPB_VC_VERSION' ) ) {
 		include_once( 'wb/wp/banner.php' );
 		include_once( 'wb/wp/from-the-blog.php' );
 		include_once( 'wb/wp/icon-box.php' );
-		include_once( 'wb/wp/recent-work-filtered.php' );
 		include_once( 'wb/wp/slider.php' );
 		include_once( 'wb/wp/team-members.php' );
 		include_once( 'wb/wp/title-subtitle.php' );
@@ -132,11 +130,6 @@ function getbowtied_tr_shortcodes_styles() {
 			plugins_url( 'assets/css/wc/featured-products-slider.css', __FILE__ ),
 			NULL
 		);
-
-	// 	wp_register_style('merchandiser-single-product-shortcode-styles',
-	// 		plugins_url( 'assets/css/wc/single_product.css', __FILE__ ),
-	// 		NULL
-	// 	);
 	}
 }
 
