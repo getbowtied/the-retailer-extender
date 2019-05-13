@@ -25,6 +25,12 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 * @since 1.3
 		*/
 		public function __construct() {
+			$this->enqueue_scripts();
+			if( !get_option( 'tr_category_header_options_import', false ) ) {
+				$done_import = $this->import_options();
+				update_option( 'tr_category_header_options_import', true );
+			}
+			$this->customizer_options();
 			add_action( 'product_cat_add_form_fields', array( $this, 'woocommerce_add_category_header_img' ) );
 			add_action( 'product_cat_edit_form_fields', array( $this, 'woocommerce_edit_category_header_img' ), 10,2 );
 			add_action( 'created_term', array( $this, 'woocommerce_category_header_img_save' ), 10,3 );
@@ -47,6 +53,80 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 				self::$_instance = new self();
 			}
 			return self::$_instance;
+		}
+
+		/**
+		 * Imports social media links stored as theme mods into the options WP table.
+		 *
+		 * @since 1.3
+		 * @return void
+		 */
+		private function import_options() {
+
+			if( get_theme_mod( 'category_header_parallax' ) ) {
+				update_option( 'tr_category_header_parallax', get_theme_mod( 'category_header_parallax', 'yes' ) );
+			}
+		}
+
+		/**
+		 * Enqueues scripts.
+		 *
+		 * @since 1.0
+		 * @return void
+		 */
+		public function enqueue_scripts() {
+			add_action( 'wp_enqueue_scripts', function() {
+				wp_enqueue_script(
+					'gbt-tr-category-header-image-scripts',
+					plugins_url( 'assets/js/wc-category-header-image.js', __FILE__ ),
+					array('jquery')
+				);
+				wp_enqueue_script(
+					'gbt-tr-stellar-scripts',
+					plugins_url( '_vendor/jquery.stellar.min.js', dirname(__FILE__) ),
+					array('jquery')
+				);
+			});
+		}
+
+		/**
+		 * Registers customizer options.
+		 *
+		 * @since 1.0
+		 * @return void
+		 */
+		protected function customizer_options() {
+			add_action( 'customize_register', array( $this, 'tr_category_header_customizer' ) );
+		}
+
+		/**
+		 * Creates customizer options.
+		 *
+		 * @since 1.0
+		 * @return void
+		 */
+		public function tr_category_header_customizer( $wp_customize ) {
+
+			// Fields
+			$wp_customize->add_setting( 'tr_category_header_parallax', array(
+				'type'		 			=> 'option',
+				'capability' 			=> 'manage_options',
+				'sanitize_callback'    	=> 'tr_bool_to_string',
+				'sanitize_js_callback'  => 'tr_string_to_bool',
+				'default'	 			=> 'yes',
+			) );
+
+			$wp_customize->add_control( 
+				new WP_TR_Customize_Toggle_Control(
+					$wp_customize,
+					'tr_category_header_parallax',
+					array( 
+						'label'       	=> esc_attr__( 'Parallax on Category Header', 'theretailer-extender' ),
+						'section'     	=> 'shop',
+						'priority'    	=> 11,
+					)
+				)
+			);
 		}
 
 		/**
