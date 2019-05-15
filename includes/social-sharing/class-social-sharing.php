@@ -154,7 +154,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 			        </li>
 
 			        <li>
-			            <a href="//pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $src[0] ?>&description=<?php strip_tags(the_title()); ?>" 
+			            <a href="//pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $thumbnail_src[0]; ?>&description=<?php strip_tags(the_title()); ?>" 
 			            	target="_blank" 
 			            	class="product_share_pinterest">
 			            	<svg 
