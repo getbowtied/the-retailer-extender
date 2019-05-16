@@ -207,7 +207,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 		 * @since 1.3
 		 * @return void
 		 */
-		public function getbowtied_post_share_product() {
+		public function getbowtied_single_share_post() {
 			global $post;
 
 			$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), false, '' );
