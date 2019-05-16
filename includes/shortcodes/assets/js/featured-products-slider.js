@@ -20,6 +20,17 @@ jQuery(document).ready(function($) {
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: 4,
 			loop: false,
+			breakpoints: {
+				640: {
+			      slidesPerView: 1,
+			    },
+			    720: {
+			      slidesPerView: 2,
+			    },
+			    959: {
+			      slidesPerView: 3,
+			    }
+			},
 			navigation: {
 			    nextEl: '.products_slider_next',
 			    prevEl: '.products_slider_previous',
