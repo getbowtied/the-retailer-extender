@@ -4,7 +4,7 @@
 function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 
 	wp_enqueue_style('theretailer-featured-products-slider-shortcode-styles');
-	wp_enqueue_script('theretailer-wc-products-list-script'); 
+	wp_enqueue_script('theretailer-featured-products-slider-script'); 
 
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(
