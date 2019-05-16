@@ -2,7 +2,7 @@ jQuery(function($) {
 	
 	"use strict";
 
-	$('.wc-products-slider.swiper-container').each(function() {
+	$('.wc-products-slider .swiper-container').each(function() {
 
 		var slides = 4;
 		var medium_slides = 3;
@@ -13,7 +13,8 @@ jQuery(function($) {
 
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: slides,
-			loop: true,
+			loop: false,
+			spaceBetween: 40,
 			breakpoints: {
 				640: {
 			      slidesPerView: 2,
