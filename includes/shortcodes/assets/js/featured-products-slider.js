@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 		});
 
 
-	$('.products_slider.swiper-container').each(function() {
+	$('.featured_products_slider.swiper-container').each(function() {
 
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: 4,

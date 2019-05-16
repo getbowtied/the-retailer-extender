@@ -15,7 +15,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 	ob_start();
 	?> 
     
-    <div class="products_slider swiper-container">  
+    <div class="featured_products_slider swiper-container">  
     
 		<div class="slider-wrapper swiper-wrapper">
                     
