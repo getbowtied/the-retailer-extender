@@ -2,7 +2,7 @@ jQuery(function($) {
 	
 	"use strict";
 
-	$('.wc-products-slider .swiper-container').each(function() {
+	$('.wc-products-slider').each(function() {
 
 		var slides = 4;
 		var medium_slides = 3;
@@ -11,7 +11,7 @@ jQuery(function($) {
 			medium_slides = 2;
 		}
 
-		var myPostsSwiper = new Swiper($(this), {
+		var myPostsSwiper = new Swiper($(this).find('.swiper-container'), {
 			slidesPerView: slides,
 			loop: false,
 			spaceBetween: 40,
@@ -24,8 +24,8 @@ jQuery(function($) {
 			    }
 			},
 			navigation: {
-			    nextEl: '.big_arrow_right',
-			    prevEl: '.big_arrow_left',
+			    nextEl: $(this).find('.big_arrow_right'),
+			    prevEl: $(this).find('.big_arrow_left'),
 			},
 		});
 	});
