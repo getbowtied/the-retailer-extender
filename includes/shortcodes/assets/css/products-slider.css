@@ -36,6 +36,10 @@
     margin-bottom: 0px; }
     .wc-products-slider .swiper-slide .product_item .product_item_inner {
       padding: 0; }
+    .wc-products-slider .swiper-slide .product_item span.onsale {
+      right: 13px; }
+    .wc-products-slider .swiper-slide .product_item .out_of_stock_badge_loop {
+      right: 53px; }
     .wc-products-slider .swiper-slide .product_item a.add_to_cart_button.added::before {
       top: 0 !important;
       right: 35px !important; }

@@ -50,6 +50,16 @@
 		    	padding: 0;
 		    }
 
+		    span.onsale
+			{
+				right: 13px;
+			}
+
+			.out_of_stock_badge_loop
+			{
+			    right: 53px;
+			}
+
 		    a.add_to_cart_button.added::before
 		    {
 		    	top: 0 !important;
