@@ -4,11 +4,11 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer.wp-theme.design/
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		1.2.2
+ * Version:           		1.3
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 		5.1
+ * Tested up to: 			5.2
  *
  * @package  The Retailer Extender
  * @author   GetBowtied
@@ -61,7 +61,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			// Vendor
 			//include_once( 'includes/vendor/enqueue.php' );
 
-			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.11.1' || ( !empty($parent_theme) && $parent_theme->version >= '2.11.1' ) ) ) || $theme->template != 'theretailer' ) {
+			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.12' || ( !empty($parent_theme) && $parent_theme->version >= '2.12' ) ) ) || $theme->template != 'theretailer' ) {
 
 				//Widgets
 				include_once( 'includes/widgets/social-media.php' );
@@ -82,7 +82,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			// Gutenberg Blocks
 			add_action( 'init', array( $this, 'gbt_tr_gutenberg_blocks' ) );
 
-			if( $theme->template == 'theretailer' && ( $theme->version >= '2.11.1' || ( !empty($parent_theme) && $parent_theme->version >= '2.11.1' ) ) ) {
+			if( $theme->template == 'theretailer' && ( $theme->version >= '2.12' || ( !empty($parent_theme) && $parent_theme->version >= '2.12' ) ) ) {
 
 				// Custom Code Section
 				include_once( 'includes/custom-code/class-custom-code.php' );
