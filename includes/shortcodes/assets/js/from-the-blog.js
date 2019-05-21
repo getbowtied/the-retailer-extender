@@ -7,9 +7,14 @@ jQuery(function($) {
 		var myPostsSwiper = new Swiper($(this), {
 			slidesPerView: 2,
 			loop: true,
+			spaceBetween: 50,
 			breakpoints: {
 				640: {
 			      slidesPerView: 1,
+			      spaceBetween: 0,
+			    },
+			    959: {
+			    	spaceBetween: 30,
 			    }
 			},
 			navigation: {

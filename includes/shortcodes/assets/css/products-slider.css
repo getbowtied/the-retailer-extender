@@ -4,9 +4,6 @@
   -ms-user-select: none;
   user-select: none;
   border-top: 1px solid #ccc; }
-  @media screen and (max-width: 959px) {
-    .wc-products-slider .gbtr_items_sliders_header {
-      border-top: 0; } }
   .wc-products-slider .gbtr_items_sliders_header .gbtr_items_sliders_title {
     width: 80%;
     float: left;
