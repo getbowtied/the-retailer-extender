@@ -20,7 +20,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
     
     <div class="featured_products_slider swiper-container">  
     
-		<div class="slider-wrapper swiper-wrapper">
+		<div class="swiper-wrapper">
                     
                 <?php
 
@@ -59,7 +59,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 							
 					<?php while ( $products->have_posts() ) : $products->the_post(); ?>
 
-						<div class="swiper-slide slider style_1">
+						<div class="swiper-slide">
                 
                         	<?php wc_get_template_part( 'content', 'product-slider' ); ?>
 
@@ -73,8 +73,8 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
                     
         </div>
 		 
-		<div class='products_slider_previous'></div>
-        <div class='products_slider_next'></div>
+		<div class='swiper-button-prev'></div>
+        <div class='swiper-button-next'></div>
     
 	</div>
 

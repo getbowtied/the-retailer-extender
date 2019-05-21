@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {	
 			
-		$(".style_1 .products_slider_item").mouseenter(function(){
+		$(".featured_products_slider .products_slider_item").mouseenter(function(){
 			
 			var that = $(this);
 			
@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
 			    }
 			},
 			navigation: {
-			    nextEl: '.products_slider_next',
-			    prevEl: '.products_slider_previous',
+			    nextEl: $(this).find('.swiper-button-next'),
+			    prevEl: $(this).find('.swiper-button-prev'),
 			},
 		});
 	});
