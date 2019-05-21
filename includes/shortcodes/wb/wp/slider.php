@@ -215,12 +215,6 @@ vc_map( array(
 		),
 
 		array(
-			'type' => 'checkbox',
-			'param_name' => 'link_whole_slide',
-			'heading' => 'Link on whole slide?',
-		),
-
-		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",

@@ -59,7 +59,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			include_once( 'includes/customizer/class/class-control-toggle.php' );
 
 			// Vendor
-			//include_once( 'includes/vendor/enqueue.php' );
+			include_once( 'includes/vendor/enqueue.php' );
 
 			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.12' || ( !empty($parent_theme) && $parent_theme->version >= '2.12' ) ) ) || $theme->template != 'theretailer' ) {
 

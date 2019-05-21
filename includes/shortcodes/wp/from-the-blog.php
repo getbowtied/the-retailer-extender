@@ -3,6 +3,9 @@
 // [from_the_blog]
 function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 
+    wp_enqueue_style('getbowtied_swiper_styles');
+    wp_enqueue_script('getbowtied_swiper_scripts');
+    
     wp_enqueue_style('theretailer-from-the-blog-shortcode-styles');
     wp_enqueue_script('theretailer-from-the-blog-shortcode-scripts');
 

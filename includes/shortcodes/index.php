@@ -67,7 +67,7 @@ if ( defined( 'WPB_VC_VERSION' ) ) {
 	}
 }
 
-add_action( 'admin_enqueue_scripts', 'getbowtied_tr_shortcodes_admin_styles', 99 );
+add_action( 'admin_enqueue_scripts', 'getbowtied_tr_shortcodes_admin_styles' );
 function getbowtied_tr_shortcodes_admin_styles() {
 	if ( defined( 'WPB_VC_VERSION' ) ) {
 		wp_enqueue_style('theretailer-icon-box-admin-shortcode-styles',
@@ -81,7 +81,7 @@ function getbowtied_tr_shortcodes_admin_styles() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'getbowtied_tr_shortcodes_styles', 99 );
+add_action( 'wp_enqueue_scripts', 'getbowtied_tr_shortcodes_styles' );
 function getbowtied_tr_shortcodes_styles() {
 
 	wp_register_style('theretailer-banner-shortcode-styles',

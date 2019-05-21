@@ -3,6 +3,9 @@
 // [products_slider]
 function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 
+	wp_enqueue_style('getbowtied_swiper_styles');
+    wp_enqueue_script('getbowtied_swiper_scripts');
+
 	wp_enqueue_style('theretailer-featured-products-slider-shortcode-styles');
 	wp_enqueue_script('theretailer-featured-products-slider-script'); 
 
