@@ -32,7 +32,7 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
     
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">
-                <div class="gbtr_featured_section_title"><strong><?php echo $title ?></strong></div>
+                <div class="gbtr_featured_section_title"><h3><?php echo $title ?></h3></div>
             </div>
             <div class="gbtr_items_sliders_nav">                        
                 <a class='big_arrow_right'></a>

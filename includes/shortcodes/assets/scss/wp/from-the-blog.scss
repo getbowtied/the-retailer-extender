@@ -1,6 +1,7 @@
 .from-the-blog-wrapper.swiper-container
 {
     overflow: hidden;
+    margin-bottom: 2.5rem;
 
     .gbtr_items_sliders_header
 	{
@@ -19,6 +20,11 @@
 			width: 20%;
 			float: left;
 		}
+	}
+
+	.gbtr_featured_section_title
+	{
+		padding-top: 27px;
 	}
 
 	.swiper-wrapper

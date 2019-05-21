@@ -105,7 +105,7 @@ function tr_ext_getbowtied_image_slide($params = array(), $content = null) {
 	if (!empty($description))
 	{
 		$description_line_height = $description_line_height ? $description_line_height : $description_font_size;
-		$description = '<p class="'.$description_font_family.'" style="color:rgba('.getbowtied_hex2rgb($text_color).', 0.66); font-size:'.$description_font_size.'; line-height: '.$description_line_height.'">'.$description.'</p>';
+		$description = '<p class="'.$description_font_family.'" style="color:'.$text_color.'; font-size:'.$description_font_size.'; line-height: '.$description_line_height.'">'.$description.'</p>';
 	} else {
 		$description = "";
 	}

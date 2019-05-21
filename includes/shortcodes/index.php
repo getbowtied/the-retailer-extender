@@ -131,6 +131,14 @@ function getbowtied_tr_shortcodes_styles() {
 			NULL
 		);
 	}
+
+	$theme = wp_get_theme();
+	if ( $theme->template != 'theretailer') {
+		wp_enqueue_style('theretailer-extender-slider-navigation-styles',
+			plugins_url( 'assets/css/slider-nav.css', __FILE__ ),
+			NULL
+		);
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_scripts', 99 );
