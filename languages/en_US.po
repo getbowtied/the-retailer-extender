@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Retailer Extender\n"
-"POT-Creation-Date: 2019-05-21 14:28+0300\n"
-"PO-Revision-Date: 2019-05-21 14:28+0300\n"
+"POT-Creation-Date: 2019-05-21 16:56+0300\n"
+"PO-Revision-Date: 2019-05-21 16:56+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -23,37 +23,37 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: prepros-6.config\n"
 "X-Poedit-SearchPathExcluded-3: README.txt\n"
 
-#: includes/addons/class-wc-category-header-image.php:124
+#: includes/addons/class-wc-category-header-image.php:126
 msgid "Parallax on Category Header"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:144
-#: includes/addons/class-wc-category-header-image.php:234
-#: includes/addons/class-wc-category-header-image.php:335
+#: includes/addons/class-wc-category-header-image.php:146
+#: includes/addons/class-wc-category-header-image.php:236
+#: includes/addons/class-wc-category-header-image.php:337
 msgid "Header"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:148
-#: includes/addons/class-wc-category-header-image.php:239
+#: includes/addons/class-wc-category-header-image.php:150
+#: includes/addons/class-wc-category-header-image.php:241
 msgid "Upload/Add image"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:149
-#: includes/addons/class-wc-category-header-image.php:240
+#: includes/addons/class-wc-category-header-image.php:151
+#: includes/addons/class-wc-category-header-image.php:242
 msgid "Remove image"
-msgstr ""
-
-#: includes/addons/class-wc-category-header-image.php:173
-#: includes/addons/class-wc-category-header-image.php:266
-msgid "Choose an image"
 msgstr ""
 
 #: includes/addons/class-wc-category-header-image.php:175
 #: includes/addons/class-wc-category-header-image.php:268
+msgid "Choose an image"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:177
+#: includes/addons/class-wc-category-header-image.php:270
 msgid "Use image"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:334
+#: includes/addons/class-wc-category-header-image.php:336
 msgid "Image"
 msgstr ""
 

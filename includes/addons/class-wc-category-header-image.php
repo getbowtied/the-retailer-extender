@@ -25,10 +25,12 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 * @since 1.3
 		*/
 		public function __construct() {
-			$this->enqueue_scripts();
 			if( !get_option( 'tr_category_header_options_import', false ) ) {
 				$done_import = $this->import_options();
 				update_option( 'tr_category_header_options_import', true );
+			}
+			if( get_option( 'tr_category_header_options_import', 'yes' ) === 'yes' ) {
+				$this->enqueue_scripts();
 			}
 			$this->customizer_options();
 			add_action( 'product_cat_add_form_fields', array( $this, 'woocommerce_add_category_header_img' ) );
@@ -330,10 +332,8 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 */
 		public function woocommerce_product_cat_header_columns( $columns ) {
 			$new_columns = array();
-			$new_columns['cb'] = $columns['cb'];
 			$new_columns['thumb'] = __( 'Image', 'getbowtied' );
 			$new_columns['header'] = __( 'Header', 'getbowtied' );
-			unset( $columns['cb'] );
 			unset( $columns['thumb'] );
 
 			return array_merge( $new_columns, $columns );
