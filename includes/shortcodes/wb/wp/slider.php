@@ -64,7 +64,6 @@ vc_map( array(
     "name" => 'Image Slide',
     "base" => "image_slide",
     "as_child" => array('only' => 'slider'),
-    "icon"	=> get_template_directory_uri() . "/images/visual_composer/slider.png",
     "params" => array(
 		array(
 			'type' => 'checkbox',
