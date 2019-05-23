@@ -5,10 +5,10 @@
  *
  * @since 1.3
  */
-class GBTR_Recent_Post_Widget extends WP_Widget {
+class GBTR_TR_Recent_Post_Widget extends WP_Widget {
 	
 	/**
-	 * GBTR_Recent_Post_Widget constructor.
+	 * GBTR_TR_Recent_Post_Widget constructor.
 	 *
 	 * @since 1.3
 	*/
@@ -189,5 +189,5 @@ class GBTR_Recent_Post_Widget extends WP_Widget {
 }
 
 add_action( 'widgets_init', function() {
-	register_widget( 'GBTR_Recent_Post_Widget' );
+	register_widget( 'GBTR_TR_Recent_Post_Widget' );
 } );

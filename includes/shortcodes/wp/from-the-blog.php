@@ -68,7 +68,7 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
                         <div class="from_the_blog_content">
                         
                             <?php if ( ($post_format == "") || ($post_format == "video") ) : ?>
-                            	<a class="from_the_blog_title" href="<?php the_permalink() ?>"><h3><?php echo string_limit_words(get_the_title(), 5); ?></h3></a>
+                            	<a class="from_the_blog_title" href="<?php the_permalink() ?>"><h3><?php echo tr_string_limit_words(get_the_title(), 5); ?></h3></a>
                             <?php endif ?>	
                                                         
                             <div class="from_the_blog_excerpt">
@@ -78,7 +78,7 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 										$limit_words = 40;
 									}
 									$excerpt = get_the_excerpt();
-                                    echo string_limit_words($excerpt, $limit_words);
+                                    echo tr_string_limit_words($excerpt, $limit_words);
                                 ?>
                             </div>
 

@@ -4,7 +4,7 @@
 
 
 // product_category_field
-function product_category_field($settings, $value) {   
+function gbt_tr_product_category_field($settings, $value) {   
     $categories = get_terms('product_cat'); 
     $data = '<select name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'">';
     foreach($categories as $category) {
@@ -17,7 +17,7 @@ function product_category_field($settings, $value) {
     $data .= '</select>';
     return $data;
 }
-vc_add_shortcode_param('product_category' , 'product_category_field');
+vc_add_shortcode_param('product_category' , 'gbt_tr_product_category_field');
 
 
 

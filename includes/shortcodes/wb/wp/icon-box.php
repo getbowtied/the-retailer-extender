@@ -2,7 +2,7 @@
 
 
 // create icon field
-function icon_field($settings, $value)
+function gbt_tr_icon_field($settings, $value)
 {
 	$param_name = isset($settings['param_name']) ? $settings['param_name'] : '';
 	$type = isset($settings['type']) ? $settings['type'] : '';
@@ -787,7 +787,7 @@ function icon_field($settings, $value)
 	</script>';
 	return $output;
 }
-vc_add_shortcode_param('icon' , 'icon_field');
+vc_add_shortcode_param('icon' , 'gbt_tr_icon_field');
 
 // [icon_box]
 vc_map(array(
