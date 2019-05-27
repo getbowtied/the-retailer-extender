@@ -1,0 +1,84 @@
+.big_arrow_right,
+.big_arrow_left
+{
+	float:right;
+	outline: 0;
+	cursor: pointer;
+	background-repeat:no-repeat;
+    border: 2px solid #b3b3b3;
+    border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	transition: all .3s ease;
+}
+
+.big_arrow_right,
+.big_arrow_left
+{
+	position: relative;
+}
+
+.big_arrow_right
+{
+	margin: 34px 0 0 0;
+}
+
+.big_arrow_left
+{
+	margin: 34px 5px 0 0;
+}
+
+.big_arrow_right:hover,
+.big_arrow_left:hover
+{
+	border: 2px solid #000;
+}
+
+.big_arrow_right
+{
+	background-position: 11px 8px;
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2090%2090'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23b3b3b3'%2F%3E%3C%2Fsvg%3E");
+}
+
+.big_arrow_right:hover
+{
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2090%2090'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+
+.big_arrow_left
+{
+	background-position: 9px 8px;
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2090%2090'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23b3b3b3'%2F%3E%3C%2Fsvg%3E");
+}
+
+.big_arrow_left:hover
+{
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2090%2090'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+
+@media screen and (max-width: 959px) {
+	.big_arrow_right,
+	.big_arrow_left
+	{
+	    width: 30px;
+    	height: 30px;
+	}
+
+	.big_arrow_right
+	{
+		background-position: 11px 8px;
+	}
+
+	.big_arrow_left
+	{
+		background-position: 9px 8px;
+	}
+}
+
+.gbtr_bold_sep
+{
+    background: #000;
+    height: 2px;
+    clear: both;
+    width: 60px;
+}

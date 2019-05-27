@@ -1,0 +1,148 @@
+.gbtr_product_share {
+  margin: 0 10px;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 30px 0;
+  line-height: 1em; }
+  .gbtr_product_share ul {
+    text-align: center; }
+    .gbtr_product_share ul li {
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      text-align: left;
+      max-width: 25%;
+      position: relative;
+      margin: 0 20px; }
+      @media screen and (max-width: 719px) {
+        .gbtr_product_share ul li {
+          display: inline;
+          margin: 0 10px; } }
+      .gbtr_product_share ul li svg {
+        display: inline-block;
+        border: 2px solid #000;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 15px; }
+        @media screen and (max-width: 719px) {
+          .gbtr_product_share ul li svg {
+            margin-right: 0; } }
+      .gbtr_product_share ul li > a > span {
+        display: inline-block;
+        max-width: 60%;
+        position: relative;
+        top: 10px;
+        vertical-align: top;
+        word-break: break-word; }
+        @media screen and (max-width: 719px) {
+          .gbtr_product_share ul li > a > span {
+            display: none; } }
+      .gbtr_product_share ul li > a > span > span {
+        display: block; }
+      .gbtr_product_share ul li a {
+        padding: 8px 0px 10px 8px;
+        display: inline;
+        zoom: 1;
+        color: #b39964;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: normal;
+        text-decoration: none;
+        line-height: 1.3em; }
+        @media screen and (max-width: 719px) {
+          .gbtr_product_share ul li a {
+            padding: 0; } }
+        .gbtr_product_share ul li a:hover {
+          color: #000 !important; }
+
+.product_page_has_sidebar .gbtr_product_share ul li svg {
+  margin-right: 5px; }
+  @media screen and (max-width: 719px) {
+    .product_page_has_sidebar .gbtr_product_share ul li svg {
+      margin-right: 0; } }
+
+.box-share-container {
+  display: inline-block;
+  margin-bottom: 40px;
+  padding-left: 25px;
+  float: right;
+  text-align: right;
+  position: relative;
+  z-index: 99; }
+  .box-share-container .trigger-share-list {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative; }
+    .box-share-container .trigger-share-list svg {
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+      top: 4px; }
+    .box-share-container .trigger-share-list:hover svg {
+      fill: #000; }
+  .box-share-container svg {
+    fill: #fff;
+    position: relative;
+    top: 2px;
+    margin-right: 5px; }
+  .box-share-container .box-share-list {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    text-align: left;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  .box-share-container.open .box-share-list {
+    width: 185px; }
+  .box-share-container.open .box-share-link {
+    left: 0; }
+  .box-share-container.open a:nth-child(1) {
+    -webkit-transition-delay: 0.05s;
+    -o-transition-delay: 0.05s;
+    transition-delay: 0.05s; }
+  .box-share-container.open a:nth-child(2) {
+    -webkit-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    transition-delay: 0.1s; }
+  .box-share-container.open a:nth-child(3) {
+    -webkit-transition-delay: 0.15s;
+    -o-transition-delay: 0.15s;
+    transition-delay: 0.15s; }
+  .box-share-container.open a:nth-child(4) {
+    -webkit-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s; }
+  .box-share-container .box-share-list-inner {
+    padding: 24px 13px 28px 22px;
+    width: 185px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; }
+  .box-share-container .box-share-link {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 13px;
+    position: relative;
+    left: 200%;
+    -webkit-transition: left 0.3s;
+    -o-transition: left 0.3s;
+    transition: left 0.3s; }
+    .box-share-container .box-share-link:hover svg {
+      opacity: .55; }
+    .box-share-container .box-share-link:hover span {
+      opacity: .55; }
+    .box-share-container .box-share-link:last-child {
+      margin-bottom: 0; }
+    .box-share-container .box-share-link span {
+      padding-bottom: 4px; }
