@@ -37,35 +37,37 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 }
 
 // Add Shortcodes to WP Bakery
-if ( defined( 'WPB_VC_VERSION' ) ) {
-	
-	add_action( 'init', 'getbowtied_tr_visual_composer_shortcodes', 99 );
-	function getbowtied_tr_visual_composer_shortcodes() {
+add_action( 'plugins_loaded', function() {
+	if ( defined( 'WPB_VC_VERSION' ) ) {
 		
-		// Add new WP shortcodes to VC
-		include_once( 'wb/wp/banner.php' );
-		include_once( 'wb/wp/from-the-blog.php' );
-		include_once( 'wb/wp/icon-box.php' );
-		include_once( 'wb/wp/slider.php' );
-		include_once( 'wb/wp/team-members.php' );
-		include_once( 'wb/wp/title-subtitle.php' );
-		
-		// Add new WC shortcodes to VC
-		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+		add_action( 'init', 'getbowtied_tr_visual_composer_shortcodes', 99 );
+		function getbowtied_tr_visual_composer_shortcodes() {
+			
+			// Add new WP shortcodes to VC
+			include_once( 'wb/wp/banner.php' );
+			include_once( 'wb/wp/from-the-blog.php' );
+			include_once( 'wb/wp/icon-box.php' );
+			include_once( 'wb/wp/slider.php' );
+			include_once( 'wb/wp/team-members.php' );
+			include_once( 'wb/wp/title-subtitle.php' );
+			
+			// Add new WC shortcodes to VC
+			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
-			include_once( 'wb/wc/featured-products-slider.php' );
-			include_once( 'wb/wc/wc-best-selling-products.php' );
-			include_once( 'wb/wc/wc-featured-products.php' );
-			include_once( 'wb/wc/wc-products-by-attribute.php' );
-			include_once( 'wb/wc/wc-products-by-category.php' );
-			include_once( 'wb/wc/wc-products-by-ids-skus.php' );
-			include_once( 'wb/wc/wc-recent-products.php' );
-			include_once( 'wb/wc/wc-sale-products.php' );
-			include_once( 'wb/wc/wc-top-rated-products.php' );
+				include_once( 'wb/wc/featured-products-slider.php' );
+				include_once( 'wb/wc/wc-best-selling-products.php' );
+				include_once( 'wb/wc/wc-featured-products.php' );
+				include_once( 'wb/wc/wc-products-by-attribute.php' );
+				include_once( 'wb/wc/wc-products-by-category.php' );
+				include_once( 'wb/wc/wc-products-by-ids-skus.php' );
+				include_once( 'wb/wc/wc-recent-products.php' );
+				include_once( 'wb/wc/wc-sale-products.php' );
+				include_once( 'wb/wc/wc-top-rated-products.php' );
 
+			}
 		}
 	}
-}
+});
 
 add_action( 'admin_enqueue_scripts', 'getbowtied_tr_shortcodes_admin_styles' );
 function getbowtied_tr_shortcodes_admin_styles() {

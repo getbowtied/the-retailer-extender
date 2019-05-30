@@ -29,7 +29,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 				$done_import = $this->import_options();
 				update_option( 'tr_category_header_options_import', true );
 			}
-			if( get_option( 'tr_category_header_options_import', 'yes' ) === 'yes' ) {
+			if( get_option( 'tr_category_header_parallax', 'yes' ) === 'yes' ) {
 				$this->enqueue_scripts();
 			}
 			$this->customizer_options();
