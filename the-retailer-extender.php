@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer.wp-theme.design/
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		1.3.1
+ * Version:           		1.3.2
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
@@ -111,6 +111,27 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 					}
 				}
 			});
+
+			add_action('the_retailer_footer_end', array($this, 'tr_custom_code_footer'));
+			add_action('the_retailer_header_start', array($this, 'tr_custom_code_header'));
+		}
+
+		/**
+		 * Outputs custom code to footer action
+		 *
+		 * @return void
+		 */
+		public function tr_custom_code_footer() {
+			echo get_option( 'tr_custom_code_footer_js', '' );
+		}
+
+		/**
+		 * Outputs custom code to header action
+		 *
+		 * @return void
+		 */
+		public function tr_custom_code_header() {
+			echo get_option( 'tr_custom_code_header_js', '' );
 		}
 
 		/**
