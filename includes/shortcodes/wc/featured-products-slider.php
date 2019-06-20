@@ -65,7 +65,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 					        <div class="products_slider_images_wrapper">
 					            <div class="products_slider_images">
 					            	<a href="<?php echo $product->get_permalink(); ?>">
-					            		<?php echo $product->get_image(); ?>
+					            		<?php echo $product->get_image( 'large' ); ?>
 					            	</a>
 					            </div>
 					        </div>   
