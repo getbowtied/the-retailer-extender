@@ -70,11 +70,7 @@
   position: relative;
   z-index: 99; }
   .box-share-container .trigger-share-list {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 900;
-    text-transform: uppercase;
-    position: relative; }
+    display: inline-block; }
     .box-share-container .trigger-share-list svg {
       -webkit-transition: all .3s;
       -o-transition: all .3s;

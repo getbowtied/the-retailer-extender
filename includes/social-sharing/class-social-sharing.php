@@ -214,7 +214,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 			?>
 
 			<div class="box-share-container post-share-container">
-				<a class="trigger-share-list" href="#">
+				<a class="trigger-share-list tr_upper_link" href="#">
 					<svg 
                 		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 						width="18" height="18"

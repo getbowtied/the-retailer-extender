@@ -49,6 +49,10 @@
 			color:#fff;
 		    width: 45%;
 
+		    @media screen and (max-width: 719px) {
+		    	margin-bottom: 10px !important;
+		    }
+
 		    @media screen and (max-width: 959px) {
 		    	margin-right: 0px;
 			    margin-bottom: 13px;
