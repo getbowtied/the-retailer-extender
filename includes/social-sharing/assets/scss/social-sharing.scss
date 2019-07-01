@@ -105,35 +105,23 @@
 .box-share-container
 {
     display: inline-block;
-    margin-bottom: 40px;
-    padding-left: 25px;
     float: right;
+    padding-left: 25px;
+    padding-bottom: 12px;
     text-align: right;
-    position: relative;
     z-index: 99;
 
     .trigger-share-list
     {
-        display: inline-block;
-
         svg
-            {
-                transition: all .3s;
-                top: 4px;
-            }
-
-        &:hover
         {
-            svg
-            {
-                fill: #000;
-            }
+            transition: all .3s;
+            top: 4px;
         }
     }
 
     svg
     {
-        fill: #fff;
         position: relative;
         top: 2px;
         margin-right: 5px;
@@ -141,87 +129,48 @@
 
     .box-share-list
     {
+        background-color: #fff;
+        border-top: 3px solid #B39964;
+        border-bottom: 1px solid #CCCCCC;
+        border-left: 1px solid #CCCCCC;
+        border-right: 1px solid #CCCCCC;
+        margin-top: 7px;
+        margin-left: -10px;
         position: absolute;
-        top: 8px;
-        left: 50%;
-        width: 0px;
-        height: 0px;
-        overflow: hidden;
         text-align: left;
-        transform: translate(-50%,-50%);
         transition: all 0.3s;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        height: auto;
+        width: fit-content;
     }
 
     &.open
     {
         .box-share-list
         {
-            width: 185px;
-        }
-
-        .box-share-link
-        {
-            left: 0
-        }
-
-        a:nth-child(1)
-        {
-            -webkit-transition-delay: 0.05s;
-            transition-delay: 0.05s;
-        }
-
-        a:nth-child(2)
-        {
-            -webkit-transition-delay: 0.1s;
-            transition-delay: 0.1s;
-        }
-
-        a:nth-child(3)
-        {
-            -webkit-transition-delay: 0.15s;
-            transition-delay: 0.15s;
-        }
-
-        a:nth-child(4)
-        {
-            -webkit-transition-delay: 0.2s;
-            transition-delay: 0.2s;
+            opacity: 1;
+            visibility: visible;
         }
     }
 
     .box-share-list-inner
     {
-        padding: 24px 13px 28px 22px;
-        width: 185px;
+        padding: 24px 40px 24px 24px;
         box-sizing: border-box;
-        -webkit-box-sizing: border-box; 
     }
 
     .box-share-link
     {
+        clear: both;
+        position: relative;
+        width: 100%;
         display: block;
-        font-size: 12px;
-        font-weight: 900;
-        text-transform: uppercase;
-        color: #fff;
         margin-bottom: 13px;
         position: relative;
-        left: 200%;
-        transition: left 0.3s;
+        transition: none;
     
-        &:hover
-        {
-            svg
-            {
-                opacity: .55;
-            }
-
-            span
-            {
-                opacity: .55;
-            }
-        }
-
         &:last-child
         {
             margin-bottom: 0;
@@ -230,6 +179,12 @@
         span
         {
             padding-bottom: 4px;
+            transition: all .3s ease;
+        }
+
+        svg
+        {
+            transition: all .3s ease;
         }
     }
 }
