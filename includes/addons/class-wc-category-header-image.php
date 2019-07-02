@@ -25,6 +25,9 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 * @since 1.3
 		*/
 		public function __construct() {
+
+			$this->enqueue_styles();
+
 			if( !get_option( 'tr_category_header_options_import', false ) ) {
 				$done_import = $this->import_options();
 				update_option( 'tr_category_header_options_import', true );
@@ -39,8 +42,11 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			add_action( 'edit_term', array( $this, 'woocommerce_category_header_img_save' ), 10,3 );
 			add_filter( 'manage_edit-product_cat_columns', array( $this, 'woocommerce_product_cat_header_columns' ) );
 			add_filter( 'manage_product_cat_custom_column', array( $this, 'woocommerce_product_cat_header_column' ), 10, 3 );
-			add_action( 'woocommerce_archive_description', array( $this, 'getbowtied_show_category_header' ) );
 			add_action( 'admin_head', array( $this, 'product_cat_header_column' ) );
+		
+			add_filter( 'getbowtied_get_category_header_image', function() {
+				return $this->woocommerce_get_header_image_url();
+			} );
 		}
 
 		/**
@@ -68,6 +74,18 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			if( get_theme_mod( 'category_header_parallax' ) ) {
 				update_option( 'tr_category_header_parallax', get_theme_mod( 'category_header_parallax', 'yes' ) );
 			}
+		}
+
+		/**
+		 * Enqueues styles.
+		 *
+		 * @since 1.0
+		 * @return void
+		 */
+		public function enqueue_styles() {
+			add_action( 'wp_enqueue_scripts', function() {
+				wp_enqueue_style('tr-category-header-styles', plugins_url( 'assets/css/wc-category-header-image.css', __FILE__ ), NULL );
+			});
 		}
 
 		/**
@@ -369,18 +387,6 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			}
 
 			return $columns;
-		}
-
-		/**
-		 * Get category header output.
-		 *
-		 * @since 1.3
-		 *
-		 * @return void
-		 */
-		public function getbowtied_show_category_header() {
-			$category_header_src = $this->woocommerce_get_header_image_url();	
-			echo ($category_header_src!="") ? '<div class="woocommerce_category_header_image"><img src="'.$category_header_src.'" style="width:100%; height:auto; margin:0 0 20px 0" /></div>' : "";
 		}
 
 		/**

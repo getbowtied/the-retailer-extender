@@ -62,7 +62,6 @@
       margin-right: 0; } }
 
 .box-share-container {
-  display: inline-block;
   float: right;
   padding-left: 25px;
   padding-bottom: 12px;
@@ -96,7 +95,8 @@
     height: auto;
     width: -webkit-fit-content;
     width: -moz-fit-content;
-    width: fit-content; }
+    width: fit-content;
+    z-index: 999; }
   .box-share-container.open .box-share-list {
     opacity: 1;
     visibility: visible; }
@@ -106,7 +106,6 @@
     box-sizing: border-box; }
   .box-share-container .box-share-link {
     clear: both;
-    position: relative;
     width: 100%;
     display: block;
     margin-bottom: 13px;
