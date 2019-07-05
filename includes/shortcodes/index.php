@@ -122,11 +122,6 @@ function getbowtied_tr_shortcodes_styles() {
 	);
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-
-		wp_enqueue_style('theretailer-slider-elements-styles',
-			plugins_url( 'assets/css/products-slider.css', __FILE__ ),
-			NULL
-		);
 		
 		wp_register_style('theretailer-featured-products-slider-shortcode-styles',
 			plugins_url( 'assets/css/wc/featured-products-slider.css', __FILE__ ),
@@ -136,8 +131,8 @@ function getbowtied_tr_shortcodes_styles() {
 
 	$theme = wp_get_theme();
 	if ( $theme->template != 'theretailer') {
-		wp_enqueue_style('theretailer-extender-slider-navigation-styles',
-			plugins_url( 'assets/css/slider-nav.css', __FILE__ ),
+		wp_enqueue_style('theretailer-slider-elements-styles',
+			plugins_url( 'assets/css/products-slider.css', __FILE__ ),
 			NULL
 		);
 	}
@@ -162,9 +157,12 @@ function getbowtied_mc_shortcodes_scripts() {
 			array('jquery')
 		);
 
-		wp_register_script('theretailer-wc-products-slider-script', 
-			plugins_url( 'assets/js/wc-products-slider.js', __FILE__ ),
-			array('jquery')
-		);
+		$theme = wp_get_theme();
+		if ( $theme->template != 'theretailer') {
+			wp_register_script('theretailer-wc-products-slider-script', 
+				plugins_url( 'assets/js/wc-products-slider.js', __FILE__ ),
+				array('jquery')
+			);
+		}
 	}
 }

@@ -3,23 +3,13 @@
 function tr_products_slider( $type = '', $products = null, $title = '' ) {
 ?>
 	
-	<div class="<?php echo $type; ?>-wrapper wc-products-slider">
+	<div class="<?php echo $type; ?>-wrapper wc-products-slider products_slider">
     
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">
-                <div class="gbtr_featured_section_title">
-                	<strong>
-                		<?php echo $title ?>
-                	</strong>
-                </div>
-            </div>
-            <div class="gbtr_items_sliders_nav">                        
-                <a class='big_arrow_right'></a>
-                <a class='big_arrow_left'></a>
+                <?php echo $title ?>
             </div>
         </div>
-
-        <div class="gbtr_bold_sep"></div>
 
         <div class="swiper-container">
         
@@ -29,9 +19,9 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
                             
                     <?php while ( $products->have_posts() ) : $products->the_post(); ?>
                 		
-                		<div class="swiper-slide">
+                		<ul class="products swiper-slide">
                         	<?php wc_get_template_part( 'content', 'product' ); ?>
-                        </div>
+                        </ul>
             
                     <?php endwhile; ?>
                     
@@ -40,6 +30,11 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
     		</div>
 
         </div>
+
+        <div class="slider-pagination"></div>
+
+        <div class="slider-button-prev"></div>
+        <div class="slider-button-next"></div>
     
     </div>
 

@@ -24,10 +24,21 @@ jQuery(function($) {
 			    }
 			},
 			navigation: {
-			    nextEl: $(this).find('.big_arrow_right'),
-			    prevEl: $(this).find('.big_arrow_left'),
+			    nextEl: $(this).find('.slider-button-next'),
+			    prevEl: $(this).find('.slider-button-prev'),
 			},
+			pagination: {
+		        el: $(this).find('.slider-pagination'),
+		    },
 		});
+
+		var swiper__slidecount = myPostsSwiper.slides.length - 4;
+        if (swiper__slidecount < 4) {
+          	$(this).find('.slider-button-prev, .slider-button-next').remove();
+          	$(this).find('.swiper-wrapper').addClass( "disabled" );
+		  	$(this).find('.slider-pagination').addClass( "disabled" );
+        }
+
 	});
 
 });
