@@ -60,11 +60,15 @@
 	}
 }
 
-.top_bar_left .shortcode_socials
+.topbar_text_wrapper .shortcode_socials
 {
 	display: inline-block;
 	float: left;
 	margin: 0;
+
+	@media only screen and (max-width: 959px) {
+		padding-left: 10px;
+	}
 
 	ul.tr_social_icons_list 
 	{

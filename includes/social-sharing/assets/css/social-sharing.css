@@ -1,4 +1,5 @@
 .gbtr_product_share {
+  clear: both;
   margin: 0 10px;
   border-top: 2px solid #000;
   border-bottom: 1px solid #000;
@@ -42,7 +43,7 @@
         -webkit-transition: all .3s ease;
         -o-transition: all .3s ease;
         transition: all .3s ease; }
-        @media screen and (max-width: 719px) {
+        @media screen and (max-width: 959px) {
           .gbtr_product_share ul li > a > span {
             display: none; } }
       .gbtr_product_share ul li > a > span > span {

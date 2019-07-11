@@ -33,12 +33,15 @@
     display: table;
     clear: both; }
 
-.top_bar_left .shortcode_socials {
+.topbar_text_wrapper .shortcode_socials {
   display: inline-block;
   float: left;
   margin: 0; }
-  .top_bar_left .shortcode_socials ul.tr_social_icons_list li.tr_social_icon {
+  @media only screen and (max-width: 959px) {
+    .topbar_text_wrapper .shortcode_socials {
+      padding-left: 10px; } }
+  .topbar_text_wrapper .shortcode_socials ul.tr_social_icons_list li.tr_social_icon {
     padding: 0;
     margin: 8px 15px 6px 0; }
-    .top_bar_left .shortcode_socials ul.tr_social_icons_list li.tr_social_icon:last-child {
+    .topbar_text_wrapper .shortcode_socials ul.tr_social_icons_list li.tr_social_icon:last-child {
       margin-right: 25px; }

@@ -1,6 +1,7 @@
 // Product Share
 .gbtr_product_share
-{  
+{
+    clear: both;
     margin: 0 10px;
     border-top: 2px solid #000;
     border-bottom: 1px solid #000;
@@ -52,7 +53,7 @@
                 word-break: break-word;
                 transition: all .3s ease;
 
-                @media screen and (max-width: 719px) {
+                @media screen and (max-width: 959px) {
                     display: none;
                 }
             }
