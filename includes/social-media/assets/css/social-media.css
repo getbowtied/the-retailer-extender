@@ -3,6 +3,8 @@
   clear: both;
   display: block; }
   .shortcode_socials ul.tr_social_icons_list {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -28,10 +30,6 @@
         transition: opacity .2s; }
         .shortcode_socials ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link:hover {
           opacity: .5; }
-  .shortcode_socials:before {
-    content: " ";
-    display: table;
-    clear: both; }
 
 .topbar_text_wrapper .shortcode_socials {
   display: inline-block;

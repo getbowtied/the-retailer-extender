@@ -6,6 +6,7 @@
 
 	ul.tr_social_icons_list
 	{
+		box-sizing: border-box;
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -50,13 +51,6 @@
 				}
 			}
 		}
-	}
-
-	&:before
-	{
-		content: " ";
-		display: table;
-		clear: both;
 	}
 }
 
