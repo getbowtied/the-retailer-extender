@@ -67,11 +67,13 @@
         .gbtr_product_share ul li a:hover {
           color: #000 !important; }
 
-.product_page_has_sidebar .gbtr_product_share ul li svg {
-  margin-right: 5px; }
-  @media screen and (max-width: 719px) {
-    .product_page_has_sidebar .gbtr_product_share ul li svg {
-      margin-right: 0; } }
+.product_page_has_sidebar .gbtr_product_share ul li {
+  margin: 0 10px; }
+  .product_page_has_sidebar .gbtr_product_share ul li svg {
+    margin-right: 5px; }
+    @media screen and (max-width: 719px) {
+      .product_page_has_sidebar .gbtr_product_share ul li svg {
+        margin-right: 0; } }
 
 .box-share-container {
   float: right;
