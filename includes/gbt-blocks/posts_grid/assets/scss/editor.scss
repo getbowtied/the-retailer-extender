@@ -10,10 +10,6 @@
 			.gbt_18_tr_editor_posts_grid_item
 			{
 				width: 100%;
-
-				.gbt_18_tr_editor_posts_grid_img_container {
-    				padding-bottom: 40%;
-				}
 			}
 		}
 
@@ -24,10 +20,6 @@
 
 				&:nth-child(2n+1) {
 					clear: both;
-				}
-
-				.gbt_18_tr_editor_posts_grid_img_container {
-    				padding-bottom: 50%;
 				}
 			}
 		}
@@ -40,10 +32,6 @@
 				&:nth-child(3n+1) {
 					clear: both;
 				}
-
-				.gbt_18_tr_editor_posts_grid_img_container {
-    				padding-bottom: 100%;
-				}
 			}
 		}
 
@@ -55,44 +43,28 @@
 				&:nth-child(4n+1) {
 					clear: both;
 				}
-
-				.gbt_18_tr_editor_posts_grid_img_container {
-    				padding-bottom: 100%;
-				}
 			}
 		}
 
 		.gbt_18_tr_editor_posts_grid_item {
+			cursor: pointer;
 			padding: 0 10px;	
-		    margin-bottom: 1rem;
+		    margin-bottom: 2rem;
+
+		    .gbt_18_tr_editor_posts_grid_img_container {
+				padding-bottom: 60%;
+			}
 		}
 
 		.gbt_18_tr_editor_posts_grid_title {
 			display: block;
 			text-align: left;
-			font-size: 18px;
+			font-weight: 700;
 			line-height: 1.45em;
 			color: #000;
-			margin: 0 0 15px;
+			margin: 0 0 1rem;
 			cursor: pointer;
-		}
-
-		.gbt_18_tr_editor_posts_grid_img_overlay
-		{
-			display: block;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			z-index: 2;
-			opacity: 0;
-			transition: all .35s ease;
-		    background: rgba(255, 255, 255, 0.6);
-		}
-
-		.gbt_18_tr_editor_posts_grid_img_container:hover .gbt_18_tr_editor_posts_grid_img_overlay
-		{
-			opacity: 1;
-			cursor: pointer;
+			transition: all .3s ease;
 		}
 
 		.gbt_18_tr_editor_posts_grid_img_container
@@ -102,9 +74,7 @@
 			position: relative;
 			height: 100%;
 			width: 100%;
-			margin-bottom: 10px;
-			
-			-webkit-matr-image: -webkit-radial-gradient(white, black);
+			margin-bottom: 25px;
 		}	
 
 		.gbt_18_tr_editor_posts_grid_img
@@ -113,10 +83,9 @@
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			background-position: center center;
-			background-size:cover;		
-			width: -webkit-calc(100% + 50px);
-			width: calc(100% + 50px);
+			background-position: center;
+			background-size:cover;
+			width: 100%;
 			max-width: none;
 			transition: opacity 0.35s, transform 0.35s;
 		}

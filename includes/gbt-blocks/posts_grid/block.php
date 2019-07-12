@@ -73,7 +73,6 @@ if( !function_exists('gbt_18_tr_render_frontend_posts_grid') ) {
 		                    
 							<a class="gbt_18_tr_posts_grid_item_link" href="<?php echo get_post_permalink($post->ID); ?>">
 								<span class="gbt_18_tr_posts_grid_img_container">
-									<span class="gbt_18_tr_posts_grid_img_overlay"></span>
 									
 									<?php if ( has_post_thumbnail($post->ID)) :
 										$image_id = get_post_thumbnail_id($post->ID);

@@ -260,12 +260,6 @@
 										},
 										el( "span", 
 											{
-												key: 'gbt_18_tr_editor_posts_grid_img_overlay',
-												className: 'gbt_18_tr_editor_posts_grid_img_overlay'
-											}
-										),
-										el( "span", 
-											{
 												key: 		'gbt_18_tr_editor_posts_grid_img',
 												className: 	'gbt_18_tr_editor_posts_grid_img ' + img_class,
 												style: 		{ backgroundImage: 'url(' + img + ')' }
