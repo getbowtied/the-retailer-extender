@@ -47,11 +47,11 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 				$this->create_wb_element();
 			}
 
-			if( 'yes' === get_option('tr_topbar_social_media', 'yes') ) {
-				add_action( 'tr_topbar_social_media', function() {
+			add_action( 'tr_topbar_social_media', function() {
+				if( 'yes' === get_option('tr_topbar_social_media', 'yes') ) {
 					echo do_shortcode('[social-media color="#fff" font_size="14"]');
-				} );
-			}
+				}
+			} );
 		}
 
 		/**
