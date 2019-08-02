@@ -46,6 +46,12 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 			if ( defined(  'WPB_VC_VERSION' ) ) {
 				$this->create_wb_element();
 			}
+
+			add_action( 'tr_topbar_social_media', function() {
+				if( 'yes' === get_option('tr_topbar_social_media', 'yes') ) {
+					echo do_shortcode('[social-media color="#fff" font_size="14"]');
+				}
+			} );
 		}
 
 		/**

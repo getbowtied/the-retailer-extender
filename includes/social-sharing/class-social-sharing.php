@@ -40,6 +40,10 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 					);
 				}
 			}, 1);
+
+			add_action( 'tr_post_share_button', function() {
+				echo $this->getbowtied_single_share_post();
+			} );
 		}
 
 		/**
