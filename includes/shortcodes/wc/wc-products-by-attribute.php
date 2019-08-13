@@ -3,10 +3,10 @@
 // [custom_product_attribute]
 function tr_ext_shortcode_custom_product_attribute($atts, $content = null) {
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
 
-	wp_enqueue_script('theretailer-wc-products-slider-script'); 
+	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
 		'title'  => '',
@@ -16,7 +16,7 @@ function tr_ext_shortcode_custom_product_attribute($atts, $content = null) {
 		'attribute' => '',
 		'filter'    => ''
 	), $atts));
-	
+
 	$attribute 	= strstr( $attribute, 'pa_' ) ? sanitize_title( $attribute ) : 'pa_' . sanitize_title( $attribute );
 
 	$args = array(
@@ -40,8 +40,8 @@ function tr_ext_shortcode_custom_product_attribute($atts, $content = null) {
 				'field' 	=> 'slug'
 			)
 		)
-	);	
-	
+	);
+
 	ob_start();
 
 	$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );

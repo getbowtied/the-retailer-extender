@@ -3,8 +3,8 @@
 // [custom_featured_products]
 function tr_ext_shortcode_custom_featured_products($atts, $content = null) {
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
 
 	wp_enqueue_script('theretailer-wc-products-slider-script');
 
