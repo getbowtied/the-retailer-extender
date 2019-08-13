@@ -3,9 +3,9 @@
 // [custom_top_rated_products]
 function tr_ext_shortcode_custom_top_rated_products($atts, $content = null) {
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
-	
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
+
 	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
@@ -15,7 +15,7 @@ function tr_ext_shortcode_custom_top_rated_products($atts, $content = null) {
 		'order'     => 'desc',
 		'layout'	=> 'slider'
 	), $atts));
-	
+
 	ob_start();
 
 	$args = array(
@@ -42,7 +42,7 @@ function tr_ext_shortcode_custom_top_rated_products($atts, $content = null) {
 	remove_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
 
 	tr_products_slider( 'top-rated-products', $products, $title );
-	
+
 	wp_reset_postdata();
 	$content = ob_get_contents();
 	ob_end_clean();

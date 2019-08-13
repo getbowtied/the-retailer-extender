@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer.wp-theme.design/
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		1.3.3
+ * Version:           		1.3.4
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
@@ -74,7 +74,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				include_once( 'includes/social-media/class-social-media.php' );
 
 				// Addons
-				if ( $theme->template == 'theretailer' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+				if ( $theme->template == 'theretailer' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( 'includes/addons/class-wc-category-header-image.php' );
 				}
 			}
@@ -88,7 +88,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				include_once( 'includes/custom-code/class-custom-code.php' );
 
 				// Social Sharing Buttons
-				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( 'includes/social-sharing/class-social-sharing.php' );
 				}
 			}
@@ -104,7 +104,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 						// Modify and remove existing shortcodes from VC
 						include_once('includes/wpbakery/custom_vc.php');
-						
+
 						// VC Templates
 						$vc_templates_dir = dirname(__FILE__) . '/includes/wpbakery/vc_templates/';
 						vc_set_shortcodes_templates_dir($vc_templates_dir);

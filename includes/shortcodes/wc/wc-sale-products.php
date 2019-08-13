@@ -4,9 +4,9 @@
 function tr_ext_shortcode_custom_on_sale_products($atts, $content = null) {
 	global $woocommerce;
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
-    
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
+
 	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
@@ -20,9 +20,9 @@ function tr_ext_shortcode_custom_on_sale_products($atts, $content = null) {
 
 	$product_ids_on_sale = wc_get_product_ids_on_sale();
 	$product_ids_on_sale[] = 0;
-	
+
 	$meta_query = $woocommerce->query->get_meta_query();
-	
+
 	$args = array(
 		'posts_per_page' 	=> $per_page,
 		'no_found_rows' => 1,
@@ -33,7 +33,7 @@ function tr_ext_shortcode_custom_on_sale_products($atts, $content = null) {
 		'meta_query' 	=> $meta_query,
 		'post__in'		=> $product_ids_on_sale
 	);
-    
+
     $products = new WP_Query( $args );
 
 	tr_products_slider( 'on-sale-products', $products, $title );

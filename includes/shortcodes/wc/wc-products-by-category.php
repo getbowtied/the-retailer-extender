@@ -3,10 +3,10 @@
 // [products_by_category]
 function tr_ext_shortcode_products_by_category($atts, $content = null) {
 
-    wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
+    wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
 
-	wp_enqueue_script('theretailer-wc-products-slider-script'); 
+	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
 		"title" => '',
@@ -33,7 +33,7 @@ function tr_ext_shortcode_products_by_category($atts, $content = null) {
         'ignore_sticky_posts'   => 1,
         'posts_per_page' => $per_page
     );
-    
+
     $products = new WP_Query($args);
 
     tr_products_slider( 'products-by-category', $products, $title );

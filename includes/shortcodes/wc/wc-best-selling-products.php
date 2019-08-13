@@ -3,10 +3,10 @@
 // [custom_best_sellers]
 function tr_ext_shortcode_custom_best_sellers($atts, $content = null) {
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
 
-	wp_enqueue_script('theretailer-wc-products-slider-script'); 
+	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
 		"title" => '',
@@ -32,7 +32,7 @@ function tr_ext_shortcode_custom_best_sellers($atts, $content = null) {
 			)
 		)
 	);
-    
+
     $products = new WP_Query( $args );
 
 	tr_products_slider( 'best-sellers', $products, $title );

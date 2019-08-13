@@ -3,9 +3,9 @@
 // [from_the_blog]
 function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 
-    wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
-    
+    wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
+
     wp_enqueue_style('theretailer-from-the-blog-shortcode-styles');
     wp_enqueue_script('theretailer-from-the-blog-shortcode-scripts');
 
@@ -23,18 +23,18 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
             'category_name' => $category,
             'posts_per_page' => $posts
         );
-        
+
         $recentPosts = new WP_Query( $args );
 
-	?> 
-    
+	?>
+
     <div class="from-the-blog-wrapper swiper-container">
-    
+
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">
                 <div class="gbtr_featured_section_title"><strong><?php echo $title ?></strong></div>
             </div>
-            <div class="gbtr_items_sliders_nav">                        
+            <div class="gbtr_items_sliders_nav">
                 <a class='big_arrow_right'></a>
                 <a class='big_arrow_left'></a>
                 <div class='clr'></div>
@@ -42,17 +42,17 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
         </div>
 
         <div class="gbtr_bold_sep"></div>
-    
+
 		<div class="swiper-wrapper">
-				
+
 			<?php if ( $recentPosts->have_posts() ) : ?>
-                        
+
                 <?php while ( $recentPosts->have_posts() ) : $recentPosts->the_post(); ?>
-            
+
                     <?php $post_format = get_post_format(get_the_ID()); ?>
-                    
+
                     <div class="swiper-slide from_the_blog_item <?php if ( !has_post_thumbnail()) : ?>no_thumb<?php endif; ?>">
-                        
+
                         <a class="from_the_blog_img img_zoom_in" href="<?php the_permalink() ?>">
                             <?php if ( has_post_thumbnail()) : ?>
                             	<?php the_post_thumbnail('recent_posts_shortcode') ?>
@@ -64,15 +64,15 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
                                 <span class="from_the_blog_date_month"><?php echo get_the_time('M', get_the_ID()); ?></span>
                             </span>
                         </a>
-                        
+
                         <div class="from_the_blog_content">
-                        
+
                             <?php if ( ($post_format == "") || ($post_format == "video") ) : ?>
                             	<a class="from_the_blog_title" href="<?php the_permalink() ?>"><h3><?php echo tr_string_limit_words(get_the_title(), 5); ?></h3></a>
-                            <?php endif ?>	
-                                                        
+                            <?php endif ?>
+
                             <div class="from_the_blog_excerpt">
-								<?php											
+								<?php
 									$limit_words = 12;
 									if ( ($post_format == "status") || ($post_format == "quote") || ($post_format == "aside") ) {
 										$limit_words = 40;
@@ -87,17 +87,17 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 									<?php comments_popup_link( __( 'Leave a comment', 'theretailer' ), __( '1 Comment', 'theretailer' ), __( '% Comments', 'theretailer' ), '', '' ); ?>
                                 </div>
                             <?php endif ?>
-                        
+
                         </div>
-                        
+
                     </div>
-                   
+
                 <?php endwhile; ?>
-                
+
             <?php endif; ?>
 
         </div>
-        
+
     </div>
 
 	<?php
