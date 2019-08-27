@@ -31,7 +31,7 @@
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
 				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
-				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } ) 
+				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } )
 			),
 		category: 'theretailer',
 		parent: [ 'getbowtied/tr-slider' ],
@@ -110,14 +110,14 @@
 			function getColors() {
 
 				let colors = [
-					{ 
+					{
 						label: i18n.__( 'Title & Description', 'theretailer-extender' ),
 						value: attributes.textColor,
 						onChange: function( newColor) {
 							props.setAttributes( { textColor: newColor } );
 						},
 					},
-					{ 
+					{
 						label: i18n.__( 'Slide Background', 'theretailer-extender' ),
 						value: attributes.backgroundColor,
 						onChange: function( newColor) {
@@ -128,14 +128,14 @@
 
 				if( attributes.slideButton ) {
 					colors.push(
-						{ 
+						{
 							label: i18n.__( 'Button Text', 'theretailer-extender' ),
 							value: attributes.buttonTextColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonTextColor: newColor } );
 							},
 						},
-						{ 
+						{
 							label: i18n.__( 'Button Background', 'theretailer-extender' ),
 							value: attributes.buttonBgColor,
 							onChange: function( newColor) {
@@ -151,7 +151,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_tr_slide_inspector'
 					},
 					el(
@@ -183,9 +183,9 @@
 								},
 							}
 						),
-						el( 
-							PanelBody, 
-							{ 
+						el(
+							PanelBody,
+							{
 								key: 'gbt_18_tr_editor_slide_text_settings',
 								title: i18n.__( 'Title & Description', 'theretailer-extender' ),
 								initialOpen: false,
@@ -232,8 +232,8 @@
 						),
 					),
 				),
-				el( 'div', 
-					{ 
+				el( 'div',
+					{
 						key: 		'gbt_18_tr_editor_slide_wrapper',
 						className : 'gbt_18_tr_editor_slide_wrapper'
 					},
@@ -251,19 +251,19 @@
 									imgAlt: img.alt,
 								} );
 							},
-	              			render: function( img ) { 
+	              			render: function( img ) {
 	              				return [
 		              				! attributes.imgID && el(
-		              					Button, 
-		              					{ 
+		              					Button,
+		              					{
 		              						key: 'gbt_18_tr_slide_add_image_button',
 		              						className: 'gbt_18_tr_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
 		              					i18n.__( 'Add Image', 'theretailer-extender' )
-	              					), 
+	              					),
 	              					!! attributes.imgID && el(
-	              						Button, 
+	              						Button,
 										{
 											key: 'gbt_18_tr_slide_remove_image_button',
 											className: 'gbt_18_tr_slide_remove_image_button button remove_image',
@@ -277,25 +277,25 @@
 											}
 										},
 										i18n.__( 'Remove Image', 'theretailer-extender' )
-									), 
+									),
 	              				];
 	              			},
 						},
 					),
 					el(
 						BlockControls,
-						{ 
+						{
 							key: 'gbt_18_tr_editor_slide_alignment'
 						},
 						el(
-							AlignmentToolbar, 
+							AlignmentToolbar,
 							{
 								key: 'gbt_18_tr_editor_slide_alignment_control',
 								value: attributes.alignment,
 								onChange: function( newAlignment ) {
 									props.setAttributes( { alignment: newAlignment } );
 								}
-							} 
+							}
 						),
 					),
 					el(
@@ -332,11 +332,11 @@
 										className: 	'gbt_18_tr_editor_slide_title',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_title_input',
 											style:
-											{ 
+											{
 												color: attributes.textColor,
 												fontSize: attributes.titleSize + 'px'
 											},
@@ -359,7 +359,7 @@
 										className: 	'gbt_18_tr_editor_slide_description',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_description_input',
 											style:
@@ -386,7 +386,7 @@
 										className: 	'gbt_18_tr_editor_slide_button',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_button_input',
 											style:
@@ -413,17 +413,17 @@
 			];
 		},
 		getEditWrapperProps: function( attributes ) {
-            return { 
-            	'data-tab': attributes.tabNumber 
+            return {
+            	'data-tab': attributes.tabNumber
             };
         },
 		save: function( props ) {
 
 			let attributes = props.attributes;
 
-			return el( 'div', 
+			return el( 'div',
 				{
-					key: 		'gbt_18_tr_swiper_slide', 
+					key: 		'gbt_18_tr_swiper_slide',
 					className: 	'gbt_18_tr_swiper_slide swiper-slide ' + attributes.alignment + '-align',
 					style:
 					{
@@ -437,7 +437,8 @@
 						key: 		'gbt_18_tr_slide_fullslidelink',
 						className: 	'fullslidelink',
 						href: 		attributes.slideURL,
-						'target': 	'_blank'
+						'target': 	'_blank',
+						rel: 		'noopener noreferrer'
 					}
 				),
 				el( 'div',

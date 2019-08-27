@@ -48,7 +48,7 @@
 
 		.gbt_18_tr_editor_posts_grid_item {
 			cursor: pointer;
-			padding: 0 10px;	
+			padding: 0 10px;
 		    margin-bottom: 2rem;
 
 		    .gbt_18_tr_editor_posts_grid_img_container {
@@ -60,11 +60,14 @@
 			display: block;
 			text-align: left;
 			font-weight: 700;
-			line-height: 1.45em;
-			color: #000;
-			margin: 0 0 1rem;
 			cursor: pointer;
 			transition: all .3s ease;
+		}
+
+		.gbt_18_tr_editor_posts_grid_excerpt
+		{
+			margin-top: 0;
+			text-align: left;
 		}
 
 		.gbt_18_tr_editor_posts_grid_img_container
@@ -75,7 +78,7 @@
 			height: 100%;
 			width: 100%;
 			margin-bottom: 25px;
-		}	
+		}
 
 		.gbt_18_tr_editor_posts_grid_img
 		{

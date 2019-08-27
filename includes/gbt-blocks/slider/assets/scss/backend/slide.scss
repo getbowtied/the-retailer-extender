@@ -7,65 +7,57 @@
 
     .gbt_18_tr_editor_slide_content
     {
-    	width: 80%;
     	word-break: break-word;
     	margin: auto;
     	height: 100%;
     	padding: 125px 0;
 
-    	h2, p
-    	{
-    		line-height: 1.1;
-    	}
-
         .gbt_18_tr_editor_slide_title {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .gbt_18_tr_editor_slide_button {
-            margin-top: 40px;
+			.gbt_18_tr_editor_slide_button_input {
+				font-size: 12px;
+				padding: 19px 30px;
+				text-transform: uppercase;
+				width: fit-content;
+			}
         }
 
     	.gbt_18_tr_editor_slide_container
     	{
-    		width: 70%;
+    		width: 68%;
 
     		&.align-center
     		{
-    			margin: auto; 
+    			margin: 0 auto;
+				padding: 0 16%;
 
     			.gbt_18_tr_editor_slide_button .gbt_18_tr_editor_slide_button_input
     			{
-    				margin: 20px auto 0;
+    				margin: 0 auto;
     			}
     		}
 
     		&.align-right
     		{
-    			margin: 0 0 0 auto; 
+    			margin: 0 auto;
+				padding: 0 1% 0 31%;
 
     			.gbt_18_tr_editor_slide_button .gbt_18_tr_editor_slide_button_input
     			{
-    				margin: 20px 0 0 auto;
+    				margin: 0 0 0 auto;
     			}
     		}
 
-    		.gbt_18_tr_editor_slide_description
+			&.align-left
     		{
-    			p
-    			{
-				    font-weight: normal;
-    			}
-    		}
+				margin: 0 auto;
+				padding: 0 31% 0 1%;
+			}
     	}
     }
-
-	.gbt_18_tr_editor_slide_button_input
-	{
-		padding: 1rem;
-    	width: fit-content;
-    	margin-top: 20px;
-	}
 
 	.gbt_18_tr_slide_remove_image_button,
 	.gbt_18_tr_slide_add_image_button {
