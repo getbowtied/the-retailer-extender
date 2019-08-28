@@ -4,8 +4,8 @@
 
 function tr_ext_getbowtied_slider($params = array(), $content = null) {
 
-	wp_enqueue_style('getbowtied_swiper_styles');
-    wp_enqueue_script('getbowtied_swiper_scripts');
+	wp_enqueue_style('swiper');
+    wp_enqueue_script('swiper');
 
 	wp_enqueue_style('theretailer-slider-shortcode-styles');
 	wp_enqueue_script('theretailer-slider-shortcode-script');
