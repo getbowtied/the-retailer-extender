@@ -10,8 +10,10 @@
       padding: 150px 0; } }
   .category_header.with_featured_img .page-title,
   .category_header.with_featured_img .term-description,
-  .category_header.with_featured_img .page-description {
-    color: #fff; }
+  .category_header.with_featured_img .term-description p,
+  .category_header.with_featured_img .page-description,
+  .category_header.with_featured_img .page-description p {
+    color: #fff !important; }
   .category_header.with_featured_img .category_header_overlay {
     content: "";
     display: block;

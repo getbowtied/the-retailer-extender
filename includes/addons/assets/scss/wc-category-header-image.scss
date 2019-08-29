@@ -14,9 +14,11 @@
 
     .page-title,
     .term-description,
-    .page-description
+	.term-description p,
+    .page-description,
+	.page-description p
     {
-    	color: #fff;
+    	color: #fff !important;
     }
 
     .category_header_overlay
