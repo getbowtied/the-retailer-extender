@@ -43,7 +43,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			add_filter( 'manage_edit-product_cat_columns', array( $this, 'woocommerce_product_cat_header_columns' ) );
 			add_filter( 'manage_product_cat_custom_column', array( $this, 'woocommerce_product_cat_header_column' ), 10, 3 );
 			add_action( 'admin_head', array( $this, 'product_cat_header_column' ) );
-		
+
 			add_filter( 'getbowtied_get_category_header_image', function() {
 				return $this->woocommerce_get_header_image_url();
 			} );
@@ -136,14 +136,14 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 				'default'	 			=> 'yes',
 			) );
 
-			$wp_customize->add_control( 
+			$wp_customize->add_control(
 				new WP_TR_Customize_Toggle_Control(
 					$wp_customize,
 					'tr_category_header_parallax',
-					array( 
+					array(
 						'label'       	=> esc_attr__( 'Parallax on Category Header', 'theretailer-extender' ),
 						'section'     	=> 'shop',
-						'priority'    	=> 11,
+						'priority'    	=> 9,
 					)
 				)
 			);
@@ -177,7 +177,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 
 					// Uploading files
 					var header_file_frame;
-					
+
 					jQuery(document).on( 'click', '.upload_header_button', function( event ){
 
 						event.preventDefault();
@@ -260,7 +260,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 						<button type="submit" class="remove_header_image_button button"><?php _e( 'Remove image', 'getbowtied' ); ?></button>
 					</div>
 
-					<script type="text/javascript">			 
+					<script type="text/javascript">
 
 					if (jQuery('#product_cat_thumbnail_id').val() == 0)
 						 jQuery('.remove_image_button').hide();
@@ -331,7 +331,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 *
 		 * @return void
 		 */
-		public function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {	
+		public function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {
 			if ( isset( $_POST['product_cat_header_id'] ) ) {
 				update_woocommerce_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
 			}
@@ -373,7 +373,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			global $woocommerce;
 
 			if ( $column == 'header' ) {
-				
+
 				$image 			= '';
 				$thumbnail_id 	= get_term_meta( $id, 'header_id', true );
 
@@ -401,18 +401,18 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		public function woocommerce_get_header_image_url($cat_ID = false) {
 			if ($cat_ID==false && is_product_category()){
 				global $wp_query;
-				
+
 				// get the query object
 				$cat = $wp_query->get_queried_object();
-				
+
 				// get the thumbnail id user the term_id
 				$cat_ID = $cat->term_id;
 			}
 
-		    $thumbnail_id = get_term_meta($cat_ID, 'header_id', true ); 
+		    $thumbnail_id = get_term_meta($cat_ID, 'header_id', true );
 
 		    // get the image URL
-		   return wp_get_attachment_url( $thumbnail_id ); 
+		   return wp_get_attachment_url( $thumbnail_id );
 		}
 
 		/**
