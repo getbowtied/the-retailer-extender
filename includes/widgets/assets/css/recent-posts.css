@@ -37,3 +37,13 @@
 
 .gbtr_dark_footer_wrapper .widget.the_retailer_recent_posts li {
   border: 0; }
+
+.rtl .widget.the_retailer_recent_posts a {
+  margin: 0 40px 0 0; }
+
+.rtl .widget.the_retailer_recent_posts .post_comments {
+  margin: 0 40px 0 0; }
+
+.rtl .widget.the_retailer_recent_posts .post_date {
+  right: 0;
+  left: auto; }
