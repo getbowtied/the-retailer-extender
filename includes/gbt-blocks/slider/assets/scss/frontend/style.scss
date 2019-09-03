@@ -137,16 +137,6 @@
 
 	.gbt_18_tr_slider_container
 	{
-		&.full_height
-		{
-	    	height: 100vh !important;
-	    	max-height: 100vh;
-
-			@media all and (max-width: 639px) {
-				max-height: 600px;
-			}
-	    }
-
 	    @media all and (max-width: 639px) {
 			max-height: 600px;
 		}

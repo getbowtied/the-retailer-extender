@@ -38,5 +38,17 @@ jQuery(function($) {
 			},
 		});
 
+		if( $(this).hasClass('full_height') ) {
+
+			var windowHeight = $(window).height();
+			var offsetTop = $(this).offset().top;
+			var fullHeight = 100-offsetTop/(windowHeight/100);
+
+			if( windowHeight && fullHeight ) {
+				$(this).css('max-height', fullHeight+"vh");
+				$(this).css('min-height', fullHeight+"vh");
+			}
+		}
+
 	});
 });

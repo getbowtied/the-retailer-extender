@@ -28,11 +28,11 @@
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 48 48' },
 				el( G, {},
-					el( Path, 
-						{ 
-							d:'M 20 20 L 4 20 C 3.447266 20 3 19.552734 3 19 L 3 16 L 21 16 L 21 19 C 21 19.552734 20.552734 20 20 20 Z M 20 20 ', 
+					el( Path,
+						{
+							d:'M 20 20 L 4 20 C 3.447266 20 3 19.552734 3 19 L 3 16 L 21 16 L 21 19 C 21 19.552734 20.552734 20 20 20 Z M 20 20 ',
 							transform: 'matrix(2,0,0,2,0,0)',
-							style: { 
+							style: {
 								'fill':'none',
 								'stroke-width':'2',
 								'stroke-linecap':'butt',
@@ -43,11 +43,11 @@
 							}
 						}
 					),
-					el( Path, 
-						{ 
-							d:'M 5 16 L 5 9 C 5 8.447266 5.447266 8 6 8 L 18 8 C 18.552734 8 19 8.447266 19 9 L 19 16 M 6 5 C 6 4.447266 6.447266 4 7 4 L 17 4 C 17.552734 4 18 4.447266 18 5 ', 
+					el( Path,
+						{
+							d:'M 5 16 L 5 9 C 5 8.447266 5.447266 8 6 8 L 18 8 C 18.552734 8 19 8.447266 19 9 L 19 16 M 6 5 C 6 4.447266 6.447266 4 7 4 L 17 4 C 17.552734 4 18 4.447266 18 5 ',
 							transform: 'matrix(2,0,0,2,0,0)',
-							style: { 
+							style: {
 								'fill':'none',
 								'stroke-width':'2',
 								'stroke-linecap':'butt',
@@ -56,13 +56,13 @@
 								'stroke-opacity':'1',
 								'stroke-miterlimit':'10'
 							}
-						} 
+						}
 					),
-					el( Path, 
-						{ 
-							d:'M 34 30 L 27.738281 22 L 22.65625 28.152344 L 18.957031 24 L 14 30 Z M 34 30 ', 
-							style: { 'fill': '#555d66'} 
-						} 
+					el( Path,
+						{
+							d:'M 34 30 L 27.738281 22 L 22.65625 28.152344 L 18.957031 24 L 14 30 Z M 34 30 ',
+							style: { 'fill': '#555d66'}
+						}
 					),
 				),
 			),
@@ -125,7 +125,7 @@
 				                key: 'slide' + i,
 				                className: 'slide-tab slide-' + i,
 				                'data-tab': i,
-				                onClick: function() {				                	
+				                onClick: function() {
                     				props.setAttributes({ activeTab: i });
                                 },
 				            },
@@ -145,7 +145,7 @@
 				}
 
 				return tabs;
-			} 
+			}
 
 			function getTemplates() {
 				let n = [];
@@ -162,7 +162,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_tr_slider_inspector'
 					},
 					el(
@@ -265,13 +265,13 @@
 
 		save: function( props ) {
 			attributes = props.attributes;
-			return el( 
+			return el(
 				'div',
 				{
 					key: 'gbt_18_tr_slider_wrapper',
 					className: 'gbt_18_tr_slider wp-block-gbt-slider'
 				},
-				el( 
+				el(
 					'div',
 					{
 						key: 'gbt_18_tr_slider_container',
@@ -295,7 +295,7 @@
 							key: 'swiper-button-prev',
 							className: 'swiper-button-prev'
 						},
-						el( SVG, 
+						el( SVG,
 							{
 								className: 'left-arrow-svg',
 								xmlns:'http://www.w3.org/2000/svg',
@@ -305,7 +305,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } ) 
+							el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } )
 						),
 					),
 					!! attributes.arrows && el(
@@ -314,7 +314,7 @@
 							key: 'swiper-button-next',
 							className: 'swiper-button-next'
 						},
-						el( SVG, 
+						el( SVG,
 							{
 								className: 'right-arrow-svg',
 								xmlns:'http://www.w3.org/2000/svg',
@@ -324,7 +324,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } ) 
+							el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } )
 						),
 					),
 					!! attributes.pagination && el(
