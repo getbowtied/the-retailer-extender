@@ -19,9 +19,11 @@
 
 		svg
 		{
-		    width: 30px;
-		    height: 30px;
+		    width: 24px;
+		    height: 24px;
 		    outline: 0;
+			position: relative;
+			top: 10px;
 		}
 	}
 
@@ -137,23 +139,36 @@
 
 	.gbt_18_tr_slider_container
 	{
-	    @media all and (max-width: 639px) {
-			max-height: 600px;
-		}
+		max-height: 600px;
 	}
 
 	.gbt_18_tr_slider_pagination
 	{
-		display: block;
-	    position: absolute;
-	    text-align: center;
-		z-index: 1;
+			display: block;
+		    position: absolute;
+			z-index: 1;
+	        bottom: 30px;
+	        text-align: center;
+	        height: 10px;
 
-		.swiper-pagination-bullet-active
-		{
-			background: #000;
-			opacity: .75;
-			transform: scale(1.1);
-		}
-	}
+	        &.disabled
+	        {
+	            display: none;
+	        }
+
+	        .swiper-pagination-bullet
+	        {
+	            background: transparent;
+	            border: 1px solid #000;
+	            margin: 0px 4px;
+	            opacity: 1;
+
+	            &.swiper-pagination-bullet-active
+	            {
+					background: #000;
+	                border: none;
+	            }
+	        }
+	    }
+
 }

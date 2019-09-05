@@ -14,6 +14,7 @@
       text-align: left;
       max-width: 25%;
       position: relative;
+      padding-bottom: 0;
       margin: 0 20px; }
       @media screen and (max-width: 719px) {
         .gbtr_product_share ul li {
@@ -67,7 +68,8 @@
           color: #000 !important; }
 
 .product_page_has_sidebar .gbtr_product_share ul li {
-  margin: 0 10px; }
+  margin: 0 10px;
+  padding-bottom: 0; }
   .product_page_has_sidebar .gbtr_product_share ul li svg {
     margin-right: 5px; }
     @media screen and (max-width: 719px) {

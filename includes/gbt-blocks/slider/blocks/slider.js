@@ -22,6 +22,37 @@
 	const Polygon 				= wp.components.Polygon;
 	const G 					= wp.components.G;
 
+	var attributes = {
+		fullHeight: {
+			type: 'boolean',
+			default: false
+		},
+		customHeight: {
+			type: 'number',
+			default: '800',
+		},
+		slides: {
+			type: 'number',
+			default: '3',
+		},
+		pagination: {
+			type: 'boolean',
+			default: true
+		},
+		arrows: {
+			type: 'boolean',
+			default: true
+		},
+		slideURL: {
+			type: 'string',
+			default: '#'
+		},
+		activeTab: {
+			type: 'number',
+			default: '1'
+		}
+	};
+
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slider', {
 		title: i18n.__( 'Slider', 'theretailer-extender' ),
@@ -70,36 +101,7 @@
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
-		attributes: {
-			fullHeight: {
-				type: 'boolean',
-				default: false
-			},
-			customHeight: {
-				type: 'number',
-				default: '800',
-			},
-			slides: {
-				type: 'number',
-				default: '3',
-			},
-			pagination: {
-				type: 'boolean',
-				default: true
-			},
-			arrows: {
-				type: 'boolean',
-				default: true
-			},
-			slideURL: {
-	        	type: 'string',
-	        	default: '#'
-	        },
-	        activeTab: {
-	        	type: 'number',
-	        	default: '1'
-	        }
-		},
+		attributes: attributes,
 
 		edit: function( props ) {
 
@@ -305,7 +307,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } )
+							el( Path, { d:'M 10 4.9296875 L 2.9296875 12 L 10 19.070312 L 11.5 17.570312 L 6.9296875 13 L 21 13 L 21 11 L 6.9296875 11 L 11.5 6.4296875 L 10 4.9296875 z' } )
 						),
 					),
 					!! attributes.arrows && el(
@@ -324,7 +326,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } )
+							el( Path, { d:'M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z' } )
 						),
 					),
 					!! attributes.pagination && el(
@@ -337,6 +339,87 @@
 				)
 			);
 		},
+
+		deprecated: [
+			{
+				attributes: attributes,
+
+				save: function( props ) {
+					attributes = props.attributes;
+					return el(
+						'div',
+						{
+							key: 'gbt_18_tr_slider_wrapper',
+							className: 'gbt_18_tr_slider wp-block-gbt-slider'
+						},
+						el(
+							'div',
+							{
+								key: 'gbt_18_tr_slider_container',
+								className: attributes.fullHeight ? 'gbt_18_tr_slider_container swiper-container full_height' : 'gbt_18_tr_slider_container swiper-container',
+								style:
+								{
+									height: attributes.customHeight + 'px'
+								}
+							},
+							el(
+								'div',
+								{
+									key: 'swiper-wrapper',
+									className: 'swiper-wrapper'
+								},
+								el( InnerBlock.Content, { key: 'slide-content' } )
+							),
+							!! attributes.arrows && el(
+								'div',
+								{
+									key: 'swiper-button-prev',
+									className: 'swiper-button-prev'
+								},
+								el( SVG,
+									{
+										className: 'left-arrow-svg',
+										xmlns:'http://www.w3.org/2000/svg',
+										viewBox:'0 0 24 24',
+										style:
+										{
+											fill: attributes.arrowsColor
+										}
+									},
+									el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } )
+								),
+							),
+							!! attributes.arrows && el(
+								'div',
+								{
+									key: 'swiper-button-next',
+									className: 'swiper-button-next'
+								},
+								el( SVG,
+									{
+										className: 'right-arrow-svg',
+										xmlns:'http://www.w3.org/2000/svg',
+										viewBox:'0 0 24 24',
+										style:
+										{
+											fill: attributes.arrowsColor
+										}
+									},
+									el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } )
+								),
+							),
+							!! attributes.pagination && el(
+								'div',
+								{
+									key: 'shortcode-slider-pagination',
+									className: 'quickview-pagination shortcode-slider-pagination gbt_18_tr_slider_pagination'
+								}
+							)
+						)
+					);
+				},
+			}
+		],
 	} );
 
 } )(

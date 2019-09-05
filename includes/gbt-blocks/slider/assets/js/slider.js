@@ -28,8 +28,7 @@ jQuery(function($) {
 		    // Pagination
 		    pagination: {
 			    el: $(this).find('.gbt_18_tr_slider_pagination'),
-			    type: 'bullets',
-			    clickable: true
+				dynamicBullets: true
 			},
 		    // Navigation
 		    navigation: {
@@ -40,13 +39,16 @@ jQuery(function($) {
 
 		if( $(this).hasClass('full_height') ) {
 
-			var windowHeight = $(window).height();
-			var offsetTop = $(this).offset().top;
-			var fullHeight = 100-offsetTop/(windowHeight/100);
+			if( $(this).parent().is(':first-child') ) {
 
-			if( windowHeight && fullHeight ) {
-				$(this).css('max-height', fullHeight+"vh");
-				$(this).css('min-height', fullHeight+"vh");
+				var windowHeight = $(window).height();
+				var offsetTop = $(this).offset().top;
+				var fullHeight = 100-offsetTop/(windowHeight/100);
+
+				if( windowHeight && fullHeight ) {
+					$(this).css('max-height', fullHeight+"vh");
+					$(this).css('min-height', fullHeight+"vh");
+				}
 			}
 		}
 

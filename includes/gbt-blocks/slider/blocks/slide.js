@@ -25,6 +25,74 @@
 	const Circle 				= wp.components.Circle;
 	const Polygon 				= wp.components.Polygon;
 
+	var attributes = {
+		imgURL: {
+			type: 'string',
+			attribute: 'src',
+			selector: 'img',
+			default: '',
+		},
+		imgID: {
+			type: 'number',
+		},
+		imgAlt: {
+			type: 'string',
+			attribute: 'alt',
+			selector: 'img',
+		},
+		title: {
+			type: 'string',
+			default: 'Slide Title',
+		},
+		titleSize: {
+			type: 'number',
+			default: 36,
+		},
+		description: {
+			type: 'string',
+			default: 'Slide Description'
+		},
+		descriptionSize: {
+			type: 'number',
+			default: 13,
+		},
+		textColor: {
+			type: 'string',
+			default: '#fff'
+		},
+		buttonText: {
+			type: 'string',
+			default: 'Button Text'
+		},
+		slideURL: {
+			type: 'string',
+			default: '#'
+		},
+		slideButton: {
+			type: 'boolean',
+			default: true
+		},
+		buttonTextColor: {
+			type: 'string',
+			default: '#fff'
+		},
+		buttonBgColor: {
+			type: 'string',
+			default: '#000'
+		},
+		backgroundColor: {
+			type: 'string',
+			default: '#24282e'
+		},
+		alignment: {
+			type: 'string',
+			default: 'center'
+		},
+		tabNumber: {
+			type: "number"
+		}
+	};
+
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slide', {
 		title: i18n.__( 'Slide', 'theretailer-extender' ),
@@ -35,73 +103,7 @@
 			),
 		category: 'theretailer',
 		parent: [ 'getbowtied/tr-slider' ],
-		attributes: {
-		    imgURL: {
-	            type: 'string',
-	            attribute: 'src',
-	            selector: 'img',
-	            default: '',
-	        },
-	        imgID: {
-	            type: 'number',
-	        },
-	        imgAlt: {
-	            type: 'string',
-	            attribute: 'alt',
-	            selector: 'img',
-	        },
-	        title: {
-	        	type: 'string',
-	        	default: 'Slide Title',
-	        },
-	        titleSize: {
-	        	type: 'number',
-	        	default: 36,
-	        },
-	        description: {
-	        	type: 'string',
-	        	default: 'Slide Description'
-	        },
-	        descriptionSize: {
-	        	type: 'number',
-	        	default: 13,
-	        },
-	        textColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        buttonText: {
-	        	type: 'string',
-	        	default: 'Button Text'
-	        },
-	        slideURL: {
-	        	type: 'string',
-	        	default: '#'
-	        },
-	        slideButton: {
-	        	type: 'boolean',
-	        	default: true
-	        },
-	        buttonTextColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        buttonBgColor: {
-	        	type: 'string',
-	        	default: '#000'
-	        },
-	        backgroundColor: {
-	        	type: 'string',
-	        	default: '#24282e'
-	        },
-	        alignment: {
-	        	type: 'string',
-	        	default: 'center'
-	        },
-	        tabNumber: {
-                type: "number"
-            }
-		},
+		attributes: attributes,
 
 		edit: function( props ) {
 
@@ -437,7 +439,6 @@
 						key: 		'gbt_18_tr_slide_fullslidelink',
 						className: 	'fullslidelink',
 						href: 		attributes.slideURL,
-						'target': 	'_blank',
 						rel: 		'noopener noreferrer'
 					}
 				),
@@ -493,6 +494,88 @@
 				)
 			);
 		},
+		deprecated: [
+			{
+				attributes: attributes,
+
+				save: function( props ) {
+
+					let attributes = props.attributes;
+
+					return el( 'div',
+						{
+							key: 		'gbt_18_tr_swiper_slide',
+							className: 	'gbt_18_tr_swiper_slide swiper-slide ' + attributes.alignment + '-align',
+							style:
+							{
+								backgroundColor: attributes.backgroundColor,
+								backgroundImage: 'url(' + attributes.imgURL + ')',
+								color: attributes.textColor
+							}
+						},
+						! attributes.slideButton && attributes.slideURL != '' && el( 'a',
+							{
+								key: 		'gbt_18_tr_slide_fullslidelink',
+								className: 	'fullslidelink',
+								href: 		attributes.slideURL,
+								'target': 	'_blank',
+								rel: 		'noopener noreferrer'
+							}
+						),
+						el( 'div',
+							{
+								key: 					'gbt_18_tr_slide_content',
+								className: 				'gbt_18_tr_slide_content slider-content',
+								'data-swiper-parallax': '-1000'
+							},
+							el( 'div',
+								{
+									key: 		'gbt_18_tr_slide_content_wrapper',
+									className: 	'gbt_18_tr_slide_content_wrapper slider-content-wrapper'
+								},
+								attributes.title != '' && el( 'h2',
+									{
+										key: 		'gbt_18_tr_slide_title',
+										className: 	'gbt_18_tr_slide_title slide-title',
+										style:
+										{
+											fontSize: attributes.titleSize,
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.title },
+									},
+								),
+								attributes.description != '' && el( 'p',
+									{
+										key: 		'gbt_18_tr_slide_description',
+										className: 	'gbt_18_tr_slide_description slide-description',
+										style:
+										{
+											fontSize: attributes.descriptionSize,
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.description },
+									},
+								),
+								!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
+									{
+										key: 		'gbt_18_tr_slide_button',
+										className: 	'gbt_18_tr_slide_button button',
+										href: attributes.slideURL,
+										style:
+										{
+											backgroundColor: attributes.buttonBgColor,
+											color: attributes.buttonTextColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.buttonText },
+									},
+								)
+							)
+						)
+					);
+				},
+			}
+		]
 	} );
 
 } )(
