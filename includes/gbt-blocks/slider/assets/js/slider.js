@@ -39,7 +39,7 @@ jQuery(function($) {
 
 		if( $(this).hasClass('full_height') ) {
 
-			if( $(this).parent().is(':first-child') ) {
+			if( $(this)[0] == $('.content_wrapper').children().first()[0] || $(this)[0] == $('.entry-content').children().first()[0] ) {
 
 				var windowHeight = $(window).height();
 				var offsetTop = $(this).offset().top;
