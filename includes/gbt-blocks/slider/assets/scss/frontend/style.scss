@@ -7,15 +7,10 @@
 	.swiper-button-next
 	{
 		background-image: none;
-		opacity: 0;
 		outline: 0;
 		height: 30px;
     	width: 30px;
 		transition: all .5s ease;
-
-		@media only screen and (max-width: 1023px) {
-			opacity: .35;
-		}
 
 		svg
 		{
@@ -25,18 +20,10 @@
 			position: relative;
 			top: 10px;
 		}
-	}
 
-	&:hover
-	{
-		@media only screen and (min-width: 1024px) {
-
-			.swiper-button-prev,
-			.swiper-button-next
-			{
-				opacity: .35;
-				transition: all .5s ease;
-			}
+		&:hover
+		{
+			opacity: .5;
 		}
 	}
 
@@ -52,6 +39,7 @@
 
 	.gbt_18_tr_swiper_slide
 	{
+		background-position: center;
 		background-size: cover;
 		display: table;
 
@@ -73,6 +61,11 @@
 				{
 					color: inherit;
 					width: fit-content;
+
+					&:hover
+					{
+						opacity: .75;
+					}
 				}
 			}
 		}
