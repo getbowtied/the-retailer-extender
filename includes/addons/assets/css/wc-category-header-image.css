@@ -1,6 +1,6 @@
 .category_header.with_featured_img {
   padding: 185px 0;
-  margin-bottom: 44px;
+  margin-bottom: 2.5rem;
   text-align: center; }
   @media all and (max-width: 719px) {
     .category_header.with_featured_img {
@@ -8,6 +8,8 @@
   @media all and (min-width: 720px) and (max-width: 959px) {
     .category_header.with_featured_img {
       padding: 150px 0; } }
+  .category_header.with_featured_img .tr_content_wrapper {
+    max-width: 640px; }
   .category_header.with_featured_img .page-title,
   .category_header.with_featured_img .term-description,
   .category_header.with_featured_img .term-description p,

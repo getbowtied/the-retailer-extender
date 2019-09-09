@@ -139,3 +139,6 @@
       -webkit-transition: all .3s ease;
       -o-transition: all .3s ease;
       transition: all .3s ease; }
+
+.rtl .gbtr_product_share ul li > a > span {
+  text-align: right; }

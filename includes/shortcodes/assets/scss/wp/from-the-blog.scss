@@ -36,7 +36,7 @@
 	}
 
     .from_the_blog_item
-    {	
+    {
 		padding: 0;
 		list-style: none;
 		box-sizing: border-box;
@@ -174,4 +174,18 @@
 		    }
 		}
 	}
+}
+
+.rtl
+{
+    .from-the-blog-wrapper.swiper-container
+    {
+        .gbtr_items_sliders_header
+    	{
+    		.gbtr_items_sliders_title
+            {
+                float: right;
+            }
+        }
+    }
 }

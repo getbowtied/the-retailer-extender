@@ -196,3 +196,11 @@
         }
     }
 }
+
+.rtl
+{
+    .gbtr_product_share ul li > a > span
+    {
+        text-align: right;
+    }
+}
