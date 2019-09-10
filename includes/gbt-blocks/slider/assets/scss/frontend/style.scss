@@ -60,7 +60,12 @@
 
 				.gbt_18_tr_slide_description
 				{
-					margin-bottom: 35px;
+					margin-bottom: 0;
+				}
+
+				.gbt_18_tr_slide_description + .gbt_18_tr_slide_button
+				{
+					margin-top: 35px;
 				}
 
 				.gbt_18_tr_slide_button
