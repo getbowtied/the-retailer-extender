@@ -218,7 +218,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 			?>
 
 			<div class="box-share-container post-share-container">
-				<a class="trigger-share-list" href="#">
+				<a class="trigger-share-list tr_upper_link" href="#">
 					<svg 
                 		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 						width="18" height="18"
@@ -232,7 +232,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 					<div class="box-share-list-inner">
 
 						<a href="//www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" 
-							class="box-share-link" 
+							class="box-share-link tr_upper_link" 
 							target="_blank">
 							<svg 
 	                    		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -244,7 +244,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 						</a>
 						
 						<a href="//twitter.com/share?url=<?php the_permalink(); ?>" 
-							class="box-share-link" 
+							class="box-share-link tr_upper_link" 
 							target="_blank">
 							<svg 
 	                    		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -256,7 +256,7 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 						</a>
 
 						<a href="//pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&amp;media=<?php echo esc_url($src[0]) ?>&amp;description=<?php echo urlencode(get_the_title()); ?>" 
-							class="box-share-link" 
+							class="box-share-link tr_upper_link" 
 							target="_blank">
 							<svg 
 	                    		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

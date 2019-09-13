@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: The Retailer Extender\n"
-"POT-Creation-Date: 2019-08-13 12:20+0300\n"
-"PO-Revision-Date: 2019-08-13 12:18+0300\n"
+"POT-Creation-Date: 2019-09-10 14:34+0300\n"
+"PO-Revision-Date: 2019-08-27 16:11+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,37 +23,27 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: core\n"
 "X-Poedit-SearchPathExcluded-2: updater\n"
 
-#: includes/addons/class-wc-category-header-image.php:130
+#: includes/addons/class-wc-category-header-image.php:154
 msgid "Parallax on Category Header"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:150
-#: includes/addons/class-wc-category-header-image.php:240
-#: includes/addons/class-wc-category-header-image.php:340
+#: includes/addons/class-wc-category-header-image.php:171
+#: includes/addons/class-wc-category-header-image.php:210
+#: includes/addons/class-wc-category-header-image.php:257
 msgid "Header"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:154
-#: includes/addons/class-wc-category-header-image.php:245
+#: includes/addons/class-wc-category-header-image.php:177
+#: includes/addons/class-wc-category-header-image.php:215
 msgid "Upload/Add image"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:155
-#: includes/addons/class-wc-category-header-image.php:246
+#: includes/addons/class-wc-category-header-image.php:178
+#: includes/addons/class-wc-category-header-image.php:216
 msgid "Remove image"
 msgstr ""
 
-#: includes/addons/class-wc-category-header-image.php:179
-#: includes/addons/class-wc-category-header-image.php:272
-msgid "Choose an image"
-msgstr ""
-
-#: includes/addons/class-wc-category-header-image.php:181
-#: includes/addons/class-wc-category-header-image.php:274
-msgid "Use image"
-msgstr ""
-
-#: includes/addons/class-wc-category-header-image.php:339
+#: includes/addons/class-wc-category-header-image.php:256
 msgid "Image"
 msgstr ""
 
@@ -102,7 +92,7 @@ msgid "Height"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:208
-#: includes/gbt-blocks/slider/blocks/slide.js:202
+#: includes/gbt-blocks/slider/blocks/slide.js:204
 msgid "Title Font Size"
 msgstr ""
 
@@ -119,27 +109,27 @@ msgid "Inner Stroke Thickness"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:257
-#: includes/gbt-blocks/slider/blocks/slide.js:229
+#: includes/gbt-blocks/slider/blocks/slide.js:231
 msgid "Colors"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:320
-#: includes/gbt-blocks/slider/blocks/slide.js:263
+#: includes/gbt-blocks/slider/blocks/slide.js:265
 msgid "Add Image"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:336
-#: includes/gbt-blocks/slider/blocks/slide.js:279
+#: includes/gbt-blocks/slider/blocks/slide.js:281
 msgid "Remove Image"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:372
-#: includes/gbt-blocks/slider/blocks/slide.js:348
+#: includes/gbt-blocks/slider/blocks/slide.js:350
 msgid "Add Title"
 msgstr ""
 
 #: includes/gbt-blocks/banner/block.js:392
-#: includes/gbt-blocks/slider/blocks/slide.js:375
+#: includes/gbt-blocks/slider/blocks/slide.js:377
 msgid "Add Subtitle"
 msgstr ""
 
@@ -147,101 +137,105 @@ msgstr ""
 msgid "Posts Grid"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:187
+#: includes/gbt-blocks/posts_grid/block.js:192
 msgid "Update"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:189
+#: includes/gbt-blocks/posts_grid/block.js:194
 msgid "Updating"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:391
+#: includes/gbt-blocks/posts_grid/block.js:399
 msgid "Categories:"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:406
+#: includes/gbt-blocks/posts_grid/block.js:414
 msgid "Alphabetical Ascending"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:407
+#: includes/gbt-blocks/posts_grid/block.js:415
 msgid "Alphabetical Descending"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:408
+#: includes/gbt-blocks/posts_grid/block.js:416
 msgid "Date Ascending"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:409
+#: includes/gbt-blocks/posts_grid/block.js:417
 msgid "Date Descending"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:411
+#: includes/gbt-blocks/posts_grid/block.js:419
 msgid "Order By"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:430
+#: includes/gbt-blocks/posts_grid/block.js:438
 msgid "Number of Posts"
 msgstr ""
 
-#: includes/gbt-blocks/posts_grid/block.js:461
+#: includes/gbt-blocks/posts_grid/block.js:469
 msgid "Columns"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:30
+#: includes/gbt-blocks/posts_grid/block.js:479
+msgid "Post Excerpt"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:98
 msgid "Slide"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:114
-#: includes/gbt-blocks/slider/blocks/slide.js:190
+#: includes/gbt-blocks/slider/blocks/slide.js:116
+#: includes/gbt-blocks/slider/blocks/slide.js:192
 msgid "Title & Description"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:121
+#: includes/gbt-blocks/slider/blocks/slide.js:123
 msgid "Slide Background"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:132
-#: includes/gbt-blocks/slider/blocks/slide.js:402
+#: includes/gbt-blocks/slider/blocks/slide.js:134
+#: includes/gbt-blocks/slider/blocks/slide.js:404
 msgid "Button Text"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:139
+#: includes/gbt-blocks/slider/blocks/slide.js:141
 msgid "Button Background"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:166
+#: includes/gbt-blocks/slider/blocks/slide.js:168
 msgid "Slide Link"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:179
+#: includes/gbt-blocks/slider/blocks/slide.js:181
 msgid "Slide Button"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slide.js:217
+#: includes/gbt-blocks/slider/blocks/slide.js:219
 msgid "Description Font Size"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:26
+#: includes/gbt-blocks/slider/blocks/slider.js:58
 msgid "Slider"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:147
+#: includes/gbt-blocks/slider/blocks/slider.js:179
 msgid "Full Height"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:164
+#: includes/gbt-blocks/slider/blocks/slider.js:196
 msgid "Custom Desktop Height"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:179
+#: includes/gbt-blocks/slider/blocks/slider.js:211
 msgid "Number of Slides"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:190
+#: includes/gbt-blocks/slider/blocks/slider.js:222
 msgid "Pagination Bullets"
 msgstr ""
 
-#: includes/gbt-blocks/slider/blocks/slider.js:201
+#: includes/gbt-blocks/slider/blocks/slider.js:233
 msgid "Navigation Arrows"
 msgstr ""
 

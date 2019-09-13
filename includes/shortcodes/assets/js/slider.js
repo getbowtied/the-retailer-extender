@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.shortcode_getbowtied_slider').each(function() {
@@ -12,7 +12,7 @@ jQuery(function($) {
 		}
 
 		var mySwiper = new Swiper ($(this), {
-			
+
 			// Optional parameters
 		    direction: 'horizontal',
 		    loop: true,
@@ -32,8 +32,8 @@ jQuery(function($) {
 			},
 		    // Navigation
 		    navigation: {
-			    nextEl: '.swiper-button-next',
-			    prevEl: '.swiper-button-prev',
+			    nextEl: $(this).find('.swiper-button-next'),
+			    prevEl: $(this).find('.swiper-button-prev'),
 			},
 		});
 

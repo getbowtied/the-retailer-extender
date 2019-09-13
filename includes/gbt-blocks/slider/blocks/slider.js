@@ -20,56 +20,88 @@
 	const Path 					= wp.components.Path;
 	const Circle 				= wp.components.Circle;
 	const Polygon 				= wp.components.Polygon;
+	const G 					= wp.components.G;
+
+	var attributes = {
+		fullHeight: {
+			type: 'boolean',
+			default: false
+		},
+		customHeight: {
+			type: 'number',
+			default: '800',
+		},
+		slides: {
+			type: 'number',
+			default: '3',
+		},
+		pagination: {
+			type: 'boolean',
+			default: true
+		},
+		arrows: {
+			type: 'boolean',
+			default: true
+		},
+		slideURL: {
+			type: 'string',
+			default: '#'
+		},
+		activeTab: {
+			type: 'number',
+			default: '1'
+		}
+	};
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slider', {
 		title: i18n.__( 'Slider', 'theretailer-extender' ),
 		icon:
-			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
-				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
-				el( Circle, {cx: "50", cy: "82.5", r: "2.5"}),
-				el( Circle, {cx: "40", cy: "82.5", r: "2.5"}),
-				el( Circle, {cx: "60", cy: "82.5", r: "2.5"}),
-				el( Circle, {cx: "70", cy: "82.5", r: "2.5"}),
-				el( Circle, {cx: "30", cy: "82.5", r: "2.5"}),
-				el( Polygon, { points: "10,40 5,45 10,50 "}),
-				el( Polygon, { points: "90,50 95,45 90,40 "}),
-				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } ) 
+			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 48 48' },
+				el( G, {},
+					el( Path,
+						{
+							d:'M 20 20 L 4 20 C 3.447266 20 3 19.552734 3 19 L 3 16 L 21 16 L 21 19 C 21 19.552734 20.552734 20 20 20 Z M 20 20 ',
+							transform: 'matrix(2,0,0,2,0,0)',
+							style: {
+								'fill':'none',
+								'stroke-width':'2',
+								'stroke-linecap':'butt',
+								'stroke-linejoin':'miter',
+								'stroke':'#555d66',
+								'stroke-opacity':'1',
+								'stroke-miterlimit':'10'
+							}
+						}
+					),
+					el( Path,
+						{
+							d:'M 5 16 L 5 9 C 5 8.447266 5.447266 8 6 8 L 18 8 C 18.552734 8 19 8.447266 19 9 L 19 16 M 6 5 C 6 4.447266 6.447266 4 7 4 L 17 4 C 17.552734 4 18 4.447266 18 5 ',
+							transform: 'matrix(2,0,0,2,0,0)',
+							style: {
+								'fill':'none',
+								'stroke-width':'2',
+								'stroke-linecap':'butt',
+								'stroke-linejoin':'miter',
+								'stroke':'#555d66',
+								'stroke-opacity':'1',
+								'stroke-miterlimit':'10'
+							}
+						}
+					),
+					el( Path,
+						{
+							d:'M 34 30 L 27.738281 22 L 22.65625 28.152344 L 18.957031 24 L 14 30 Z M 34 30 ',
+							style: { 'fill': '#555d66'}
+						}
+					),
+				),
 			),
 		category: 'theretailer',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
-		attributes: {
-			fullHeight: {
-				type: 'boolean',
-				default: false
-			},
-			customHeight: {
-				type: 'number',
-				default: '800',
-			},
-			slides: {
-				type: 'number',
-				default: '3',
-			},
-			pagination: {
-				type: 'boolean',
-				default: true
-			},
-			arrows: {
-				type: 'boolean',
-				default: true
-			},
-			slideURL: {
-	        	type: 'string',
-	        	default: '#'
-	        },
-	        activeTab: {
-	        	type: 'number',
-	        	default: '1'
-	        }
-		},
+		attributes: attributes,
 
 		edit: function( props ) {
 
@@ -95,7 +127,7 @@
 				                key: 'slide' + i,
 				                className: 'slide-tab slide-' + i,
 				                'data-tab': i,
-				                onClick: function() {				                	
+				                onClick: function() {
                     				props.setAttributes({ activeTab: i });
                                 },
 				            },
@@ -115,7 +147,7 @@
 				}
 
 				return tabs;
-			} 
+			}
 
 			function getTemplates() {
 				let n = [];
@@ -132,7 +164,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_tr_slider_inspector'
 					},
 					el(
@@ -235,13 +267,13 @@
 
 		save: function( props ) {
 			attributes = props.attributes;
-			return el( 
+			return el(
 				'div',
 				{
 					key: 'gbt_18_tr_slider_wrapper',
 					className: 'gbt_18_tr_slider wp-block-gbt-slider'
 				},
-				el( 
+				el(
 					'div',
 					{
 						key: 'gbt_18_tr_slider_container',
@@ -265,7 +297,7 @@
 							key: 'swiper-button-prev',
 							className: 'swiper-button-prev'
 						},
-						el( SVG, 
+						el( SVG,
 							{
 								className: 'left-arrow-svg',
 								xmlns:'http://www.w3.org/2000/svg',
@@ -275,7 +307,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } ) 
+							el( Path, { d:'M 10 4.9296875 L 2.9296875 12 L 10 19.070312 L 11.5 17.570312 L 6.9296875 13 L 21 13 L 21 11 L 6.9296875 11 L 11.5 6.4296875 L 10 4.9296875 z' } )
 						),
 					),
 					!! attributes.arrows && el(
@@ -284,7 +316,7 @@
 							key: 'swiper-button-next',
 							className: 'swiper-button-next'
 						},
-						el( SVG, 
+						el( SVG,
 							{
 								className: 'right-arrow-svg',
 								xmlns:'http://www.w3.org/2000/svg',
@@ -294,7 +326,7 @@
 									fill: attributes.arrowsColor
 								}
 							},
-							el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } ) 
+							el( Path, { d:'M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z' } )
 						),
 					),
 					!! attributes.pagination && el(
@@ -307,6 +339,87 @@
 				)
 			);
 		},
+
+		deprecated: [
+			{
+				attributes: attributes,
+
+				save: function( props ) {
+					attributes = props.attributes;
+					return el(
+						'div',
+						{
+							key: 'gbt_18_tr_slider_wrapper',
+							className: 'gbt_18_tr_slider wp-block-gbt-slider'
+						},
+						el(
+							'div',
+							{
+								key: 'gbt_18_tr_slider_container',
+								className: attributes.fullHeight ? 'gbt_18_tr_slider_container swiper-container full_height' : 'gbt_18_tr_slider_container swiper-container',
+								style:
+								{
+									height: attributes.customHeight + 'px'
+								}
+							},
+							el(
+								'div',
+								{
+									key: 'swiper-wrapper',
+									className: 'swiper-wrapper'
+								},
+								el( InnerBlock.Content, { key: 'slide-content' } )
+							),
+							!! attributes.arrows && el(
+								'div',
+								{
+									key: 'swiper-button-prev',
+									className: 'swiper-button-prev'
+								},
+								el( SVG,
+									{
+										className: 'left-arrow-svg',
+										xmlns:'http://www.w3.org/2000/svg',
+										viewBox:'0 0 24 24',
+										style:
+										{
+											fill: attributes.arrowsColor
+										}
+									},
+									el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } )
+								),
+							),
+							!! attributes.arrows && el(
+								'div',
+								{
+									key: 'swiper-button-next',
+									className: 'swiper-button-next'
+								},
+								el( SVG,
+									{
+										className: 'right-arrow-svg',
+										xmlns:'http://www.w3.org/2000/svg',
+										viewBox:'0 0 24 24',
+										style:
+										{
+											fill: attributes.arrowsColor
+										}
+									},
+									el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } )
+								),
+							),
+							!! attributes.pagination && el(
+								'div',
+								{
+									key: 'shortcode-slider-pagination',
+									className: 'quickview-pagination shortcode-slider-pagination gbt_18_tr_slider_pagination'
+								}
+							)
+						)
+					);
+				},
+			}
+		],
 	} );
 
 } )(

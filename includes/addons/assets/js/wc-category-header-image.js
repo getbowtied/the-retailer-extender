@@ -1,9 +1,9 @@
-jQuery(document).ready(function($) {
-	
+jQuery(function($) {
+
 	"use strict";
 
-	$(window).on('load', function(){
-		
+	$(window).on( 'load', function() {
+
 		setTimeout(function(){
 			if ($(window).outerWidth() > 1024) {
 				$(window).stellar({
@@ -11,6 +11,5 @@ jQuery(document).ready(function($) {
 				});
 			}
 		},500);
-		
 	});
 });

@@ -45,17 +45,8 @@ if ( ! function_exists( 'gbt_18_tr_slider_assets' ) ) {
 		$theme = wp_get_theme();
 		if ( $theme->template != 'theretailer') {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-			wp_enqueue_style(
-				'swiper',
-				plugins_url( 'vendor/swiper/css/swiper'.$suffix.'.css', dirname(dirname(__FILE__)) ),
-				array(),
-				filemtime(plugin_dir_path(dirname(dirname(__FILE__))) . 'vendor/swiper/css/swiper'.$suffix.'.css')
-			);
-			wp_enqueue_script(
-				'swiper',
-				plugins_url( 'vendor/swiper/js/swiper'.$suffix.'.js', dirname(dirname(__FILE__)) ),
-				array()
-			);
+			wp_enqueue_style( 'swiper' );
+			wp_enqueue_script( 'swiper' );
 		}
 
 		wp_enqueue_script(

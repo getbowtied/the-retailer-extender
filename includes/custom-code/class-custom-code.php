@@ -27,6 +27,9 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 			add_action('init', array( $this, 'import_options' ));
 
 			$this->customizer_options();
+
+			add_action('the_retailer_footer_end', array($this, 'tr_custom_code_footer'));
+			add_action('the_retailer_header_start', array($this, 'tr_custom_code_header'));
 		}
 
 		/**
@@ -41,6 +44,24 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 				self::$_instance = new self();
 			}
 			return self::$_instance;
+		}
+
+		/**
+		 * Outputs custom code to footer action
+		 *
+		 * @return void
+		 */
+		public function tr_custom_code_footer() {
+			echo get_option( 'tr_custom_code_footer_js', '' );
+		}
+
+		/**
+		 * Outputs custom code to header action
+		 *
+		 * @return void
+		 */
+		public function tr_custom_code_header() {
+			echo get_option( 'tr_custom_code_header_js', '' );
 		}
 
 		/**
@@ -61,7 +82,7 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 				$custom_footer_js_option = get_theme_mod( 'custom_js_footer', '' );
 				update_option( 'tr_custom_code_footer_js', $custom_footer_js_option );
 
-				update_option( 'tr_custom_code_options_import', true );	
+				update_option( 'tr_custom_code_options_import', true );
 			}
 		}
 
@@ -96,11 +117,11 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 				'default' 	 => '',
 			) );
 
-			$wp_customize->add_control( 
+			$wp_customize->add_control(
 				new WP_Customize_Code_Editor_Control(
 					$wp_customize,
 					'tr_custom_code_header_js',
-					array( 
+					array(
 						'code_type' 	=> 'javascript',
 						'label'       	=> esc_attr__( 'Header JavaScript Code', 'theretailer-extender' ),
 						'section'     	=> 'tr_custom_code',
@@ -116,11 +137,11 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 				'default' 	 => '',
 			) );
 
-			$wp_customize->add_control( 
+			$wp_customize->add_control(
 				new WP_Customize_Code_Editor_Control(
 					$wp_customize,
 					'tr_custom_code_footer_js',
-					array( 
+					array(
 						'code_type' 	=> 'javascript',
 						'label'       	=> esc_attr__( 'Footer JavaScript Code', 'theretailer-extender' ),
 						'section'     	=> 'tr_custom_code',

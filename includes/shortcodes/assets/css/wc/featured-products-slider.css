@@ -72,13 +72,6 @@
   .featured_products_slider .swiper-button-disabled {
     display: none; }
 
-.grid_12 .featured_products_slider .products_slider_title a,
-.grid_12 .featured_products_slider .products_slider_price {
-  font-size: 18px; }
-
-.grid_12 .featured_products_slider .dark_button {
-  padding: 10px 15px; }
-
 @-webkit-keyframes fadeInFromNone {
   0% {
     opacity: 0; }

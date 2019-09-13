@@ -1,5 +1,11 @@
-.gbt_18_tr_banner {
-	
+.gbt_18_tr_banner
+{
+	clear: both;
+
+	@media all and (max-width: 768px) {
+		height: auto !important;
+	}
+
 	&:hover {
 		background-size: 115%;
 
@@ -9,8 +15,9 @@
 	}
 
 	a.gbt_18_tr_banner_wrapper {
+		display: block;
+		height: 100%;
 		cursor:pointer;
-		margin-bottom:30px;
 		clear:both;
 		position: relative;
 		text-decoration: none !important;
@@ -20,6 +27,7 @@
 		}
 
 		.gbt_18_tr_banner_wrapper_inner {
+			box-sizing: border-box;
 	        padding: 15px;
 		    overflow: hidden;
 		    position: relative;
@@ -81,11 +89,11 @@
 					vertical-align: middle;
 					text-align: center;
 					position: relative;
-					z-index: 999;
+					z-index: 5;
 
 					.gbt_18_tr_banner_title {
 						padding: 0;
-						margin: 0;
+						margin: 0 0 10px 0;
 						text-decoration: none;
 					}
 

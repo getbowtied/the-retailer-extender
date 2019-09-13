@@ -1,71 +1,115 @@
 .gbt_18_tr_slider
 {
+	clear: both;
 	position: relative;
-
-	&:hover
-	{
-		@media only screen and (min-width: 64.063em) {
-
-			.swiper-button-prev,
-			.swiper-button-next
-			{
-				opacity: 0.5;
-				background-color: rgba(255, 255, 255, 0.6);
-				transition: all .3s ease;
-
-				&:hover
-				{
-					opacity: 1;
-				}
-			}
-		}
-	}
 
 	.swiper-button-prev,
 	.swiper-button-next
 	{
 		background-image: none;
 		outline: 0;
-		height: 75px;
-    	width: 75px;
+		height: 30px;
+    	width: 30px;
+		transition: all .5s ease;
 
 		svg
 		{
-		    width: 28px;
-		    height: 28px;
+		    width: 24px;
+		    height: 24px;
 		    outline: 0;
-		    margin-top: 22px;
-		    margin-left: 22px;
+			position: relative;
+			top: 10px;
+		}
+
+		&:hover
+		{
+			opacity: .5;
 		}
 	}
 
 	.swiper-button-prev
 	{
-		left: 0;
+		left: 30px;
 	}
 
 	.swiper-button-next
 	{
-		right: 0;
+		right: 30px;
 	}
 
 	.gbt_18_tr_swiper_slide
 	{
+		background-position: center;
 		background-size: cover;
-		text-align: center;
-		position: relative;
 		display: table;
+
+		.gbt_18_tr_slide_content
+		{
+			display: table-cell;
+			vertical-align: middle;
+
+			.gbt_18_tr_slide_content_wrapper
+			{
+				max-width: 940px;
+				width: 70%;
+				margin: auto;
+
+				@media all and (max-width: 680px) {
+					width: 80%;
+				}
+
+				.gbt_18_tr_slide_description
+				{
+					margin-bottom: 0;
+				}
+
+				.gbt_18_tr_slide_description + .gbt_18_tr_slide_button
+				{
+					margin-top: 35px;
+				}
+
+				.gbt_18_tr_slide_button
+				{
+					color: inherit;
+					width: fit-content;
+
+					&:hover
+					{
+						opacity: .75;
+					}
+				}
+			}
+		}
+
+		&.center-align
+		{
+			.gbt_18_tr_slide_content_wrapper
+			{
+				padding: 0 15%;
+				text-align: center;
+
+				.gbt_18_tr_slide_button
+				{
+				    margin: 0 auto;
+					width: fit-content;
+				}
+			}
+		}
 
 		&.left-align
 		{
 			.gbt_18_tr_slide_content_wrapper
 			{
+				padding: 0 30% 0 0;
 				text-align: left;
+
+				@media all and (max-width: 680px) {
+					padding: 0 10%;
+				}
 
 				.gbt_18_tr_slide_button
 				{
 					float: left;
-					margin: 0 auto 0 10%;
 				}
 			}
 		}
@@ -74,44 +118,16 @@
 		{
 			.gbt_18_tr_slide_content_wrapper
 			{
+				padding: 0 0 0 30%;
 				text-align: right;
+
+				@media all and (max-width: 680px) {
+					padding: 0 10%;
+				}
 
 				.gbt_18_tr_slide_button
 				{
 					float: right;
-					margin: 0 10% 0 auto;
-				}
-			}
-		}
-
-		&.center-align,
-		&.right-align,
-		&.left-align
-		{
-			.gbt_18_tr_slide_title,
-			.gbt_18_tr_slide_description
-			{
-			    margin: 0 10% 25px 10%;
-			}
-
-			.gbt_18_tr_slide_button
-			{
-				margin: 0 auto;
-				padding: 20px;
-				width: fit-content;
-			}
-
-			.gbt_18_tr_slide_content
-			{
-				display: table-cell;
-				vertical-align: middle;
-				text-align: center;
-				
-				.gbt_18_tr_slide_content_wrapper
-				{
-					padding: 0 10%;
-					width: 70%;
-					margin: auto;
 				}
 			}
 		}
@@ -127,39 +143,36 @@
 
 	.gbt_18_tr_slider_container
 	{
-		.full_height
-		{
-	    	height: 100vh !important;
-	    	max-height: 100vh;
-	    }
-
-	    @media all and (max-width: 639px) {
-			max-height: 600px;
-		}
+		max-height: 600px;
 	}
 
 	.gbt_18_tr_slider_pagination
 	{
-		display: block;
-	    position: absolute;
-	    z-index: 9999;
-	    width: 100%;
-	    text-align: center;
+			display: block;
+		    position: absolute;
+			z-index: 1;
+	        bottom: 30px;
+	        text-align: center;
+	        height: 10px;
 
-	    @media only screen and (min-width: 64.063em) {
+	        &.disabled
+	        {
+	            display: none;
+	        }
 
-		    .swiper-pagination-bullet
-		    {
-		    	margin: 5px;
-			    background: rgba(255, 255, 255, 0.5);
-			    transition: all .3s ease;
+	        .swiper-pagination-bullet
+	        {
+	            background: transparent;
+	            border: 1px solid #000;
+	            margin: 0px 4px;
+	            opacity: 1;
 
-			    &.swiper-pagination-bullet-active
-			    {
-			    	background: white;
-	    			transform: scale(1.3);
-			    }
-		    }
-		}
-	}
+	            &.swiper-pagination-bullet-active
+	            {
+					background: #000;
+	                border: none;
+	            }
+	        }
+	    }
+
 }

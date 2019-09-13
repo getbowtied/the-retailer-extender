@@ -25,83 +25,85 @@
 	const Circle 				= wp.components.Circle;
 	const Polygon 				= wp.components.Polygon;
 
+	var attributes = {
+		imgURL: {
+			type: 'string',
+			attribute: 'src',
+			selector: 'img',
+			default: '',
+		},
+		imgID: {
+			type: 'number',
+		},
+		imgAlt: {
+			type: 'string',
+			attribute: 'alt',
+			selector: 'img',
+		},
+		title: {
+			type: 'string',
+			default: 'Slide Title',
+		},
+		titleSize: {
+			type: 'number',
+			default: 36,
+		},
+		description: {
+			type: 'string',
+			default: 'Slide Description'
+		},
+		descriptionSize: {
+			type: 'number',
+			default: 13,
+		},
+		textColor: {
+			type: 'string',
+			default: '#fff'
+		},
+		buttonText: {
+			type: 'string',
+			default: 'Button Text'
+		},
+		slideURL: {
+			type: 'string',
+			default: '#'
+		},
+		slideButton: {
+			type: 'boolean',
+			default: true
+		},
+		buttonTextColor: {
+			type: 'string',
+			default: '#fff'
+		},
+		buttonBgColor: {
+			type: 'string',
+			default: '#000'
+		},
+		backgroundColor: {
+			type: 'string',
+			default: '#24282e'
+		},
+		alignment: {
+			type: 'string',
+			default: 'center'
+		},
+		tabNumber: {
+			type: "number"
+		}
+	};
+
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slide', {
 		title: i18n.__( 'Slide', 'theretailer-extender' ),
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
 				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
-				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } ) 
+				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } )
 			),
 		category: 'theretailer',
 		parent: [ 'getbowtied/tr-slider' ],
-		attributes: {
-		    imgURL: {
-	            type: 'string',
-	            attribute: 'src',
-	            selector: 'img',
-	            default: '',
-	        },
-	        imgID: {
-	            type: 'number',
-	        },
-	        imgAlt: {
-	            type: 'string',
-	            attribute: 'alt',
-	            selector: 'img',
-	        },
-	        title: {
-	        	type: 'string',
-	        	default: 'Slide Title',
-	        },
-	        titleSize: {
-	        	type: 'number',
-	        	default: 36,
-	        },
-	        description: {
-	        	type: 'string',
-	        	default: 'Slide Description'
-	        },
-	        descriptionSize: {
-	        	type: 'number',
-	        	default: 13,
-	        },
-	        textColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        buttonText: {
-	        	type: 'string',
-	        	default: 'Button Text'
-	        },
-	        slideURL: {
-	        	type: 'string',
-	        	default: '#'
-	        },
-	        slideButton: {
-	        	type: 'boolean',
-	        	default: true
-	        },
-	        buttonTextColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        buttonBgColor: {
-	        	type: 'string',
-	        	default: '#000'
-	        },
-	        backgroundColor: {
-	        	type: 'string',
-	        	default: '#24282e'
-	        },
-	        alignment: {
-	        	type: 'string',
-	        	default: 'center'
-	        },
-	        tabNumber: {
-                type: "number"
-            }
-		},
+		attributes: attributes,
 
 		edit: function( props ) {
 
@@ -110,14 +112,14 @@
 			function getColors() {
 
 				let colors = [
-					{ 
+					{
 						label: i18n.__( 'Title & Description', 'theretailer-extender' ),
 						value: attributes.textColor,
 						onChange: function( newColor) {
 							props.setAttributes( { textColor: newColor } );
 						},
 					},
-					{ 
+					{
 						label: i18n.__( 'Slide Background', 'theretailer-extender' ),
 						value: attributes.backgroundColor,
 						onChange: function( newColor) {
@@ -128,14 +130,14 @@
 
 				if( attributes.slideButton ) {
 					colors.push(
-						{ 
+						{
 							label: i18n.__( 'Button Text', 'theretailer-extender' ),
 							value: attributes.buttonTextColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonTextColor: newColor } );
 							},
 						},
-						{ 
+						{
 							label: i18n.__( 'Button Background', 'theretailer-extender' ),
 							value: attributes.buttonBgColor,
 							onChange: function( newColor) {
@@ -151,7 +153,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_tr_slide_inspector'
 					},
 					el(
@@ -183,9 +185,9 @@
 								},
 							}
 						),
-						el( 
-							PanelBody, 
-							{ 
+						el(
+							PanelBody,
+							{
 								key: 'gbt_18_tr_editor_slide_text_settings',
 								title: i18n.__( 'Title & Description', 'theretailer-extender' ),
 								initialOpen: false,
@@ -232,8 +234,8 @@
 						),
 					),
 				),
-				el( 'div', 
-					{ 
+				el( 'div',
+					{
 						key: 		'gbt_18_tr_editor_slide_wrapper',
 						className : 'gbt_18_tr_editor_slide_wrapper'
 					},
@@ -251,19 +253,19 @@
 									imgAlt: img.alt,
 								} );
 							},
-	              			render: function( img ) { 
+	              			render: function( img ) {
 	              				return [
 		              				! attributes.imgID && el(
-		              					Button, 
-		              					{ 
+		              					Button,
+		              					{
 		              						key: 'gbt_18_tr_slide_add_image_button',
 		              						className: 'gbt_18_tr_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
 		              					i18n.__( 'Add Image', 'theretailer-extender' )
-	              					), 
+	              					),
 	              					!! attributes.imgID && el(
-	              						Button, 
+	              						Button,
 										{
 											key: 'gbt_18_tr_slide_remove_image_button',
 											className: 'gbt_18_tr_slide_remove_image_button button remove_image',
@@ -277,25 +279,25 @@
 											}
 										},
 										i18n.__( 'Remove Image', 'theretailer-extender' )
-									), 
+									),
 	              				];
 	              			},
 						},
 					),
 					el(
 						BlockControls,
-						{ 
+						{
 							key: 'gbt_18_tr_editor_slide_alignment'
 						},
 						el(
-							AlignmentToolbar, 
+							AlignmentToolbar,
 							{
 								key: 'gbt_18_tr_editor_slide_alignment_control',
 								value: attributes.alignment,
 								onChange: function( newAlignment ) {
 									props.setAttributes( { alignment: newAlignment } );
 								}
-							} 
+							}
 						),
 					),
 					el(
@@ -332,11 +334,11 @@
 										className: 	'gbt_18_tr_editor_slide_title',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_title_input',
 											style:
-											{ 
+											{
 												color: attributes.textColor,
 												fontSize: attributes.titleSize + 'px'
 											},
@@ -359,7 +361,7 @@
 										className: 	'gbt_18_tr_editor_slide_description',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_description_input',
 											style:
@@ -386,7 +388,7 @@
 										className: 	'gbt_18_tr_editor_slide_button',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_tr_editor_slide_button_input',
 											style:
@@ -413,17 +415,17 @@
 			];
 		},
 		getEditWrapperProps: function( attributes ) {
-            return { 
-            	'data-tab': attributes.tabNumber 
+            return {
+            	'data-tab': attributes.tabNumber
             };
         },
 		save: function( props ) {
 
 			let attributes = props.attributes;
 
-			return el( 'div', 
+			return el( 'div',
 				{
-					key: 		'gbt_18_tr_swiper_slide', 
+					key: 		'gbt_18_tr_swiper_slide',
 					className: 	'gbt_18_tr_swiper_slide swiper-slide ' + attributes.alignment + '-align',
 					style:
 					{
@@ -437,7 +439,7 @@
 						key: 		'gbt_18_tr_slide_fullslidelink',
 						className: 	'fullslidelink',
 						href: 		attributes.slideURL,
-						'target': 	'_blank'
+						rel: 		'noopener noreferrer'
 					}
 				),
 				el( 'div',
@@ -492,6 +494,88 @@
 				)
 			);
 		},
+		deprecated: [
+			{
+				attributes: attributes,
+
+				save: function( props ) {
+
+					let attributes = props.attributes;
+
+					return el( 'div',
+						{
+							key: 		'gbt_18_tr_swiper_slide',
+							className: 	'gbt_18_tr_swiper_slide swiper-slide ' + attributes.alignment + '-align',
+							style:
+							{
+								backgroundColor: attributes.backgroundColor,
+								backgroundImage: 'url(' + attributes.imgURL + ')',
+								color: attributes.textColor
+							}
+						},
+						! attributes.slideButton && attributes.slideURL != '' && el( 'a',
+							{
+								key: 		'gbt_18_tr_slide_fullslidelink',
+								className: 	'fullslidelink',
+								href: 		attributes.slideURL,
+								'target': 	'_blank',
+								rel: 		'noopener noreferrer'
+							}
+						),
+						el( 'div',
+							{
+								key: 					'gbt_18_tr_slide_content',
+								className: 				'gbt_18_tr_slide_content slider-content',
+								'data-swiper-parallax': '-1000'
+							},
+							el( 'div',
+								{
+									key: 		'gbt_18_tr_slide_content_wrapper',
+									className: 	'gbt_18_tr_slide_content_wrapper slider-content-wrapper'
+								},
+								attributes.title != '' && el( 'h2',
+									{
+										key: 		'gbt_18_tr_slide_title',
+										className: 	'gbt_18_tr_slide_title slide-title',
+										style:
+										{
+											fontSize: attributes.titleSize,
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.title },
+									},
+								),
+								attributes.description != '' && el( 'p',
+									{
+										key: 		'gbt_18_tr_slide_description',
+										className: 	'gbt_18_tr_slide_description slide-description',
+										style:
+										{
+											fontSize: attributes.descriptionSize,
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.description },
+									},
+								),
+								!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
+									{
+										key: 		'gbt_18_tr_slide_button',
+										className: 	'gbt_18_tr_slide_button button',
+										href: attributes.slideURL,
+										style:
+										{
+											backgroundColor: attributes.buttonBgColor,
+											color: attributes.buttonTextColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.buttonText },
+									},
+								)
+							)
+						)
+					);
+				},
+			}
+		]
 	} );
 
 } )(

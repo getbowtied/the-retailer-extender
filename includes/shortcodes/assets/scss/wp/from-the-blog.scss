@@ -36,7 +36,7 @@
 	}
 
     .from_the_blog_item
-    {	
+    {
 		padding: 0;
 		list-style: none;
 		box-sizing: border-box;
@@ -48,6 +48,10 @@
 			position:relative;
 			color:#fff;
 		    width: 45%;
+
+		    @media screen and (max-width: 719px) {
+		    	margin-bottom: 10px !important;
+		    }
 
 		    @media screen and (max-width: 959px) {
 		    	margin-right: 0px;
@@ -170,4 +174,18 @@
 		    }
 		}
 	}
+}
+
+.rtl
+{
+    .from-the-blog-wrapper.swiper-container
+    {
+        .gbtr_items_sliders_header
+    	{
+    		.gbtr_items_sliders_title
+            {
+                float: right;
+            }
+        }
+    }
 }

@@ -3,6 +3,8 @@
   clear: both;
   display: block; }
   .shortcode_socials ul.tr_social_icons_list {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -28,17 +30,11 @@
         transition: opacity .2s; }
         .shortcode_socials ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link:hover {
           opacity: .5; }
-  .shortcode_socials:before {
-    content: " ";
-    display: table;
-    clear: both; }
 
-.top_bar_left .shortcode_socials {
-  display: inline-block;
-  float: left;
-  margin: 0; }
-  .top_bar_left .shortcode_socials ul.tr_social_icons_list li.tr_social_icon {
-    padding: 0;
-    margin: 8px 15px 6px 0; }
-    .top_bar_left .shortcode_socials ul.tr_social_icons_list li.tr_social_icon:last-child {
-      margin-right: 25px; }
+@media only screen and (max-width: 959px) {
+  .topbar_text_wrapper .shortcode_socials {
+    padding-left: 10px; } }
+
+.topbar_text_wrapper .shortcode_socials ul.tr_social_icons_list li.tr_social_icon {
+  padding: 0;
+  margin: 8px 15px 6px 0; }
