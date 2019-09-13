@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.wc-products-slider').each(function() {
@@ -28,7 +28,8 @@ jQuery(function($) {
 			    prevEl: $(this).find('.slider-button-prev'),
 			},
 			pagination: {
-		        el: $(this).find('.slider-pagination'),
+		        el: $(this).find('.swiper-pagination'),
+		        dynamicBullets: true
 		    },
 		});
 
