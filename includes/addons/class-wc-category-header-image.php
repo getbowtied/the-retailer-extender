@@ -32,9 +32,9 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 				$done_import = $this->import_options();
 				update_option( 'tr_category_header_options_import', true );
 			}
-			if( get_option( 'tr_category_header_parallax', 'yes' ) === 'yes' ) {
-				$this->enqueue_scripts();
-			}
+
+			$this->enqueue_scripts();
+
 			$this->customizer_options();
 			add_action( 'product_cat_add_form_fields', array( $this, 'woocommerce_add_category_header_img' ) );
 			add_action( 'product_cat_edit_form_fields', array( $this, 'woocommerce_edit_category_header_img' ), 10,2 );
@@ -98,18 +98,22 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 		 * @return void
 		 */
 		public function enqueue_scripts() {
-			add_action( 'wp_enqueue_scripts', function() {
-				wp_enqueue_script(
-					'gbt-tr-category-header-image-scripts',
-					plugins_url( 'assets/js/wc-category-header-image.js', __FILE__ ),
-					array('jquery')
-				);
-				wp_enqueue_script(
-					'gbt-tr-stellar-scripts',
-					plugins_url( '_vendor/jquery.stellar.min.js', dirname(__FILE__) ),
-					array('jquery')
-				);
-			});
+
+			if( get_option( 'tr_category_header_parallax', 'yes' ) == 'yes' ) {
+
+				add_action( 'wp_enqueue_scripts', function() {
+					wp_enqueue_script(
+						'gbt-tr-category-header-image-scripts',
+						plugins_url( 'assets/js/wc-category-header-image.js', __FILE__ ),
+						array('jquery')
+					);
+					wp_enqueue_script(
+						'gbt-tr-stellar-scripts',
+						plugins_url( '_vendor/jquery.stellar.min.js', dirname(__FILE__) ),
+						array('jquery')
+					);
+				});
+			}
 
 			add_action( 'admin_enqueue_scripts', function() {
 				wp_enqueue_script(
