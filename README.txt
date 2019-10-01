@@ -3,11 +3,11 @@ Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.2.3
-Stable tag: 1.4
+Stable tag: 1.4.1
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.4~
+~Current Version:1.4.1~
 
 Extends the functionality of The Retailer theme by adding theme specific features.
 
@@ -38,6 +38,10 @@ Companion plugin for **The Retailer** theme. Extends the functionality by adding
 - Product Sliders
 
 == Changelog ==
+
+= 1.4.1 =
+- Fixed: Header image add/remove option for WooCommerce product categories
+- The Retailer 3.1.0 compatibility updates
 
 = 1.4 =
 - The Retailer 3 compatibility updates
