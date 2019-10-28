@@ -87,6 +87,6 @@
 .editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="wide"],
 .editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="full"] {
 	.editor-block-list__block {
-		max-width: 100%;
+		max-width: calc( 100% - 28px );
 	}
 }

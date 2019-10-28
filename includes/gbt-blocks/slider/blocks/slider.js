@@ -68,12 +68,12 @@
 							transform: 'matrix(2,0,0,2,0,0)',
 							style: {
 								'fill':'none',
-								'stroke-width':'2',
-								'stroke-linecap':'butt',
-								'stroke-linejoin':'miter',
+								'strokeWidth':'2',
+								'strokeLinecap':'butt',
+								'strokeLinejoin':'miter',
 								'stroke':'#555d66',
-								'stroke-opacity':'1',
-								'stroke-miterlimit':'10'
+								'strokeOpacity':'1',
+								'strokeMiterlimit':'10'
 							}
 						}
 					),
@@ -83,12 +83,12 @@
 							transform: 'matrix(2,0,0,2,0,0)',
 							style: {
 								'fill':'none',
-								'stroke-width':'2',
-								'stroke-linecap':'butt',
-								'stroke-linejoin':'miter',
+								'strokeWidth':'2',
+								'strokeLinecap':'butt',
+								'strokeLinejoin':'miter',
 								'stroke':'#555d66',
-								'stroke-opacity':'1',
-								'stroke-miterlimit':'10'
+								'strokeOpacity':'1',
+								'strokeMiterlimit':'10'
 							}
 						}
 					),
