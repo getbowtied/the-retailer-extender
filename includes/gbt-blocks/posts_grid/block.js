@@ -3,19 +3,22 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType;
+	const apiFetch = wp.apiFetch;
 
-	const InspectorControls 	= wp.editor.InspectorControls;
+	const {
+		TextControl,
+		RadioControl,
+		SelectControl,
+		ToggleControl,
+		RangeControl,
+		SVG,
+		Path,
+	} = wp.components;
 
-	const TextControl 			= wp.components.TextControl;
-	const RadioControl       	= wp.components.RadioControl;
-	const SelectControl			= wp.components.SelectControl;
-	const ToggleControl			= wp.components.ToggleControl;
-	const RangeControl			= wp.components.RangeControl;
-	const SVG 					= wp.components.SVG;
-	const Path 					= wp.components.Path;
-
-	const apiFetch 				= wp.apiFetch;
+	const {
+		InspectorControls,
+	} = wp.blockEditor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-posts-grid', {
@@ -247,7 +250,7 @@
 						let img = '';
 						let img_class = 'gbt_18_tr_editor_posts_grid_noimg';
 						if ( posts[i]['fimg_url'] ) { img = posts[i]['fimg_url']; img_class = 'gbt_18_tr_editor_posts_grid_with_img'; } else { img_class = 'gbt_18_tr_editor_posts_grid_noimg'; img = ''; };
-						if ( attributes.excerpt ) { excerpt = posts[i]['excerpt']['rendered']; } console.log(posts[i]);
+						if ( attributes.excerpt ) { excerpt = posts[i]['excerpt']['rendered']; };
 
 						postElements.push(
 							el( "div",
@@ -332,11 +335,13 @@
 							el(
 								'li',
 								{
+									key: 'posts-grid-category-level-' + i,
 									className: 'level-' + catArr[i].level,
 								},
 								el(
 								'label',
 									{
+										key: 'posts-grid-category-label-' + i,
 										className: _categoryClassName( catArr[i].parent, catArr[i].value ) + ' ' + catArr[i].level,
 									},
 									el(
