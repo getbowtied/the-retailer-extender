@@ -3,7 +3,7 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= blocks.registerBlockType;
+	const registerBlockType = blocks.registerBlockType;
 
 	const {
 		TextControl,
@@ -13,11 +13,14 @@
 	} = wp.components;
 
 	const {
-		ServerSideRender,
 		PanelColorSettings,
 		InspectorControls,
 		BlockControls,
 		AlignmentToolbar,
+	} = wp.blockEditor;
+
+	const {
+		ServerSideRender,
 	} = wp.editor;
 
 	/* Register Block */
@@ -48,9 +51,9 @@
 			var attributes = props.attributes;
 
 			return [
-				el( 
-					InspectorControls, 
-					{ 
+				el(
+					InspectorControls,
+					{
 						key: 'gbt_18_tr_socials_settings'
 					},
 					el(
@@ -79,7 +82,7 @@
 								key: 'gbt_18_tr_socials_icons_color',
 								title: i18n.__( 'Icons Color' ),
 								colorSettings: [
-									{ 
+									{
 										label: i18n.__( 'Icons Color', 'theretailer-extender' ),
 										value: attributes.fontColor,
 										onChange: function( newColor) {
@@ -93,23 +96,23 @@
 				),
 				el(
 					BlockControls,
-					{ 
+					{
 						key: 'gbt_18_tr_socials_controls'
 					},
 					el(
-						AlignmentToolbar, 
+						AlignmentToolbar,
 						{
 							key: 'gbt_18_tr_socials_alignment',
 							value: attributes.align,
 							onChange: function( newAlignment ) {
 								props.setAttributes( { align: newAlignment } );
 							}
-						} 
+						}
 					),
 				),
-				el( 
+				el(
 					'div',
-					{ 
+					{
 						key: 		'gbt_18_tr_editor_social_media_wrapper',
 						className: 	'gbt_18_tr_editor_social_media_wrapper'
 					},
@@ -125,6 +128,7 @@
 				el(
 					ServerSideRender,
 					{
+						key: 'tr-social-media-profile-render',
 						block: 'getbowtied/tr-social-media-profiles',
 						attributes: props.attributes
 					}

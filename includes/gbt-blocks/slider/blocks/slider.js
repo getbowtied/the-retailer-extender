@@ -3,24 +3,27 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType;
 
-	const InspectorControls 	= wp.editor.InspectorControls;
-	const InnerBlock 			= wp.editor.InnerBlocks;
-	const ColorSettings			= wp.editor.PanelColorSettings;
+	const {
+		Button,
+		PanelBody,
+		TabPanel,
+		TextControl,
+		SelectControl,
+		ToggleControl,
+		RangeControl,
+		SVG,
+		Path,
+		Circle,
+		Polygon,
+		G,
+	} = wp.components;
 
-	const SelectControl			= wp.components.SelectControl;
-	const ToggleControl			= wp.components.ToggleControl;
-	const TextControl 			= wp.components.TextControl;
-	const Button 				= wp.components.Button;
-	const RangeControl			= wp.components.RangeControl;
-	const PanelBody				= wp.components.PanelBody;
-	const TabPanel 				= wp.components.TabPanel;
-	const SVG 					= wp.components.SVG;
-	const Path 					= wp.components.Path;
-	const Circle 				= wp.components.Circle;
-	const Polygon 				= wp.components.Polygon;
-	const G 					= wp.components.G;
+	const {
+		InspectorControls,
+		InnerBlocks,
+	} = wp.blockEditor;
 
 	var attributes = {
 		fullHeight: {
@@ -65,12 +68,12 @@
 							transform: 'matrix(2,0,0,2,0,0)',
 							style: {
 								'fill':'none',
-								'stroke-width':'2',
-								'stroke-linecap':'butt',
-								'stroke-linejoin':'miter',
+								'strokeWidth':'2',
+								'strokeLinecap':'butt',
+								'strokeLinejoin':'miter',
 								'stroke':'#555d66',
-								'stroke-opacity':'1',
-								'stroke-miterlimit':'10'
+								'strokeOpacity':'1',
+								'strokeMiterlimit':'10'
 							}
 						}
 					),
@@ -80,12 +83,12 @@
 							transform: 'matrix(2,0,0,2,0,0)',
 							style: {
 								'fill':'none',
-								'stroke-width':'2',
-								'stroke-linecap':'butt',
-								'stroke-linejoin':'miter',
+								'strokeWidth':'2',
+								'strokeLinecap':'butt',
+								'strokeLinejoin':'miter',
 								'stroke':'#555d66',
-								'stroke-opacity':'1',
-								'stroke-miterlimit':'10'
+								'strokeOpacity':'1',
+								'strokeMiterlimit':'10'
 							}
 						}
 					),
@@ -253,7 +256,7 @@
 						getTabs()
 					),
 					el(
-						InnerBlock,
+						InnerBlocks,
 						{
 							key: 'gbt_18_tr_editor_slider_inner_blocks ',
 							template: getTemplates(),
@@ -289,7 +292,7 @@
 							key: 'swiper-wrapper',
 							className: 'swiper-wrapper'
 						},
-						el( InnerBlock.Content, { key: 'slide-content' } )
+						el( InnerBlocks.Content, { key: 'slide-content' } )
 					),
 					!! attributes.arrows && el(
 						'div',
@@ -368,7 +371,7 @@
 									key: 'swiper-wrapper',
 									className: 'swiper-wrapper'
 								},
-								el( InnerBlock.Content, { key: 'slide-content' } )
+								el( InnerBlocks.Content, { key: 'slide-content' } )
 							),
 							!! attributes.arrows && el(
 								'div',
