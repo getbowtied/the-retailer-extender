@@ -2,12 +2,12 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.3
-Stable tag: 1.4.3
+Tested up to: 5.3.1
+Stable tag: 1.4.4
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.4.3~
+~Current Version:1.4.4~
 
 Extends the functionality of the The Retailer theme by adding theme specific features.
 
@@ -38,6 +38,9 @@ Companion plugin for the **The Retailer** theme. Extends the functionality by ad
 - Product Sliders
 
 == Changelog ==
+
+= 1.4.4 =
+- WordPress 5.3.1 compatibility updates
 
 = 1.4.3 =
 - WordPress 5.3 compatibility updates
