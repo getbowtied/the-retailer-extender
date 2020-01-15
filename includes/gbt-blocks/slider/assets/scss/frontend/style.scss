@@ -1,3 +1,11 @@
+.swiper-button-prev,
+.swiper-button-next
+{
+	&:after {
+		content: none;
+	}
+}
+
 .gbt_18_tr_slider
 {
 	clear: both;
