@@ -3,11 +3,11 @@ Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.3.2
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.4.6~
+~Current Version:1.4.7~
 
 Extends the functionality of The Retailer theme by adding theme specific features.
 
@@ -38,6 +38,9 @@ Companion plugin for **The Retailer** theme. Extends the functionality by adding
 - Product Sliders
 
 == Changelog ==
+
+= 1.4.7 =
+- Fixed: Localization issues
 
 = 1.4.6 =
 - Fixed: Slider arrows display
