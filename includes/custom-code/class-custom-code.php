@@ -106,7 +106,7 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 
 			// Section
 			$wp_customize->add_section( 'tr_custom_code', array(
-		 		'title'       => esc_attr__( 'Additional JS', 'theretailer-extender' ),
+		 		'title'       => esc_attr__( 'Additional JS', 'the-retailer-extender' ),
 		 		'priority'    => 201,
 		 	) );
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 					'tr_custom_code_header_js',
 					array(
 						'code_type' 	=> 'javascript',
-						'label'       	=> esc_attr__( 'Header JavaScript Code', 'theretailer-extender' ),
+						'label'       	=> esc_attr__( 'Header JavaScript Code', 'the-retailer-extender' ),
 						'section'     	=> 'tr_custom_code',
 						'priority'    	=> 10,
 					)
@@ -143,7 +143,7 @@ if ( ! class_exists( 'TR_Custom_Code' ) ) :
 					'tr_custom_code_footer_js',
 					array(
 						'code_type' 	=> 'javascript',
-						'label'       	=> esc_attr__( 'Footer JavaScript Code', 'theretailer-extender' ),
+						'label'       	=> esc_attr__( 'Footer JavaScript Code', 'the-retailer-extender' ),
 						'section'     	=> 'tr_custom_code',
 						'priority'    	=> 10,
 					)

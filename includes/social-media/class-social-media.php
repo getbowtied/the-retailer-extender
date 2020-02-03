@@ -288,7 +288,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 
 			// Section
 			$wp_customize->add_section( 'social_media', array(
-		 		'title'       => esc_attr__( 'Social Media', 'theretailer-extender' ),
+		 		'title'       => esc_attr__( 'Social Media', 'the-retailer-extender' ),
 		 		'priority'    => 11,
 		 	) );
 
@@ -306,7 +306,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 					$wp_customize,
 					'tr_topbar_social_media',
 					array( 
-						'label'       	=> esc_attr__( 'Social Media Icons', 'theretailer-extender' ),
+						'label'       	=> esc_attr__( 'Social Media Icons', 'the-retailer-extender' ),
 						'section'     	=> 'header',
 						'priority'    	=> 11,
 					)
@@ -328,7 +328,7 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 						'tr_social_media_' . $social['slug'],
 						array( 
 							'type'			=> 'text',
-							'label'       	=> esc_attr__( $social['name'], 'theretailer-extender' ),
+							'label'       	=> esc_attr__( $social['name'], 'the-retailer-extender' ),
 							'section'     	=> 'social_media',
 							'priority'    	=> 10,
 						)

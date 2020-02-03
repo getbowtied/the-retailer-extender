@@ -6,7 +6,7 @@
  * @since 1.3
  */
 class GBTR_TR_Recent_Post_Widget extends WP_Widget {
-	
+
 	/**
 	 * GBTR_TR_Recent_Post_Widget constructor.
 	 *
@@ -14,26 +14,26 @@ class GBTR_TR_Recent_Post_Widget extends WP_Widget {
 	*/
 	public function __construct() {
 
-		wp_enqueue_style( 
+		wp_enqueue_style(
 			'theretailer-recent-posts-widget',
 			plugins_url( 'assets/css/recent-posts.css', __FILE__ ),
 			array(),
 			false
 		);
-		
+
 		parent::__construct(
 			'the_retailer_recent_posts',
-			__('The Retailer Recent Posts', 'theretailer-extender'),
-			array( 
-				'classname' 	=> 'the_retailer_recent_posts', 
-				'description' 	=> __('A widget that displays recent posts ', 'theretailer-extender')
+			__('The Retailer Recent Posts', 'the-retailer-extender'),
+			array(
+				'classname' 	=> 'the_retailer_recent_posts',
+				'description' 	=> __('A widget that displays recent posts ', 'the-retailer-extender')
 			),
-			array( 
-				'width' 	=> 300, 
-				'height' 	=> 350, 
+			array(
+				'width' 	=> 300,
+				'height' 	=> 350,
 				'id_base' 	=> 'the_retailer_recent_posts'
 			)
-		);	
+		);
 	}
 
 	/**
@@ -65,22 +65,22 @@ class GBTR_TR_Recent_Post_Widget extends WP_Widget {
 		if( isset( $instance['title'] ) ) {
 			$title = apply_filters( 'widget_title', $instance['title'] );
 		} else {
-			$title = __('Recent Posts', 'theretailer-extender');
+			$title = __('Recent Posts', 'the-retailer-extender');
 		}
-		
+
 		if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) ) {
 			$number = 10;
 		}
 
-		$r = new WP_Query( 
-			apply_filters( 
-				'widget_posts_args', 
-				array( 
-					'posts_per_page' 		=> $number, 
-					'no_found_rows' 		=> true, 
-					'post_status' 			=> 'publish', 
-					'ignore_sticky_posts' 	=> true 
-				) 
+		$r = new WP_Query(
+			apply_filters(
+				'widget_posts_args',
+				array(
+					'posts_per_page' 		=> $number,
+					'no_found_rows' 		=> true,
+					'post_status' 			=> 'publish',
+					'ignore_sticky_posts' 	=> true
+				)
 			)
 		);
 
@@ -101,12 +101,12 @@ class GBTR_TR_Recent_Post_Widget extends WP_Widget {
 	                    <span class="post_date_month"><?php echo get_the_time('M'); ?></span>
 	                </span>
 	                <a href="<?php the_permalink() ?>" title="<?php echo esc_attr( get_the_title() ? get_the_title() : get_the_ID() ); ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a>
-					<div class="post_comments"><?php echo get_comments_number(); ?> <?php _e( 'comments', 'theretailer-extender' ); ?></div>
+					<div class="post_comments"><?php echo get_comments_number(); ?> <?php esc_html_e( 'comments', 'the-retailer-extender' ); ?></div>
 	            </li>
 			<?php endwhile; ?>
 			</ul>
 
-			<?php 
+			<?php
 			echo $after_widget;
 
 			// Reset the global $the_post as this query will have stomped on it
@@ -173,18 +173,18 @@ class GBTR_TR_Recent_Post_Widget extends WP_Widget {
 			$number = 10;
 		}
 		?>
-		
+
        	<p>
-       		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'theretailer-extender' ); ?></label>
+       		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'the-retailer-extender' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'theretailer-extender' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php esc_html_e( 'Number of posts to show:', 'the-retailer-extender' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 		</p>
-		
-		<?php 
+
+		<?php
 	}
 }
 

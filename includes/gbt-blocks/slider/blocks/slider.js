@@ -58,7 +58,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slider', {
-		title: i18n.__( 'Slider', 'theretailer-extender' ),
+		title: i18n.__( 'Slider', 'the-retailer-extender' ),
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 48 48' },
 				el( G, {},
@@ -179,7 +179,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_tr_slider_full_height",
-								label: i18n.__( 'Full Height', 'theretailer-extender' ),
+								label: i18n.__( 'Full Height', 'the-retailer-extender' ),
 								checked: attributes.fullHeight,
 								onChange: function() {
 									props.setAttributes( { fullHeight: ! attributes.fullHeight } );
@@ -196,7 +196,7 @@
 								initialPosition: 800,
 								min: 100,
 								max: 1000,
-								label: i18n.__( 'Custom Desktop Height', 'theretailer-extender' ),
+								label: i18n.__( 'Custom Desktop Height', 'the-retailer-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { customHeight: newNumber } );
 								},
@@ -211,7 +211,7 @@
 								initialPosition: 3,
 								min: 1,
 								max: 6,
-								label: i18n.__( 'Number of Slides', 'theretailer-extender' ),
+								label: i18n.__( 'Number of Slides', 'the-retailer-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { slides: newNumber } );
 									props.setAttributes( { activeTab: '1' } );
@@ -222,7 +222,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_tr_slider_pagination",
-	              				label: i18n.__( 'Pagination Bullets', 'theretailer-extender' ),
+	              				label: i18n.__( 'Pagination Bullets', 'the-retailer-extender' ),
 	              				checked: attributes.pagination,
 	              				onChange: function() {
 									props.setAttributes( { pagination: ! attributes.pagination } );
@@ -233,7 +233,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_tr_slider_arrows",
-	              				label: i18n.__( 'Navigation Arrows', 'theretailer-extender' ),
+	              				label: i18n.__( 'Navigation Arrows', 'the-retailer-extender' ),
 	              				checked: attributes.arrows,
 	              				onChange: function() {
 									props.setAttributes( { arrows: ! attributes.arrows } );
