@@ -25,7 +25,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-banner', {
-		title: i18n.__( 'Banner', 'theretailer-extender' ),
+		title: i18n.__( 'Banner', 'the-retailer-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z' } )
 			),
@@ -104,21 +104,21 @@
 
 				let colors = [
 					{
-						label: i18n.__( 'Title Color', 'theretailer-extender' ),
+						label: i18n.__( 'Title Color', 'the-retailer-extender' ),
 						value: attributes.titleColor,
 						onChange: function( newColor) {
 							props.setAttributes( { titleColor: newColor } );
 						},
 					},
 					{
-						label: i18n.__( 'Subtitle Color', 'theretailer-extender' ),
+						label: i18n.__( 'Subtitle Color', 'the-retailer-extender' ),
 						value: attributes.subtitleColor,
 						onChange: function( newColor) {
 							props.setAttributes( { subtitleColor: newColor } );
 						},
 					},
 					{
-						label: i18n.__( 'Background Color', 'theretailer-extender' ),
+						label: i18n.__( 'Background Color', 'the-retailer-extender' ),
 						value: attributes.backgroundColor,
 						onChange: function( newColor) {
 							props.setAttributes( { backgroundColor: newColor } );
@@ -129,7 +129,7 @@
 				if( attributes.innerStrokeThickness > 0 ) {
 					colors.push(
 						{
-							label: i18n.__( 'Inner Stroke Color', 'theretailer-extender' ),
+							label: i18n.__( 'Inner Stroke Color', 'the-retailer-extender' ),
 							value: attributes.innerStrokeColor,
 							onChange: function( newColor) {
 								props.setAttributes( { innerStrokeColor: newColor } );
@@ -159,7 +159,7 @@
 							{
 								key: 'gbt_18_tr_banner_url',
 								type: 'string',
-								label: i18n.__( 'URL', 'theretailer-extender' ),
+								label: i18n.__( 'URL', 'the-retailer-extender' ),
 								value: attributes.url,
 								onChange: function( newURL ) {
 									props.setAttributes( { url: newURL } );
@@ -170,7 +170,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_tr_banner_new_tab",
-	              				label: i18n.__( 'Open link in new tab?', 'theretailer-extender' ),
+	              				label: i18n.__( 'Open link in new tab?', 'the-retailer-extender' ),
 	              				checked: attributes.blank,
 	              				onChange: function() {
 									props.setAttributes( { blank: ! attributes.blank } );
@@ -209,7 +209,7 @@
 								initialPosition: 38,
 								min: 10,
 								max: 72,
-								label: i18n.__( 'Title Font Size', 'theretailer-extender' ),
+								label: i18n.__( 'Title Font Size', 'the-retailer-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { titleSize: newNumber } );
 								},
@@ -224,7 +224,7 @@
 								initialPosition: 18,
 								min: 10,
 								max: 72,
-								label: i18n.__( 'Subtitle Font Size', 'theretailer-extender' ),
+								label: i18n.__( 'Subtitle Font Size', 'the-retailer-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { subtitleSize: newNumber } );
 								},
@@ -235,7 +235,7 @@
 						PanelBody,
 						{
 							key: 'gbt_18_tr_banner_immer_stroke_settings',
-							title: i18n.__( 'Inner Stroke', 'theretailer-extender' ),
+							title: i18n.__( 'Inner Stroke', 'the-retailer-extender' ),
 							initialOpen: false
 						},
 						el(
@@ -247,7 +247,7 @@
 								max: '30',
 								initialPosition: '2',
 								allowReset: false,
-								label: i18n.__( 'Inner Stroke Thickness', 'theretailer-extender' ),
+								label: i18n.__( 'Inner Stroke Thickness', 'the-retailer-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { innerStrokeThickness: newNumber } );
 								},
@@ -258,7 +258,7 @@
 						PanelColorSettings,
 						{
 							key: 'gbt_18_tr_banner_color_settings',
-							title: i18n.__( 'Colors', 'theretailer-extender' ),
+							title: i18n.__( 'Colors', 'the-retailer-extender' ),
 							initialOpen: false,
 							colorSettings: getColors()
 						},
@@ -321,7 +321,7 @@
 				              						className: 'button gbt_18_tr_editor_banner_add_image',
 				              						onClick: img.open
 				              					},
-				              					i18n.__( 'Add Image', 'theretailer-extender' )
+				              					i18n.__( 'Add Image', 'the-retailer-extender' )
 			              					),
 			              					!! attributes.imgID && el(
 			              						Button,
@@ -337,7 +337,7 @@
 											            });
 													}
 												},
-												i18n.__( 'Remove Image', 'theretailer-extender' )
+												i18n.__( 'Remove Image', 'the-retailer-extender' )
 											),
 			              				];
 			              			},
@@ -373,7 +373,7 @@
 											tagName: 'h3',
 											format: 'string',
 											value: attributes.title,
-											placeholder: i18n.__( 'Add Title', 'theretailer-extender' ),
+											placeholder: i18n.__( 'Add Title', 'the-retailer-extender' ),
 											onChange: function( newTitle) {
 												props.setAttributes( { title: newTitle } );
 											}
@@ -393,7 +393,7 @@
 											format: 'string',
 											value: attributes.subtitle,
 											allowedFormats: [],
-											placeholder: i18n.__( 'Add Subtitle', 'theretailer-extender' ),
+											placeholder: i18n.__( 'Add Subtitle', 'the-retailer-extender' ),
 											onChange: function( newSubtitle) {
 												props.setAttributes( { subtitle: newSubtitle } );
 											}
@@ -467,7 +467,7 @@
 											fontSize: attributes.titleSize + 'px'
 										},
 									},
-									i18n.__( attributes.title, 'theretailer-extender' )
+									i18n.__( attributes.title, 'the-retailer-extender' )
 								),
 								el( 'p',
 									{
@@ -479,7 +479,7 @@
 											fontSize: attributes.subtitleSize + 'px'
 										}
 									},
-									i18n.__( attributes.subtitle, 'theretailer-extender' )
+									i18n.__( attributes.subtitle, 'the-retailer-extender' )
 								)
 							)
 						)

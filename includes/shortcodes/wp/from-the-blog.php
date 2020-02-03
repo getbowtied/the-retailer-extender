@@ -84,7 +84,7 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 
                             <?php if ( ($post_format == "") || ($post_format == "quote") || ($post_format == "video") || ($post_format == "image") || ($post_format == "audio") || ($post_format == "gallery") ) : ?>
                                 <div class="from_the_blog_comments">
-                                    <?php comments_popup_link( __( 'Leave a comment', 'theretailer-extender' ), __( '1 Comment', 'theretailer-extender' ), __( '% Comments', 'theretailer-extender' ), '', '' ); ?>
+                                    <?php comments_popup_link( __( 'Leave a comment', 'the-retailer-extender' ), __( '1 Comment', 'the-retailer-extender' ), __( '% Comments', 'the-retailer-extender' ), '', '' ); ?>
                                 </div>
                             <?php endif ?>
 

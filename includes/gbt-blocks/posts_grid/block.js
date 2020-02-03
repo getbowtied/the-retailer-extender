@@ -22,7 +22,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-posts-grid', {
-		title: i18n.__( 'Posts Grid', 'theretailer-extender' ),
+		title: i18n.__( 'Posts Grid', 'the-retailer-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M4 5v13h17V5H4zm10 2v3.5h-3V7h3zM6 7h3v3.5H6V7zm0 9v-3.5h3V16H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-3-5.5V7h3v3.5h-3z' } )
 			),
@@ -192,9 +192,9 @@
 
 			function _isLoadingText(){
 				if ( attributes.isLoading  === false ) {
-					return i18n.__( 'Update', 'theretailer-extender' );
+					return i18n.__( 'Update', 'the-retailer-extender' );
 				} else {
-					return i18n.__( 'Updating', 'theretailer-extender' );
+					return i18n.__( 'Updating', 'the-retailer-extender' );
 				}
 			}
 
@@ -401,7 +401,7 @@
 						{
 							className: 'main-inspector-wrapper',
 						},
-						el( 'label', { className: 'components-base-control__label' }, i18n.__( 'Categories:', 'theretailer-extender' ) ),
+						el( 'label', { className: 'components-base-control__label' }, i18n.__( 'Categories:', 'the-retailer-extender' ) ),
 						el(
 							'div',
 							{
@@ -416,12 +416,12 @@
 								key: 'tr-posts-grid-order-by',
 								options:
 									[
-										{ value: 'title_asc',   label: i18n.__( 'Alphabetical Ascending', 'theretailer-extender' ) },
-										{ value: 'title_desc',  label: i18n.__( 'Alphabetical Descending', 'theretailer-extender' ) },
-										{ value: 'date_asc',   	label: i18n.__( 'Date Ascending', 'theretailer-extender' ) },
-										{ value: 'date_desc',  	label: i18n.__( 'Date Descending', 'theretailer-extender' ) },
+										{ value: 'title_asc',   label: i18n.__( 'Alphabetical Ascending', 'the-retailer-extender' ) },
+										{ value: 'title_desc',  label: i18n.__( 'Alphabetical Descending', 'the-retailer-extender' ) },
+										{ value: 'date_asc',   	label: i18n.__( 'Date Ascending', 'the-retailer-extender' ) },
+										{ value: 'date_desc',  	label: i18n.__( 'Date Descending', 'the-retailer-extender' ) },
 									],
-	              				label: i18n.__( 'Order By', 'theretailer-extender' ),
+	              				label: i18n.__( 'Order By', 'the-retailer-extender' ),
 	              				value: attributes.orderby,
 	              				onChange: function( value ) {
 	              					props.setAttributes( { orderby: value } );
@@ -440,7 +440,7 @@
 								initialPosition: 12,
 								min: 1,
 								max: 20,
-								label: i18n.__( 'Number of Posts', 'theretailer-extender' ),
+								label: i18n.__( 'Number of Posts', 'the-retailer-extender' ),
 								onChange: function onChange(newNumber){
 									props.setAttributes( { number: newNumber } );
 									let newCategoriesSelected = attributes.categoriesIDs;
@@ -471,7 +471,7 @@
 								initialPosition: 3,
 								min: 1,
 								max: 4,
-								label: i18n.__( 'Columns', 'theretailer-extender' ),
+								label: i18n.__( 'Columns', 'the-retailer-extender' ),
 								onChange: function( newColumns ) {
 									props.setAttributes( { columns: newColumns } );
 								},
@@ -481,7 +481,7 @@
 							ToggleControl,
 							{
 								key: "tr-posts-grid-post-excerpt",
-	              				label: i18n.__( 'Post Excerpt', 'theretailer-extender' ),
+	              				label: i18n.__( 'Post Excerpt', 'the-retailer-extender' ),
 	              				checked: attributes.excerpt,
 	              				onChange: function() {
 									props.setAttributes( { excerpt: ! attributes.excerpt } );

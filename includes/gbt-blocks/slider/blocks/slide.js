@@ -98,7 +98,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/tr-slide', {
-		title: i18n.__( 'Slide', 'theretailer-extender' ),
+		title: i18n.__( 'Slide', 'the-retailer-extender' ),
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
 				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
@@ -116,14 +116,14 @@
 
 				let colors = [
 					{
-						label: i18n.__( 'Title & Description', 'theretailer-extender' ),
+						label: i18n.__( 'Title & Description', 'the-retailer-extender' ),
 						value: attributes.textColor,
 						onChange: function( newColor) {
 							props.setAttributes( { textColor: newColor } );
 						},
 					},
 					{
-						label: i18n.__( 'Slide Background', 'theretailer-extender' ),
+						label: i18n.__( 'Slide Background', 'the-retailer-extender' ),
 						value: attributes.backgroundColor,
 						onChange: function( newColor) {
 							props.setAttributes( { backgroundColor: newColor } );
@@ -134,14 +134,14 @@
 				if( attributes.slideButton ) {
 					colors.push(
 						{
-							label: i18n.__( 'Button Text', 'theretailer-extender' ),
+							label: i18n.__( 'Button Text', 'the-retailer-extender' ),
 							value: attributes.buttonTextColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonTextColor: newColor } );
 							},
 						},
 						{
-							label: i18n.__( 'Button Background', 'theretailer-extender' ),
+							label: i18n.__( 'Button Background', 'the-retailer-extender' ),
 							value: attributes.buttonBgColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonBgColor: newColor } );
@@ -168,7 +168,7 @@
 							TextControl,
 							{
 								key: "gbt_18_tr_editor_slide_link",
-	              				label: i18n.__( 'Slide Link', 'theretailer-extender' ),
+	              				label: i18n.__( 'Slide Link', 'the-retailer-extender' ),
 	              				type: 'text',
 	              				value: attributes.slideURL,
 	              				onChange: function( newText ) {
@@ -181,7 +181,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_tr_editor_slide_button",
-	              				label: i18n.__( 'Slide Button', 'theretailer-extender' ),
+	              				label: i18n.__( 'Slide Button', 'the-retailer-extender' ),
 	              				checked: attributes.slideButton,
 	              				onChange: function() {
 									props.setAttributes( { slideButton: ! attributes.slideButton } );
@@ -192,7 +192,7 @@
 							PanelBody,
 							{
 								key: 'gbt_18_tr_editor_slide_text_settings',
-								title: i18n.__( 'Title & Description', 'theretailer-extender' ),
+								title: i18n.__( 'Title & Description', 'the-retailer-extender' ),
 								initialOpen: false,
 							},
 							el(
@@ -204,7 +204,7 @@
 									initialPosition: 36,
 									min: 10,
 									max: 72,
-									label: i18n.__( 'Title Font Size', 'theretailer-extender' ),
+									label: i18n.__( 'Title Font Size', 'the-retailer-extender' ),
 									onChange: function( newNumber ) {
 										props.setAttributes( { titleSize: newNumber } );
 									},
@@ -219,7 +219,7 @@
 									initialPosition: 13,
 									min: 10,
 									max: 72,
-									label: i18n.__( 'Description Font Size', 'theretailer-extender' ),
+									label: i18n.__( 'Description Font Size', 'the-retailer-extender' ),
 									onChange: function( newNumber ) {
 										props.setAttributes( { descriptionSize: newNumber } );
 									},
@@ -231,7 +231,7 @@
 							{
 								key: 'gbt_18_tr_editor_slide_colors',
 								initialOpen: false,
-								title: i18n.__( 'Colors', 'theretailer-extender' ),
+								title: i18n.__( 'Colors', 'the-retailer-extender' ),
 								colorSettings: getColors()
 							},
 						),
@@ -265,7 +265,7 @@
 		              						className: 'gbt_18_tr_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
-		              					i18n.__( 'Add Image', 'theretailer-extender' )
+		              					i18n.__( 'Add Image', 'the-retailer-extender' )
 	              					),
 	              					!! attributes.imgID && el(
 	              						Button,
@@ -281,7 +281,7 @@
 									            });
 											}
 										},
-										i18n.__( 'Remove Image', 'theretailer-extender' )
+										i18n.__( 'Remove Image', 'the-retailer-extender' )
 									),
 	              				];
 	              			},
@@ -350,7 +350,7 @@
 											allowedFormats: [],
 											tagName: 'h2',
 											value: attributes.title,
-											placeholder: i18n.__( 'Add Title', 'theretailer-extender' ),
+											placeholder: i18n.__( 'Add Title', 'the-retailer-extender' ),
 											onChange: function( newTitle) {
 												props.setAttributes( { title: newTitle } );
 											}
@@ -377,7 +377,7 @@
 											tagName: 'p',
 											value: attributes.description,
 											allowedFormats: [],
-											placeholder: i18n.__( 'Add Subtitle', 'theretailer-extender' ),
+											placeholder: i18n.__( 'Add Subtitle', 'the-retailer-extender' ),
 											onChange: function( newSubtitle) {
 												props.setAttributes( { description: newSubtitle } );
 											}
@@ -404,7 +404,7 @@
 											tagName: 'h5',
 											value: attributes.buttonText,
 											allowedFormats: [],
-											placeholder: i18n.__( 'Button Text', 'theretailer-extender' ),
+											placeholder: i18n.__( 'Button Text', 'the-retailer-extender' ),
 											onChange: function( newText) {
 												props.setAttributes( { buttonText: newText } );
 											}

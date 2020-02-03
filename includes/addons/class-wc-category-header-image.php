@@ -155,7 +155,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 					$wp_customize,
 					'tr_category_header_parallax',
 					array(
-						'label'       	=> esc_attr__( 'Parallax on Category Header', 'theretailer-extender' ),
+						'label'       	=> esc_attr__( 'Parallax on Category Header', 'the-retailer-extender' ),
 						'section'     	=> 'shop',
 						'priority'    	=> 9,
 					)
