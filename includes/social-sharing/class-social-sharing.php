@@ -24,22 +24,25 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 		*/
 		public function __construct() {
 
-			if( !get_option( 'tr_social_sharing_options_import', false ) ) {
-				$done_import = $this->import_options();
-				update_option( 'tr_social_sharing_options_import', true );
+			if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
+				if( !get_option( 'tr_social_sharing_options_import', false ) ) {
+					$done_import = $this->import_options();
+					update_option( 'tr_social_sharing_options_import', true );
+				}
+
+				$this->customizer_options();
+
+				add_action( 'wp_head', function() {
+					if( 'yes' === get_option( 'tr_product_social_sharing', 'yes' ) ) {
+						add_filter( 'getbowtied_woocommerce_single_product_share',
+							array( $this, 'getbowtied_single_share_product' ),
+							50
+						);
+					}
+				}, 1);
 			}
 
 			$this->enqueue_scripts();
-			$this->customizer_options();
-
-			add_action( 'wp_head', function() {
-				if( 'yes' === get_option( 'tr_product_social_sharing', 'yes' ) ) {
-					add_filter( 'getbowtied_woocommerce_single_product_share',
-						array( $this, 'getbowtied_single_share_product' ),
-						50
-					);
-				}
-			}, 1);
 
 			add_action( 'tr_post_share_button', function() {
 				echo $this->getbowtied_single_share_post();

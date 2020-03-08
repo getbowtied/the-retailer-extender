@@ -88,9 +88,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				include_once( 'includes/custom-code/class-custom-code.php' );
 
 				// Social Sharing Buttons
-				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
-					include_once( 'includes/social-sharing/class-social-sharing.php' );
-				}
+				include_once( 'includes/social-sharing/class-social-sharing.php' );
 			}
 
 			// VC Templates
