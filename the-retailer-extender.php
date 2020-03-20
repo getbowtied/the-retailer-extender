@@ -55,9 +55,6 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			// Helpers
 			include_once( 'includes/helpers/helpers.php' );
 
-			// Customizer
-			include_once( 'includes/customizer/class/class-control-toggle.php' );
-
 			// Vendor
 			include_once( 'includes/vendor/enqueue.php' );
 

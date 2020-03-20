@@ -151,15 +151,16 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 			) );
 
 			$wp_customize->add_control(
-				new WP_TR_Customize_Toggle_Control(
-					$wp_customize,
-					'tr_category_header_parallax',
-					array(
-						'label'       	=> esc_attr__( 'Parallax on Category Header', 'the-retailer-extender' ),
-						'section'     	=> 'shop',
-						'priority'    	=> 9,
-					)
-				)
+			    new WP_Customize_Control(
+			        $wp_customize,
+			        'tr_category_header_parallax',
+			        array(
+			            'type'     => 'checkbox',
+			            'label'    => esc_attr__( 'Parallax on Category Header', 'the-retailer-extender' ),
+			            'section'  => 'shop',
+			            'priority' => 9,
+			        )
+			    )
 			);
 		}
 

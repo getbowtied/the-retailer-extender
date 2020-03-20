@@ -117,15 +117,16 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 			) );
 
 			$wp_customize->add_control(
-				new WP_TR_Customize_Toggle_Control(
-					$wp_customize,
-					'tr_product_social_sharing',
-					array(
-						'label'       	=> esc_attr__( 'Social Media Sharing', 'the-retailer-extender' ),
-						'section'     	=> 'product',
-						'priority'    	=> 11,
-					)
-				)
+			    new WP_Customize_Control(
+			        $wp_customize,
+			        'tr_product_social_sharing',
+			        array(
+			            'type'     => 'checkbox',
+			            'label'    => esc_attr__( 'Social Media Sharing', 'the-retailer-extender' ),
+			            'section'  => 'product',
+			            'priority' => 11,
+			        )
+			    )
 			);
 		}
 
