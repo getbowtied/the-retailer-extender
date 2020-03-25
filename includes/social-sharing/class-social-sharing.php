@@ -24,22 +24,25 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 		*/
 		public function __construct() {
 
-			if( !get_option( 'tr_social_sharing_options_import', false ) ) {
-				$done_import = $this->import_options();
-				update_option( 'tr_social_sharing_options_import', true );
+			if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
+				if( !get_option( 'tr_social_sharing_options_import', false ) ) {
+					$done_import = $this->import_options();
+					update_option( 'tr_social_sharing_options_import', true );
+				}
+
+				$this->customizer_options();
+
+				add_action( 'wp_head', function() {
+					if( 'yes' === get_option( 'tr_product_social_sharing', 'yes' ) ) {
+						add_filter( 'getbowtied_woocommerce_single_product_share',
+							array( $this, 'getbowtied_single_share_product' ),
+							50
+						);
+					}
+				}, 1);
 			}
 
 			$this->enqueue_scripts();
-			$this->customizer_options();
-
-			add_action( 'wp_head', function() {
-				if( 'yes' === get_option( 'tr_product_social_sharing', 'yes' ) ) {
-					add_filter( 'getbowtied_woocommerce_single_product_share',
-						array( $this, 'getbowtied_single_share_product' ),
-						50
-					);
-				}
-			}, 1);
 
 			add_action( 'tr_post_share_button', function() {
 				echo $this->getbowtied_single_share_post();
@@ -114,15 +117,16 @@ if ( ! class_exists( 'TRSocialSharing' ) ) :
 			) );
 
 			$wp_customize->add_control(
-				new WP_TR_Customize_Toggle_Control(
-					$wp_customize,
-					'tr_product_social_sharing',
-					array(
-						'label'       	=> esc_attr__( 'Social Media Sharing', 'the-retailer-extender' ),
-						'section'     	=> 'product',
-						'priority'    	=> 11,
-					)
-				)
+			    new WP_Customize_Control(
+			        $wp_customize,
+			        'tr_product_social_sharing',
+			        array(
+			            'type'     => 'checkbox',
+			            'label'    => esc_attr__( 'Social Media Sharing', 'the-retailer-extender' ),
+			            'section'  => 'product',
+			            'priority' => 11,
+			        )
+			    )
 			);
 		}
 
