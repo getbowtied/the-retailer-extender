@@ -64,29 +64,15 @@
 		position: absolute;
 	    top: 15px;
 	    left: 15px;
-		opacity: 0;
-		visibility: hidden;
+		opacity: 1;
+		visibility: visible;
 		transition: all .2s ease-in-out;
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/tr-slide"] {
-
-	&.is-selected,
-	&.is-hovered,
-	&.is-typing {
-		.gbt_18_tr_slide_remove_image_button,
-		.gbt_18_tr_slide_add_image_button {
-			opacity: 1;
-			visibility: visible;
-			transition: all .2s ease-in-out;
-		}
-	}
-}
-
-.editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="wide"],
-.editor-block-list__block[data-type="getbowtied/tr-slider"][data-align="full"] {
-	.editor-block-list__block {
+.wp-block[data-type="getbowtied/tr-slider"][data-align="wide"],
+.wp-block[data-type="getbowtied/tr-slider"][data-align="full"] {
+	.wp-block {
 		max-width: calc( 100% - 28px );
 	}
 }
