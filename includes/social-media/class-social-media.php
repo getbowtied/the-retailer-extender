@@ -414,7 +414,8 @@ if ( ! class_exists( 'TRSocialMedia' ) ) :
 									<li class="tr_social_icon custom_icon icon_<?php echo $social->icon_slug; ?>">
 										<a class="mt_social_icon_link" target="_blank" href="<?php echo esc_url( $social->link ); ?>">
 											<img src="<?php echo esc_url( $social->image_url ); ?>" alt="Social Media Profile"
-												width="<?php echo esc_attr( $font_size ); ?>" height="<?php echo esc_attr( $font_size ); ?>" />
+												width="<?php echo esc_attr( $font_size ); ?>" height="<?php echo esc_attr( $font_size ); ?>"
+												style="max-width: <?php echo esc_attr( $font_size ); ?>px" />
 										</a>
 									</li>
 
