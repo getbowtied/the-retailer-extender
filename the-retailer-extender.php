@@ -29,6 +29,9 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'the-retailer-extender'
 );
 
+$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+define ( 'TR_EXT_VERSION', $version );
+
 if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 	/**
@@ -66,6 +69,9 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
+
+                // Customizer
+    			include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-tr-ext-repeater-control.php' );
 
 				// Social Media
 				include_once( 'includes/social-media/class-social-media.php' );
