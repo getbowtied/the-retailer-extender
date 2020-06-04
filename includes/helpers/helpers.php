@@ -6,7 +6,7 @@ if( !function_exists('tr_theme_warning') ) {
 		?>
 
 		<div class="error">
-			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site. 
+			<p>The Retailer Extender plugin couldn't find the Block Editor (Gutenberg) on this site.
 				It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
@@ -41,4 +41,20 @@ function tr_string_limit_words($string, $word_limit) {
 	} else {
 		return $string;
 	}
+}
+
+function tr_sanitize_repeater( $input ) {
+	$input_decoded = json_decode($input,true);
+
+	if(!empty($input_decoded)) {
+		foreach ($input_decoded as $boxk => $box ){
+			foreach ($box as $key => $value){
+				$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
+			}
+		}
+
+		return json_encode($input_decoded);
+	}
+
+	return $input;
 }

@@ -46,6 +46,10 @@ ul.tr_social_icons_list
 			margin-right: 0;
 		}
 
+        img {
+            vertical-align: unset;
+        }
+
 		a.tr_social_icon_link
 		{
 			pointer-events: none;

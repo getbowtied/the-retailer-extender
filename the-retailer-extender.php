@@ -4,11 +4,11 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer.wp-theme.design/
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		1.4.9
+ * Version:           		1.5.0
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.4
+ * Tested up to: 			5.4.1
  *
  * @package  The Retailer Extender
  * @author   GetBowtied
@@ -28,6 +28,9 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'the-retailer-extender'
 );
+
+$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+define ( 'TR_EXT_VERSION', $version );
 
 if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
@@ -66,6 +69,9 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
+
+                // Customizer
+    			include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-tr-ext-repeater-control.php' );
 
 				// Social Media
 				include_once( 'includes/social-media/class-social-media.php' );

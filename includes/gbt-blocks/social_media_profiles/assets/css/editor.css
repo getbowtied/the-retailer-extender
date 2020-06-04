@@ -27,6 +27,8 @@ ul.tr_social_icons_list {
     margin: 10px 15px 10px 0; }
     ul.tr_social_icons_list li.tr_social_icon:last-child {
       margin-right: 0; }
+    ul.tr_social_icons_list li.tr_social_icon img {
+      vertical-align: unset; }
     ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link {
       pointer-events: none; }
       ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link:hover i {

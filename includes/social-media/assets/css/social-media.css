@@ -23,7 +23,8 @@
     .shortcode_socials ul.tr_social_icons_list li.tr_social_icon {
       padding: 5px 8px;
       display: inline-block;
-      border: none !important; }
+      border: none !important;
+      vertical-align: text-top; }
       .shortcode_socials ul.tr_social_icons_list li.tr_social_icon a.tr_social_icon_link {
         -webkit-transition: opacity .2s;
         -o-transition: opacity .2s;
