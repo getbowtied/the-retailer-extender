@@ -188,53 +188,53 @@
 								},
 							}
 						),
+					),
+					el(
+						PanelBody,
+						{
+							key: 'gbt_18_tr_editor_slide_text_settings',
+							title: i18n.__( 'Title & Description', 'the-retailer-extender' ),
+							initialOpen: false,
+						},
 						el(
-							PanelBody,
+							RangeControl,
 							{
-								key: 'gbt_18_tr_editor_slide_text_settings',
-								title: i18n.__( 'Title & Description', 'the-retailer-extender' ),
-								initialOpen: false,
-							},
-							el(
-								RangeControl,
-								{
-									key: "gbt_18_tr_editor_slide_title_size",
-									value: attributes.titleSize,
-									allowReset: false,
-									initialPosition: 36,
-									min: 10,
-									max: 72,
-									label: i18n.__( 'Title Font Size', 'the-retailer-extender' ),
-									onChange: function( newNumber ) {
-										props.setAttributes( { titleSize: newNumber } );
-									},
-								}
-							),
-							el(
-								RangeControl,
-								{
-									key: "gbt_18_tr_editor_slide_description_size",
-									value: attributes.descriptionSize,
-									allowReset: false,
-									initialPosition: 13,
-									min: 10,
-									max: 72,
-									label: i18n.__( 'Description Font Size', 'the-retailer-extender' ),
-									onChange: function( newNumber ) {
-										props.setAttributes( { descriptionSize: newNumber } );
-									},
-								}
-							),
+								key: "gbt_18_tr_editor_slide_title_size",
+								value: attributes.titleSize,
+								allowReset: false,
+								initialPosition: 36,
+								min: 10,
+								max: 72,
+								label: i18n.__( 'Title Font Size', 'the-retailer-extender' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { titleSize: newNumber } );
+								},
+							}
 						),
 						el(
-							PanelColorSettings,
+							RangeControl,
 							{
-								key: 'gbt_18_tr_editor_slide_colors',
-								initialOpen: false,
-								title: i18n.__( 'Colors', 'the-retailer-extender' ),
-								colorSettings: getColors()
-							},
+								key: "gbt_18_tr_editor_slide_description_size",
+								value: attributes.descriptionSize,
+								allowReset: false,
+								initialPosition: 13,
+								min: 10,
+								max: 72,
+								label: i18n.__( 'Description Font Size', 'the-retailer-extender' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { descriptionSize: newNumber } );
+								},
+							}
 						),
+					),
+					el(
+						PanelColorSettings,
+						{
+							key: 'gbt_18_tr_editor_slide_colors',
+							initialOpen: false,
+							title: i18n.__( 'Colors', 'the-retailer-extender' ),
+							colorSettings: getColors()
+						},
 					),
 				),
 				el( 'div',

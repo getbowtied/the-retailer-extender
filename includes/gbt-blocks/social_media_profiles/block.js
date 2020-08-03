@@ -76,22 +76,22 @@
 								},
 							}
 						),
-						el(
-							PanelColorSettings,
-							{
-								key: 'gbt_18_tr_socials_icons_color',
-								title: i18n.__( 'Icons Color' ),
-								colorSettings: [
-									{
-										label: i18n.__( 'Icons Color', 'the-retailer-extender' ),
-										value: attributes.fontColor,
-										onChange: function( newColor) {
-											props.setAttributes( { fontColor: newColor } );
-										},
+					),
+					el(
+						PanelColorSettings,
+						{
+							key: 'gbt_18_tr_socials_icons_color',
+							title: i18n.__( 'Icons Color' ),
+							colorSettings: [
+								{
+									label: i18n.__( 'Icons Color', 'the-retailer-extender' ),
+									value: attributes.fontColor,
+									onChange: function( newColor) {
+										props.setAttributes( { fontColor: newColor } );
 									},
-								]
-							},
-						),
+								},
+							]
+						},
 					),
 				),
 				el(
