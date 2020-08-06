@@ -261,7 +261,7 @@
 							key: 'gbt_18_tr_editor_slider_inner_blocks ',
 							template: getTemplates(),
 	                        templateLock: "all",
-	            			allowedBlocksNames: ["getbowtied/tr-slide"]
+							allowedBlocks: ["getbowtied/tr-slide"],
 						},
 					),
 				),
@@ -384,12 +384,13 @@
 										className: 'left-arrow-svg',
 										xmlns:'http://www.w3.org/2000/svg',
 										viewBox:'0 0 24 24',
+										Focusable: 'false',
 										style:
 										{
 											fill: attributes.arrowsColor
 										}
 									},
-									el( Path, { d:'M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z' } )
+									el( Path, { d:'M 10 4.9296875 L 2.9296875 12 L 10 19.070312 L 11.5 17.570312 L 6.9296875 13 L 21 13 L 21 11 L 6.9296875 11 L 11.5 6.4296875 L 10 4.9296875 z' } )
 								),
 							),
 							!! attributes.arrows && el(
@@ -403,12 +404,13 @@
 										className: 'right-arrow-svg',
 										xmlns:'http://www.w3.org/2000/svg',
 										viewBox:'0 0 24 24',
+										Focusable: 'false',
 										style:
 										{
 											fill: attributes.arrowsColor
 										}
 									},
-									el( Path, { d:'M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z' } )
+									el( Path, { d:'M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z' } )
 								),
 							),
 							!! attributes.pagination && el(
