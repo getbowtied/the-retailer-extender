@@ -19,9 +19,13 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
 
                     <?php while ( $products->have_posts() ) : $products->the_post(); ?>
 
-                		<ul class="products swiper-slide">
-                        	<?php wc_get_template_part( 'content', 'product' ); ?>
-                        </ul>
+						<?php $product = wc_get_product( get_the_ID() ); ?>
+
+						<?php if( $product->is_in_stock() || ( !$product->is_in_stock() && ( 'no' === get_option('woocommerce_hide_out_of_stock_items') ) ) ) { ?>
+	                		<ul class="products swiper-slide">
+								<?php wc_get_template_part( 'content', 'product' ); ?>
+	                        </ul>
+						<?php } ?>
 
                     <?php endwhile; ?>
 
