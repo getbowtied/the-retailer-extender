@@ -23,23 +23,25 @@ function tr_ext_getbowtied_slider($params = array(), $content = null) {
 		$height = 'height:'.$custom_height.';';
 		$extra_class = '';
 	}
-	else 
+	else
 	{
 		$height = '';
 		$extra_class = 'full_height';
 	}
 
+	$unique = uniqid();
+
 	$getbowtied_slider = '
-		
-		<div class="shortcode_getbowtied_slider swiper-container '.$extra_class.'" style="'.$height.' width: 100%" data-autoplay="'.$custom_autoplay_speed.'">
+
+		<div class="shortcode_getbowtied_slider swiper-container swiper-'.esc_attr($unique).' '.$extra_class.'" style="'.$height.' width: 100%" data-autoplay="'.$custom_autoplay_speed.'" data-id="'.esc_attr($unique).'">
 			<div class="swiper-wrapper">
 			'.do_shortcode($content).'
 			</div>';
 
 	if (!$hide_arrows):
 			$getbowtied_slider .= '
-				<div class="swiper-button-prev"></div>
-    			<div class="swiper-button-next"></div>';
+				<div class="slider-button-prev"></div>
+    			<div class="slider-button-next"></div>';
     endif;
 
     if (!$hide_bullets):
@@ -48,7 +50,7 @@ function tr_ext_getbowtied_slider($params = array(), $content = null) {
     endif;
 
 	$getbowtied_slider .=	'</div>';
-	
+
 	return $getbowtied_slider;
 }
 
@@ -95,7 +97,7 @@ function tr_ext_getbowtied_image_slide($params = array(), $content = null) {
 		$title = "";
 	}
 
-	if (is_numeric($bg_image)) 
+	if (is_numeric($bg_image))
 	{
 		$bg_image = wp_get_attachment_url($bg_image);
 	} else {
@@ -116,11 +118,11 @@ function tr_ext_getbowtied_image_slide($params = array(), $content = null) {
 	} else {
 		$button = "";
 	}
-	
+
 
 	$getbowtied_image_slide = '
-		
-		<div class="swiper-slide '.$class.'" 
+
+		<div class="swiper-slide '.$class.'"
 		style=	"background: '.$bg_color.' url('.$bg_image.') center center no-repeat ;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
@@ -135,7 +137,7 @@ function tr_ext_getbowtied_image_slide($params = array(), $content = null) {
 				</div>
 			</div>
 		</div>';
-	
+
 	return $getbowtied_image_slide;
 }
 

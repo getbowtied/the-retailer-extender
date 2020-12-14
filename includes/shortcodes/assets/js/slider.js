@@ -11,7 +11,9 @@ jQuery(function($) {
 			autoplay = 10000;
 		}
 
-		var mySwiper = new Swiper ($(this), {
+		var data_id = $(this).attr('data-id');
+
+		var mySwiper = new Swiper( '.swiper-' + data_id, {
 
 			// Optional parameters
 		    direction: 'horizontal',
@@ -26,14 +28,14 @@ jQuery(function($) {
 			effect: 'slide',
 			parallax: true,
 			pagination: {
-			    el: $(this).find('.shortcode-slider-pagination'),
+			    el: '.swiper-' + data_id + ' .shortcode-slider-pagination',
 			    type: 'bullets',
 			    clickable: true
 			},
 		    // Navigation
 		    navigation: {
-			    nextEl: $(this).find('.swiper-button-next'),
-			    prevEl: $(this).find('.swiper-button-prev'),
+			    nextEl: '.swiper-' + data_id + ' .slider-button-next',
+			    prevEl: '.swiper-' + data_id + ' .slider-button-prev',
 			},
 		});
 

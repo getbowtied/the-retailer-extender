@@ -19,6 +19,7 @@
 		{
 			width: 20%;
 			float: left;
+            position: relative;
 		}
 	}
 
@@ -31,6 +32,7 @@
 
 	.swiper-wrapper
 	{
+        cursor: grab;
 		padding: 30px 0 0 0;
 		user-select: none;
 	}
@@ -45,6 +47,7 @@
 		{
 			float:left;
 			margin-right:50px;
+            margin-bottom: 10px;
 			position:relative;
 			color:#fff;
 		    width: 45%;
@@ -142,6 +145,7 @@
 			{
 				padding:0;
 				margin:0 0 15px 0;
+                transition: all .3s ease;
 			}
 		}
 
@@ -174,6 +178,41 @@
 		    }
 		}
 	}
+
+    .slider-button-prev,
+    .slider-button-next
+    {
+        display: block;
+        outline: 0;
+        cursor: pointer;
+        transition: all .35s ease-in-out;
+        height: 20px;
+        position: absolute;
+        top: 25px;
+        width: 20px;
+        z-index: 1;
+
+        @media all and (max-width: 719px) {
+            display: none;
+        }
+
+        &:before
+        {
+            display: block;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .slider-button-next
+    {
+        right: 0;
+    }
+
+    .slider-button-prev
+    {
+        right: 28px;
+    }
 }
 
 .rtl

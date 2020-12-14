@@ -4,14 +4,7 @@ jQuery(function($) {
 
 	$('.gbt_18_tr_slider_container').each(function() {
 
-		var autoplay = $(this).attr('data-autoplay');
-		if ($.isNumeric(autoplay)) {
-			autoplay = autoplay * 1000;
-		} else {
-			autoplay = 10000;
-		}
-
-		var mySwiper = new Swiper ($(this), {
+		var mySwiper = new Swiper( '.gbt_18_tr_slider_container', {
 
 			// Optional parameters
 		    direction: 'horizontal',
@@ -20,20 +13,20 @@ jQuery(function($) {
 			preventClicks: true,
 			preventClicksPropagation: true,
 			autoplay: {
-			    delay: autoplay
+			    delay: 10000
 		  	},
 			speed: 600,
 			effect: 'slide',
 			parallax: true,
 		    // Pagination
 		    pagination: {
-			    el: $(this).find('.gbt_18_tr_slider_pagination'),
+			    el: '.gbt_18_tr_slider_pagination',
 				dynamicBullets: true
 			},
 		    // Navigation
 		    navigation: {
-			    nextEl: $(this).find('.swiper-button-next'),
-			    prevEl: $(this).find('.swiper-button-prev'),
+			    nextEl: '.swiper-button-next',
+			    prevEl: '.swiper-button-prev',
 			},
 		});
 
