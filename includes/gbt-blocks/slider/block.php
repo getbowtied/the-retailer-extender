@@ -44,7 +44,6 @@ if ( ! function_exists( 'gbt_18_tr_slider_assets' ) ) {
 
 		$theme = wp_get_theme();
 		if ( $theme->template != 'theretailer') {
-			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_style( 'swiper' );
 			wp_enqueue_script( 'swiper' );
 		}
