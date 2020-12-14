@@ -1,10 +1,12 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.from-the-blog-wrapper.swiper-container').each(function() {
 
-		var myPostsSwiper = new Swiper($(this), {
+		var data_id = $(this).attr('data-id');
+
+		var myPostsSwiper = new Swiper( '.swiper-' + data_id, {
 			slidesPerView: 2,
 			loop: true,
 			spaceBetween: 50,
@@ -18,8 +20,8 @@ jQuery(function($) {
 			    }
 			},
 			navigation: {
-			    nextEl: '.big_arrow_right',
-			    prevEl: '.big_arrow_left',
+			    nextEl: '.swiper-' + data_id + ' .big_arrow_left',
+			    prevEl: '.swiper-' + data_id + ' .big_arrow_right',
 			},
 		});
 	});

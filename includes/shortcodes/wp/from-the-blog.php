@@ -26,17 +26,19 @@ function tr_ext_shortcode_from_the_blog($atts, $content = null) {
 
     $recentPosts = new WP_Query( $args );
 
+    $unique = uniqid();
+
     ?>
 
-    <div class="from-the-blog-wrapper swiper-container">
+    <div class="from-the-blog-wrapper swiper-container swiper-<?php echo esc_attr($unique); ?>" data-id="<?php echo esc_attr($unique); ?>">
 
         <div class="gbtr_items_sliders_header">
             <div class="gbtr_items_sliders_title">
                 <div class="gbtr_featured_section_title"><strong><?php echo $title ?></strong></div>
             </div>
             <div class="gbtr_items_sliders_nav">
-                <a class='big_arrow_right'></a>
-                <a class='big_arrow_left'></a>
+                <div class='big_arrow_right slider-button-prev'></div>
+                <div class='big_arrow_left slider-button-next'></div>
                 <div class='clr'></div>
             </div>
         </div>

@@ -1,7 +1,9 @@
 <?php
 
 function tr_products_slider( $type = '', $products = null, $title = '' ) {
-?>
+
+	$unique = uniqid();
+	?>
 
 	<div class="<?php echo $type; ?>-wrapper wc-products-slider products_slider">
 
@@ -11,7 +13,7 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
             </div>
         </div>
 
-        <div class="swiper-container">
+        <div class="products-slider swiper-container swiper-<?php echo esc_attr($unique); ?>" data-id="<?php echo esc_attr($unique); ?>">
 
             <div class="swiper-wrapper">
 
@@ -22,9 +24,11 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
 						<?php $product = wc_get_product( get_the_ID() ); ?>
 
 						<?php if( $product->is_in_stock() || ( !$product->is_in_stock() && ( 'no' === get_option('woocommerce_hide_out_of_stock_items') ) ) ) { ?>
-	                		<ul class="products swiper-slide">
-								<?php wc_get_template_part( 'content', 'product' ); ?>
-	                        </ul>
+	                		<div class="swiper-slide">
+								<ul class="products">
+									<?php wc_get_template_part( 'content', 'product' ); ?>
+								</ul>
+	                        </div>
 						<?php } ?>
 
                     <?php endwhile; ?>
@@ -33,14 +37,14 @@ function tr_products_slider( $type = '', $products = null, $title = '' ) {
 
     		</div>
 
+			<div class="swiper-pagination"></div>
+
+	        <div class="slider-button-prev"></div>
+	        <div class="slider-button-next"></div>
+
         </div>
-
-        <div class="swiper-pagination"></div>
-
-        <div class="slider-button-prev"></div>
-        <div class="slider-button-next"></div>
 
     </div>
 
-<?php
+	<?php
 }

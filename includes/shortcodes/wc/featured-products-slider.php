@@ -16,9 +16,11 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
         'order' => 'desc'
 	), $atts));
 	ob_start();
+
+	$unique = uniqid();
 	?>
 
-    <div class="featured_products_slider swiper-container">
+    <div class="featured_products_slider swiper-container swiper-<?php echo esc_attr($unique); ?>" data-id="<?php echo esc_attr($unique); ?>">
 
 		<div class="swiper-wrapper">
 
@@ -96,7 +98,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 
 					                <?php if ( ! $product->is_in_stock() ) : ?>
 
-					                    <a class="dark_button" href="<?php echo apply_filters( 'out_of_stock_add_to_cart_url', get_permalink( $product->get_id() ) ); ?>"><?php echo apply_filters( 'out_of_stock_add_to_cart_text', __( 'Read More', 'woocommerce' ) ); ?></a>
+					                    <a href="<?php echo apply_filters( 'out_of_stock_add_to_cart_url', get_permalink( $product->get_id() ) ); ?>"><?php echo apply_filters( 'out_of_stock_add_to_cart_text', __( 'Read More', 'woocommerce' ) ); ?></a>
 
 					                <?php else : ?>
 
@@ -121,7 +123,7 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 					                            break;
 					                        }
 
-					                        printf('<a class="dark_button" href="%s" rel="nofollow" data-product_id="%s">%s</a>', $link, $product->get_id(), $label);
+					                        printf('<a href="%s" rel="nofollow" data-product_id="%s">%s</a>', $link, $product->get_id(), $label);
 
 					                    ?>
 
@@ -142,8 +144,8 @@ function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
 
         </div>
 
-		<div class='swiper-button-prev'></div>
-        <div class='swiper-button-next'></div>
+		<div class='slider-button-prev'></div>
+        <div class='slider-button-next'></div>
 
 	</div>
 

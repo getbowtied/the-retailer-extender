@@ -60,26 +60,40 @@
           float: none !important;
           width: 100%;
           padding: 0 75px !important; } }
-  .shortcode_getbowtied_slider .swiper-button-next,
-  .shortcode_getbowtied_slider .swiper-button-prev {
-    background-size: 22px;
-    height: 75px;
-    width: 75px;
-    opacity: 0.2;
+  .shortcode_getbowtied_slider:hover .slider-button-prev {
+    -webkit-transform: translateX(90px);
+    -ms-transform: translateX(90px);
+    transform: translateX(90px); }
+  .shortcode_getbowtied_slider:hover .slider-button-next {
+    -webkit-transform: translateX(-90px);
+    -ms-transform: translateX(-90px);
+    transform: translateX(-90px); }
+  .shortcode_getbowtied_slider .slider-button-prev,
+  .shortcode_getbowtied_slider .slider-button-next {
     display: block;
     outline: 0;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s; }
-    .shortcode_getbowtied_slider .swiper-button-next:hover,
-    .shortcode_getbowtied_slider .swiper-button-prev:hover {
-      opacity: 1; }
-  .shortcode_getbowtied_slider .swiper-button-next {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
-    right: 0; }
-  .shortcode_getbowtied_slider .swiper-button-prev {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
-    left: 0; }
+    cursor: pointer;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    z-index: 1; }
+    @media all and (max-width: 719px) {
+      .shortcode_getbowtied_slider .slider-button-prev,
+      .shortcode_getbowtied_slider .slider-button-next {
+        display: none; } }
+    .shortcode_getbowtied_slider .slider-button-prev:before,
+    .shortcode_getbowtied_slider .slider-button-next:before {
+      display: block;
+      width: 18px;
+      height: 18px; }
+  .shortcode_getbowtied_slider .slider-button-prev {
+    left: -75px; }
+  .shortcode_getbowtied_slider .slider-button-next {
+    right: -75px; }
   .shortcode_getbowtied_slider .quickview-pagination {
     display: block;
     position: absolute;

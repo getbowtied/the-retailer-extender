@@ -109,7 +109,7 @@ if ( ! class_exists( 'TRCategoryHeaderImage' ) ) :
 					);
 					wp_enqueue_script(
 						'gbt-tr-stellar-scripts',
-						plugins_url( '_vendor/jquery.stellar.min.js', dirname(__FILE__) ),
+						plugins_url( 'vendor/stellar/jquery.stellar.min.js', dirname(__FILE__) ),
 						array('jquery')
 					);
 				});

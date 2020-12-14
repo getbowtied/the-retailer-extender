@@ -39,10 +39,10 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 // Add Shortcodes to WP Bakery
 add_action( 'plugins_loaded', function() {
 	if ( defined( 'WPB_VC_VERSION' ) ) {
-		
+
 		add_action( 'init', 'getbowtied_tr_visual_composer_shortcodes', 99 );
 		function getbowtied_tr_visual_composer_shortcodes() {
-			
+
 			// Add new WP shortcodes to VC
 			include_once( 'wb/wp/banner.php' );
 			include_once( 'wb/wp/from-the-blog.php' );
@@ -50,7 +50,7 @@ add_action( 'plugins_loaded', function() {
 			include_once( 'wb/wp/slider.php' );
 			include_once( 'wb/wp/team-members.php' );
 			include_once( 'wb/wp/title-subtitle.php' );
-			
+
 			// Add new WC shortcodes to VC
 			if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
@@ -122,7 +122,7 @@ function getbowtied_tr_shortcodes_styles() {
 	);
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-		
+
 		wp_register_style('theretailer-featured-products-slider-shortcode-styles',
 			plugins_url( 'assets/css/wc/featured-products-slider.css', __FILE__ ),
 			NULL
@@ -141,28 +141,26 @@ function getbowtied_tr_shortcodes_styles() {
 add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_scripts', 99 );
 function getbowtied_mc_shortcodes_scripts() {
 
-	wp_register_script('theretailer-from-the-blog-shortcode-scripts', 
+	wp_register_script('theretailer-from-the-blog-shortcode-scripts',
 		plugins_url( 'assets/js/from-the-blog.js', __FILE__ ),
 		array('jquery')
 	);
 
-	wp_register_script('theretailer-slider-shortcode-script', 
+	wp_register_script('theretailer-slider-shortcode-script',
 		plugins_url( 'assets/js/slider.js', __FILE__ ),
 		array('jquery')
 	);
 
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-		wp_register_script('theretailer-featured-products-slider-script', 
+		wp_register_script('theretailer-featured-products-slider-script',
 			plugins_url( 'assets/js/featured-products-slider.js', __FILE__ ),
 			array('jquery')
 		);
 
 		$theme = wp_get_theme();
-		if ( $theme->template != 'theretailer') {
-			wp_register_script('theretailer-wc-products-slider-script', 
-				plugins_url( 'assets/js/wc-products-slider.js', __FILE__ ),
-				array('jquery')
-			);
-		}
+		wp_register_script('theretailer-wc-products-slider-script',
+			plugins_url( 'assets/js/wc-products-slider.js', __FILE__ ),
+			array('jquery')
+		);
 	}
 }

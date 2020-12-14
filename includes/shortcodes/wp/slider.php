@@ -29,17 +29,19 @@ function tr_ext_getbowtied_slider($params = array(), $content = null) {
 		$extra_class = 'full_height';
 	}
 
+	$unique = uniqid();
+
 	$getbowtied_slider = '
 
-		<div class="shortcode_getbowtied_slider swiper-container '.$extra_class.'" style="'.$height.' width: 100%" data-autoplay="'.$custom_autoplay_speed.'">
+		<div class="shortcode_getbowtied_slider swiper-container swiper-'.esc_attr($unique).' '.$extra_class.'" style="'.$height.' width: 100%" data-autoplay="'.$custom_autoplay_speed.'" data-id="'.esc_attr($unique).'">
 			<div class="swiper-wrapper">
 			'.do_shortcode($content).'
 			</div>';
 
 	if (!$hide_arrows):
 			$getbowtied_slider .= '
-				<div class="swiper-button-prev"></div>
-    			<div class="swiper-button-next"></div>';
+				<div class="slider-button-prev"></div>
+    			<div class="slider-button-next"></div>';
     endif;
 
     if (!$hide_bullets):

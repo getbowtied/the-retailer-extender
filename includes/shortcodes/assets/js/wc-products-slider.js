@@ -11,7 +11,9 @@ jQuery(function($) {
 			medium_slides = 2;
 		}
 
-		var myPostsSwiper = new Swiper($(this).find('.swiper-container'), {
+		var data_id = $(this).find('.swiper-container').attr('data-id');
+
+		var myPostsSwiper = new Swiper( '.swiper-' + data_id, {
 			slidesPerView: slides,
 			loop: false,
 			spaceBetween: 40,
@@ -24,22 +26,20 @@ jQuery(function($) {
 			    }
 			},
 			navigation: {
-			    nextEl: $(this).find('.slider-button-next'),
-			    prevEl: $(this).find('.slider-button-prev'),
+			    nextEl: '.swiper-' + data_id + ' .slider-button-next',
+			    prevEl: '.swiper-' + data_id + ' .slider-button-prev',
 			},
 			pagination: {
-		        el: $(this).find('.swiper-pagination'),
+		        el: '.swiper-' + data_id + ' .swiper-pagination',
 		        dynamicBullets: true
 		    },
 		});
 
-		var swiper__slidecount = myPostsSwiper.slides.length - 4;
+		var swiper__slidecount = myPostsSwiper.slides.length;
         if (swiper__slidecount < 4) {
           	$(this).find('.slider-button-prev, .slider-button-next').remove();
           	$(this).find('.swiper-wrapper').addClass( "disabled" );
 		  	$(this).find('.slider-pagination').addClass( "disabled" );
         }
-
 	});
-
 });
