@@ -20,13 +20,13 @@ jQuery(function($) {
 			parallax: true,
 		    // Pagination
 		    pagination: {
-			    el: '.gbt_18_tr_slider_pagination',
+			    el: '.gbt_18_tr_slider_container .gbt_18_tr_slider_pagination',
 				dynamicBullets: true
 			},
 		    // Navigation
 		    navigation: {
-			    nextEl: '.swiper-button-next',
-			    prevEl: '.swiper-button-prev',
+			    nextEl: '.gbt_18_tr_slider_container .swiper-button-next',
+			    prevEl: '.gbt_18_tr_slider_container .swiper-button-prev',
 			},
 		});
 
