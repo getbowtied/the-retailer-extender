@@ -8,7 +8,7 @@ function gbt_tr_icon_field($settings, $value)
 	$type = isset($settings['type']) ? $settings['type'] : '';
 	$class = isset($settings['class']) ? $settings['class'] : '';
 	$icons = array(
-		
+
 		'arrows-anticlockwise',
 		'arrows-anticlockwise-dashed',
 		'arrows-button-down',
@@ -145,7 +145,7 @@ function gbt_tr_icon_field($settings, $value)
 		'arrows-upleft',
 		'arrows-upright',
 		'arrows-vertical',
-		
+
 		'basic-accelerator',
 		'basic-alarm',
 		'basic-anchor',
@@ -281,7 +281,7 @@ function gbt_tr_icon_field($settings, $value)
 		'basic-webpage-multiple',
 		'basic-webpage-txt',
 		'basic-world',
-		
+
 		'basic-elaboration-bookmark-checck',
 		'basic-elaboration-bookmark-minus',
 		'basic-elaboration-bookmark-plus',
@@ -427,7 +427,7 @@ function gbt_tr_icon_field($settings, $value)
 		'basic-elaboration-todolist-search',
 		'basic-elaboration-todolist-star',
 		'basic-elaboration-todolist-upload',
-		
+
 		'ecommerce-bag',
 		'ecommerce-bag-check',
 		'ecommerce-bag-cloud',
@@ -437,7 +437,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-bag-refresh',
 		'ecommerce-bag-remove',
 		'ecommerce-bag-search',
-		'ecommerce-bag-upload',		
+		'ecommerce-bag-upload',
 		'ecommerce-banknote',
 		'ecommerce-banknotes',
 		'ecommerce-basket',
@@ -447,7 +447,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-basket-minus',
 		'ecommerce-basket-plus',
 		'ecommerce-basket-refresh',
-		'ecommerce-basket-remove',		
+		'ecommerce-basket-remove',
 		'ecommerce-basket-search',
 		'ecommerce-basket-upload',
 		'ecommerce-bath',
@@ -457,7 +457,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-cart-content',
 		'ecommerce-cart-download',
 		'ecommerce-cart-minus',
-		'ecommerce-cart-plus',		
+		'ecommerce-cart-plus',
 		'ecommerce-cart-refresh',
 		'ecommerce-cart-remove',
 		'ecommerce-cart-search',
@@ -467,7 +467,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-creditcard',
 		'ecommerce-diamond',
 		'ecommerce-dollar',
-		'ecommerce-euro',		
+		'ecommerce-euro',
 		'ecommerce-franc',
 		'ecommerce-gift',
 		'ecommerce-graph1',
@@ -477,7 +477,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-graph-increase',
 		'ecommerce-guarani',
 		'ecommerce-kips',
-		'ecommerce-lira',		
+		'ecommerce-lira',
 		'ecommerce-megaphone',
 		'ecommerce-money',
 		'ecommerce-naira',
@@ -487,7 +487,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-receipt-bath',
 		'ecommerce-receipt-cent',
 		'ecommerce-receipt-dollar',
-		'ecommerce-receipt-euro',		
+		'ecommerce-receipt-euro',
 		'ecommerce-receipt-franc',
 		'ecommerce-receipt-guarani',
 		'ecommerce-receipt-kips',
@@ -497,7 +497,7 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-receipt-pound',
 		'ecommerce-receipt-rublo',
 		'ecommerce-receipt-rupee',
-		'ecommerce-receipt-tugrik',		
+		'ecommerce-receipt-tugrik',
 		'ecommerce-receipt-won',
 		'ecommerce-receipt-yen',
 		'ecommerce-receipt-yen2',
@@ -507,13 +507,13 @@ function gbt_tr_icon_field($settings, $value)
 		'ecommerce-safe',
 		'ecommerce-sale',
 		'ecommerce-sales',
-		'ecommerce-ticket',		
+		'ecommerce-ticket',
 		'ecommerce-tugriks',
 		'ecommerce-wallet',
 		'ecommerce-won',
 		'ecommerce-yen',
 		'ecommerce-yen2',
-		
+
 		'music-beginning-button',
 		'music-bell',
 		'music-cd',
@@ -544,7 +544,7 @@ function gbt_tr_icon_field($settings, $value)
 		'music-tape',
 		'music-volume-down',
 		'music-volume-up',
-		
+
 		'software-add-vectorpoint',
 		'software-box-oval',
 		'software-box-polygon',
@@ -645,7 +645,7 @@ function gbt_tr_icon_field($settings, $value)
 		'software-vertical-distribute-bottom',
 		'software-vertical-distribute-center',
 		'software-vertical-distribute-top',
-		
+
 		'weather-aquarius',
 		'weather-aries',
 		'weather-cancer',
@@ -758,15 +758,15 @@ function gbt_tr_icon_field($settings, $value)
 	$output .='<a href="'.get_template_directory_uri().'/fonts/linea-fonts/weather/icons-reference.html" target="_blank">Weather</a>';
 	$output .='</div>';
 	$output .= '<script type="text/javascript">
-			jQuery(document).ready(function(){
-				jQuery(".search").keyup(function(){
-			 
+			jQuery(function($) {
+				jQuery(".search").on( "keyup", function(){
+
 					// Retrieve the input field text and reset the count to zero
 					var filter = jQuery(this).val(), count = 0;
-			 
+
 					// Loop through the icon list
 					jQuery(".icon-list li").each(function(){
-			 
+
 						// If the list item does not contain the text phrase fade it out
 						if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
 							jQuery(this).fadeOut();
@@ -778,7 +778,7 @@ function gbt_tr_icon_field($settings, $value)
 				});
 			});
 
-			jQuery("#icon-dropdown li").click(function() {
+			jQuery("#icon-dropdown li").on( "click", function() {
 				jQuery(this).attr("class","selected").siblings().removeAttr("class");
 				var icon = jQuery(this).attr("data-ico");
 				jQuery("#trace").val(icon);
@@ -796,9 +796,9 @@ vc_map(array(
    "description"	=> "Place Icon Box",
    "base"			=> "icon_box",
    "class"			=> "",
-   
+
    "params" 	=> array(
-		
+
 		array(
 			"type" => "textfield",
 			"holder" => "div",
@@ -809,7 +809,7 @@ vc_map(array(
 			"param_name" => "title",
 			"value" => ""
 		),
-		
+
 		array(
 			"type" => "icon",
 			"class" 		=> "hide_in_vc_editor",
@@ -819,7 +819,7 @@ vc_map(array(
 			"admin_label" => false,
 			"value" => "basic-info"
 		),
-		
+
 		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
@@ -834,7 +834,7 @@ vc_map(array(
 			),
 			"std"			=> "top",
 		),
-		
+
 		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
@@ -849,7 +849,7 @@ vc_map(array(
 			),
 			"std"			=> "normal",
 		),
-		
+
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
@@ -859,7 +859,7 @@ vc_map(array(
 			"param_name"	=> "icon_color",
 			"value"			=> "#b39964",
 		),
-		
+
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
@@ -870,7 +870,7 @@ vc_map(array(
 			"value"			=> "#ffffff",
 			"dependency" 	=> Array('element' => "icon_style", 'value' => array('bg_color'))
 		),
-		
+
 		array(
             "type" => "textarea_html",
             "holder" => "div",
@@ -880,7 +880,7 @@ vc_map(array(
             "param_name" => "content",
             "value" => "",
          ),
-		
+
 		array(
 			"type" => "textfield",
 			"holder" => "div",
@@ -890,7 +890,7 @@ vc_map(array(
 			"param_name" => "link_name",
 			"value" => ""
 		),
-		
+
 		array(
 			"type" => "textfield",
 			"holder" => "div",
@@ -901,5 +901,5 @@ vc_map(array(
 			"value" => ""
 		),
    )
-   
+
 ));
