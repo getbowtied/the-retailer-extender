@@ -2,9 +2,16 @@ jQuery(function($) {
 
 	"use strict";
 
+	function tr_generate_slider_unique_ID() {
+		return Math.round(new Date().getTime() + (Math.random() * 100));
+	}
+
 	$('.gbt_18_tr_slider_container').each(function() {
 
-		var mySwiper = new Swiper( '.gbt_18_tr_slider_container', {
+		var data_id = tr_generate_slider_unique_ID();
+		$(this).addClass( 'swiper-' + data_id );
+
+		var mySwiper = new Swiper( '.swiper-' + data_id, {
 
 			// Optional parameters
 		    direction: 'horizontal',
@@ -20,13 +27,13 @@ jQuery(function($) {
 			parallax: true,
 		    // Pagination
 		    pagination: {
-			    el: '.gbt_18_tr_slider_container .gbt_18_tr_slider_pagination',
+			    el: '.swiper-' + data_id + ' .gbt_18_tr_slider_pagination',
 				dynamicBullets: true
 			},
 		    // Navigation
 		    navigation: {
-			    nextEl: '.gbt_18_tr_slider_container .swiper-button-next',
-			    prevEl: '.gbt_18_tr_slider_container .swiper-button-prev',
+			    nextEl: '.swiper-' + data_id + ' .swiper-button-next',
+			    prevEl: '.swiper-' + data_id + ' .swiper-button-prev',
 			},
 		});
 
