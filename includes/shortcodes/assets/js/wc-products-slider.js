@@ -18,11 +18,14 @@ jQuery(function($) {
 			loop: false,
 			spaceBetween: 40,
 			breakpoints: {
-				640: {
+				0: {
 			      slidesPerView: 2,
 			    },
-			    959: {
+				640: {
 			      slidesPerView: medium_slides,
+			    },
+			    959: {
+			      slidesPerView: slides,
 			    }
 			},
 			navigation: {

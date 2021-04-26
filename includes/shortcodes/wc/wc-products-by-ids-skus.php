@@ -5,7 +5,7 @@ function tr_ext_shortcode_custom_products($atts, $content = null) {
 
 	wp_enqueue_style('swiper');
     wp_enqueue_script('swiper');
-	
+
 	wp_enqueue_script('theretailer-wc-products-slider-script');
 
 	extract(shortcode_atts(array(
@@ -37,7 +37,7 @@ function tr_ext_shortcode_custom_products($atts, $content = null) {
 		$ids = array_map( 'trim', $ids );
 		$args['post__in'] = $ids;
 	}
-    
+
     $products = new WP_Query($args);
 
 	tr_products_slider( 'products-by-ids-skus', $products, $title );
@@ -45,6 +45,7 @@ function tr_ext_shortcode_custom_products($atts, $content = null) {
 	wp_reset_postdata();
 	$content = ob_get_contents();
 	ob_end_clean();
+	
 	return $content;
 }
 
