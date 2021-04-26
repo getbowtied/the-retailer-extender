@@ -45,6 +45,7 @@ function tr_ext_shortcode_custom_products($atts, $content = null) {
 	wp_reset_postdata();
 	$content = ob_get_contents();
 	ob_end_clean();
+	
 	return $content;
 }
 

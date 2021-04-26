@@ -23,14 +23,14 @@ jQuery( function($) {
 			slidesPerView: 4,
 			loop: false,
 			breakpoints: {
-				640: {
+				0: {
 				  slidesPerView: 1,
 				},
-				720: {
+				640: {
 				  slidesPerView: 2,
 				},
 				959: {
-				  slidesPerView: 3,
+				  slidesPerView: 4,
 				}
 			},
 			navigation: {
