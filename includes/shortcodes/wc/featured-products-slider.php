@@ -1,7 +1,7 @@
 <?php
 
 // [products_slider]
-function tr_ext_shortcode_products_slider($atts, $content=null, $code) {
+function tr_ext_shortcode_products_slider( $atts, $content = null ) {
 
 	wp_enqueue_style('swiper');
     wp_enqueue_script('swiper');
