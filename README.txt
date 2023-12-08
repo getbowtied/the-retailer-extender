@@ -1,13 +1,12 @@
 === The Retailer Extender ===
-Contributors: getbowtied, vanesareinerth, adrianlbs
+Contributors: getbowtied
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.8
-Stable tag: 1.5.7
-Requires PHP: 5.5.0
+Stable tag: 1.6
+Requires PHP: 7.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.5.7~
 
 Extends the functionality of the The Retailer theme by adding theme specific features.
 
@@ -38,6 +37,10 @@ Companion plugin for the **The Retailer** theme. Extends the functionality by ad
 - Product Sliders
 
 == Changelog ==
+
+= 1.6 =
+- WordPress 6.4 compatibility updates
+- WooCommerce 8.4 compatibility updates
 
 = 1.5.7 =
 - WordPress 5.8 compatibility updates
