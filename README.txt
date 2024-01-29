@@ -2,7 +2,7 @@
 Contributors: getbowtied
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 6.4
 Stable tag: 1.6
 Requires PHP: 7.4.1
 License: GPLv2 or later
@@ -37,6 +37,10 @@ Companion plugin for the **The Retailer** theme. Extends the functionality by ad
 - Product Sliders
 
 == Changelog ==
+
+= 4.0 =
+- WooCommerce 8.5 compatibility updates
+- Maintenance updates
 
 = 1.6 =
 - WordPress 6.4 compatibility updates
