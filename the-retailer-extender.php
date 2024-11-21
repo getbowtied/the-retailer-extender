@@ -34,26 +34,24 @@ define ( 'TR_EXT_VERSION', $version );
 
 if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
-	/**
-	 * TheRetailerExtender class.
-	*/
 	class TheRetailerExtender {
 
-		/**
-		 * The single instance of the class.
-		 *
-		 * @var TheRetailerExtender
-		*/
-		protected static $_instance = null;
+		private static $instance = null;
+		private static $initialized = false;
 
-		/**
-		 * TheRetailerExtender constructor.
-		 *
-		*/
-		public function __construct() {
+		private function __construct() {
+			// Empty constructor - initialization happens in init_instance
+		}
+
+		private function init_instance() {
+			if (self::$initialized) {
+				return;
+			}
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
+
+			$this->theme_slug = 'theretailer';
 
 			// Helpers
 			include_once( 'includes/helpers/helpers.php' );
@@ -61,7 +59,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			// Vendor
 			include_once( 'includes/vendor/enqueue.php' );
 
-			if( ( $theme->template == 'theretailer' && ( $theme->version >= '2.12' || ( !empty($parent_theme) && $parent_theme->version >= '2.12' ) ) ) || $theme->template != 'theretailer' ) {
+			if ($theme->template == 'theretailer') {
 
 				//Widgets
 				include_once( 'includes/widgets/social-media.php' );
@@ -77,7 +75,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				include_once( 'includes/social-media/class-social-media.php' );
 
 				// Addons
-				if ( $theme->template == 'theretailer' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
+				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( 'includes/addons/class-wc-category-header-image.php' );
 				}
 			}
@@ -112,6 +110,34 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 					}
 				}
 			});
+
+			if ( is_admin() ) {
+				global $gbt_dashboard_params;
+				$gbt_dashboard_params = array(
+					'gbt_theme_slug' => $this->theme_slug,
+				);
+				include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
+			}
+
+			self::$initialized = true;
+		}
+
+		public static function get_instance() {
+			return self::init();
+		}
+
+		public static function init() {
+			if (self::$instance === null) {
+				self::$instance = new self();
+				self::$instance->init_instance();
+			}
+			return self::$instance;
+		}
+
+		private function __clone() {}
+		
+		public function __wakeup() {
+			throw new Exception("Cannot unserialize singleton");
 		}
 
 		/**
@@ -127,19 +153,9 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				add_action( 'admin_notices', 'tr_theme_warning' );
 			}
 		}
-
-		/**
-		 * Ensures only one instance of TheRetailerExtender is loaded or can be loaded.
-		 *
-		 * @return TheRetailerExtender
-		*/
-		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
-			}
-			return self::$_instance;
-		}
 	}
 endif;
 
-$theretailer_extender = new TheRetailerExtender;
+add_action( 'after_setup_theme', function() {
+    TheRetailerExtender::init();
+} );
