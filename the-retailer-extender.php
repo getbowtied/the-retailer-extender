@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer-demo.getbowtied.com/
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		4.2
+ * Version:           		4.3
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		6.0
@@ -18,10 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 } // Exit if accessed directly
 
-if ( ! function_exists( 'is_plugin_active' ) ) {
-    require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-}
-
 require 'core/updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/core/updater/assets/plugin.json',
@@ -29,15 +25,13 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'the-retailer-extender'
 );
 
-$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
-define ( 'TR_EXT_VERSION', $version );
-
 if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 	class TheRetailerExtender {
 
 		private static $instance = null;
 		private static $initialized = false;
+		private $theme_slug;
 
 		private function __construct() {
 			// Empty constructor - initialization happens in init_instance
@@ -47,6 +41,13 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 			if (self::$initialized) {
 				return;
 			}
+
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			
+			$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+			define ( 'TR_EXT_VERSION', $version );
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
