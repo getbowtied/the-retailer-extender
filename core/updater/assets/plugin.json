@@ -1,12 +1,12 @@
 {
 	"name": "The Retailer Extender",
-	"version": "5.5",
+	"version": "5.6",
 	"download_url": "https://getbowtied.github.io/repository/plugins/the-retailer-extender/the-retailer-extender.zip",
 
 	"homepage": "https://1.envato.market/getbowtied-to-the-retailer",
 	"requires": "6.0",
 	"tested": "6.8",
-	"last_updated": "2025-10-07 12:00:00",
+	"last_updated": "2025-10-11 12:00:00",
 
 	"author": "Get Bowtied",
 	"author_homepage": "https://getbowtied.com",
