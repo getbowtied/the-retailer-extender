@@ -112,7 +112,7 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				}
 			});
 
-			if ( is_admin() ) {
+			if ( is_admin() || ( defined('WP_CLI') && WP_CLI ) ) {
 				global $gbt_dashboard_params;
 				$gbt_dashboard_params = array(
 					'gbt_theme_slug' => $this->theme_slug,
