@@ -4,7 +4,7 @@
  * Plugin Name:       		The Retailer Extender
  * Plugin URI:        		https://theretailer-demo.getbowtied.com
  * Description:       		Extends the functionality of The Retailer with theme specific features.
- * Version:           		5.8
+ * Version:           		5.9
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		6.0
