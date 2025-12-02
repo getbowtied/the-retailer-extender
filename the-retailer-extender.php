@@ -8,7 +8,7 @@
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		6.0
- * Tested up to: 			6.8
+ * Tested up to: 			6.9
  *
  * @package  The Retailer Extender
  * @author   Get Bowtied
