@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-require 'dashboard/inc/puc/plugin-update-checker.php';
+require 'includes/puc/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $plugin_update_checker = PucFactory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-retailer-extender/master/core/updater/assets/plugin.json',
@@ -32,7 +32,6 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 		private static $instance = null;
 		private static $initialized = false;
-		private $theme_slug;
 
 		private function __construct() {
 			// Empty constructor - initialization happens in init_instance
@@ -52,8 +51,6 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
-
-			$this->theme_slug = 'theretailer';
 
 			// Helpers
 			include_once( 'includes/helpers/helpers.php' );
@@ -112,14 +109,6 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 					}
 				}
 			});
-
-			if ( is_admin() || ( defined('WP_CLI') && WP_CLI ) ) {
-				global $gbt_dashboard_params;
-				$gbt_dashboard_params = array(
-					'gbt_theme_slug' => $this->theme_slug,
-				);
-				include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
-			}
 
 			self::$initialized = true;
 		}
