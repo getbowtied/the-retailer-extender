@@ -42,6 +42,8 @@ if ( ! class_exists( 'TheRetailerExtender' ) ) :
 				return;
 			}
 
+			require_once dirname( __FILE__ ) . '/core/theme-updater/class-gbt-extender-theme-updater.php';
+
 			if ( ! function_exists( 'is_plugin_active' ) ) {
 				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
